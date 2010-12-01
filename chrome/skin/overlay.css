@@ -1,0 +1,30 @@
+#addon-bar.barlesque-bar
+{
+	position: fixed;
+	bottom: 1px;
+}
+
+#addon-bar.barlesque-bar.barlesque-right
+{
+	right: 2px;
+}
+
+#addon-bar.barlesque-bar.barlesque-right.barlesque-vscroll
+{
+	right: 19px;
+}
+
+#addon-bar.barlesque-bar.barlesque-left
+{
+	left: 2px;
+}
+
+#addon-bar.barlesque-bar.barlesque-hscroll
+{
+	bottom: 17px;
+}
+
+statusbar
+{
+	min-height: 6px !important;
+}

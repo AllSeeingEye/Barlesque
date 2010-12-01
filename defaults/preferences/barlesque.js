@@ -1,0 +1,1 @@
+﻿pref("extensions.barlesque.mode", false); /* true = left, false = right */
