@@ -1,25 +1,27 @@
-#addon-bar.barlesque-bar
+#browser-bottombox.barlesque-bar
 {
 	position: fixed;
 	bottom: 1px;
+	background-color: rgba(192, 192, 192, 0.8);
+	-moz-border-radius: 3px;
 }
 
-#addon-bar.barlesque-bar.barlesque-right
+#browser-bottombox.barlesque-bar.barlesque-right
 {
 	right: 2px;
 }
 
-#addon-bar.barlesque-bar.barlesque-right.barlesque-vscroll
+#browser-bottombox.barlesque-bar.barlesque-right.barlesque-vscroll
 {
 	right: 19px;
 }
 
-#addon-bar.barlesque-bar.barlesque-left
+#browser-bottombox.barlesque-bar.barlesque-left
 {
 	left: 2px;
 }
 
-#addon-bar.barlesque-bar.barlesque-hscroll
+#browser-bottombox.barlesque-bar.barlesque-hscroll
 {
 	bottom: 17px;
 }
@@ -27,4 +29,4 @@
 statusbar
 {
 	min-height: 6px !important;
-}
+}*/

@@ -127,8 +127,8 @@ var barlesque = {
 		// Does currently shown browser have a horizontal scroll bar?
 		var hscroll = (browser.clientWidth < doc.documentElement.scrollWidth) || (doc.body && (browser.clientWidth < doc.body.scrollWidth));
 
-		// Current classes of addon bar:
-		var bar = document.getElementById("addon-bar");
+		// Current classes of bottom toolbar:
+		var bar = document.getElementById("browser-bottombox");
 		var classes = bar.className.split(" ");
 
 		// Remove old barlesque classes, if any:
