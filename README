@@ -1,0 +1,49 @@
+Barlesque
+=========
+
+DESCRIPTION
+===========
+
+Barlesque is an extension for Mozilla Firefox 4.x that reclaims useful window
+space by collapsing the wide grey addon bar into a neat set of addon buttons.
+
+USAGE
+=====
+
+Barlesque doesn't require any user intervention, except that user needs to
+switch the addon bar on ("View" menu -> "Toolbars" -> check the "Add-on Bar")
+to see the effect.
+
+User can change the side of screen the addon buttons are bound to through the
+Options dialog (Tools menu, Addons item, "Options" button of "Barlesque").
+
+PACKAGING
+=========
+
+The .xpi file can be created manually by using the 'zip' command (or any other
+zipping software). The resulting .xpi file should contain the following files:
+
+chrome/content/options.xul
+chrome/content/overlay.js
+chrome/content/overlay.xul
+chrome/locale/en-US/barlesque.dtd
+chrome/skin/overlay.css
+defaults/preferences/barlesque.js
+install.rdf
+chrome.manifest
+
+Under linux, the following instruction builds the .xpi file:
+
+$ zip -r barlesque.xpi install.rdf chrome.manifest chrome defaults
+
+INSTALLATION
+============
+
+The extension can be installed by drag-and-dropping the 'barlesque.xpi' file
+over an existing Firefox window, or by pointing Firefox (through File menu,
+"Open File..." item) to the local URL where the file is stored.
+
+AUTHOR
+======
+
+Copyright 2010 Dmitriy Khudorozhkov (dmitriy.khudorozhkov@gmail.com).
