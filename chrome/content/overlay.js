@@ -133,6 +133,13 @@ var barlesque = {
 	// Method that actually changes addon bar's class:
 	resetStyles: function()
 	{
+		// Remove the collapser:
+		var collapser = document.getElementById("barlesque-collapser");
+		if(collapser)
+		{
+			collapser.parentNode.removeChild(collapser);
+		}
+
 		// Couple of shortcuts:
 		var browser = gBrowser.selectedTab.linkedBrowser;
 		var doc = browser.contentDocument;
@@ -164,17 +171,37 @@ var barlesque = {
 		classes.push("barlesque-" + (mode ? "left" : "right"));
 
 		if(!mode && vscroll)
+		{
 			classes.push("barlesque-vscroll");
+		}
 
 		if(hscroll)
+		{
 			classes.push("barlesque-hscroll");
+		}
 
 		// Assign new set of classes:
 		bar.className = classes.join(" ");
+
+		// Append the collapser:
+		collapser = document.getElementById("barlesque-collapser");
+		if(!collapser)
+		{
+			collapser = bar.appendChild(document.createElement("box"));
+			collapser.id = "barlesque-collapser";
+			collapser.setAttribute("tooltiptext", "Collapse the add-on bar");
+		}
 	},
 
 	removeStyles: function()
 	{
+		// Remove the collapser:
+		var collapser = document.getElementById("barlesque-collapser");
+		if(collapser)
+		{
+			collapser.parentNode.removeChild(collapser);
+		}
+
 		// Current classes of bottom toolbar:
 		var bar = document.getElementById("browser-bottombox");
 		var classes = bar.className.length ? bar.className.split(" ") : [];

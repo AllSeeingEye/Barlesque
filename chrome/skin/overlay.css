@@ -9,7 +9,7 @@
 .barlesque-bar.barlesque-right
 {
 	right: 1px;
-	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topleft: 3px;
 }
 
 .barlesque-bar.barlesque-right.barlesque-vscroll
@@ -20,7 +20,7 @@
 .barlesque-bar.barlesque-left
 {
 	left: 1px;
-	-moz-border-radius-topright: 5px;
+	-moz-border-radius-topright: 3px;
 }
 
 .barlesque-bar.barlesque-hscroll
@@ -31,4 +31,34 @@
 .barlesque-bar statusbar
 {
 	min-height: 6px !important;
+}
+
+#barlesque-collapser
+{
+	width: 14px;
+	height: 14px;
+
+	position: absolute;
+	bottom: -1px;
+
+	background: rgba(192, 192, 192, 0.9) url("chrome://barlesque/skin/arrow-down.png") no-repeat;
+
+	border: 0px;
+	border-top: 1px solid rgb(168, 168, 168);
+
+	cursor: pointer;
+}
+
+.barlesque-right #barlesque-collapser
+{
+	right: 0%;
+	border-left: 1px solid rgb(168, 168, 168);
+	-moz-border-radius-topleft: 3px;
+}
+
+.barlesque-left #barlesque-collapser
+{
+	left: 100%;
+	border-right: 1px solid rgb(168, 168, 168);
+	-moz-border-radius-topright: 3px;
 }
