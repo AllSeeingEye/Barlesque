@@ -51,7 +51,7 @@
 
 .barlesque-right #barlesque-collapser
 {
-	right: 0%;
+	right: 100%;
 	border-left: 1px solid rgb(168, 168, 168);
 	-moz-border-radius-topleft: 3px;
 }
