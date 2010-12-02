@@ -30,6 +30,7 @@
 
 		<preferences>
 			<preference id="barlesque_pref_mode" name="extensions.barlesque.mode" type="bool" />
+			<preference id="barlesque_pref_persist" name="extensions.barlesque.persist" type="bool" />
 		</preferences>
 
 		<label value="&barlesque.options.mode;:" />
@@ -39,6 +40,9 @@
 			<radio label="&barlesque.options.left;" value="true" />
 			<radio label="&barlesque.options.right;" value="false" />
 		</radiogroup>
+
+		<separator />
+		<checkbox label="&barlesque.options.persist;?" preference="barlesque_pref_persist" />
 
 	</prefpane>
 

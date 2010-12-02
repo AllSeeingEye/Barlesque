@@ -35,6 +35,16 @@ var barlesque = {
 	// Initialization:
 	init: function()
 	{
+		// Initialize preferences:
+		var prefservice = this.Cc["@mozilla.org/preferences-service;1"].getService(this.Ci.nsIPrefService);
+		this.branch = prefservice.getBranch("extensions.barlesque.");
+
+		// Correct the preferences:
+		if(!this.branch.getBoolPref("persist"))
+		{
+			this.branch.setBoolPref("collapsed", false);
+		}
+
 		// Update the gFindBar open and close methods:
 		var methodstr = gFindBar.open.toString();
 		if(methodstr.indexOf("barlesque") == -1)
@@ -54,13 +64,6 @@ var barlesque = {
 			new Function("gFindBar.close = " + methodstr)();
 		}
 
-		// Initialize preferences:
-		var prefservice = this.Cc["@mozilla.org/preferences-service;1"].getService(this.Ci.nsIPrefService);
-		this.branch = prefservice.getBranch("extensions.barlesque.");
-
-		// Initialize preference change listener:
-		this.initPrefListener();
-
 		// Initialize page events:
 		window.addEventListener("DOMContentLoaded", this.doReset, false);
 		window.addEventListener("resize", this.doReset, false);
@@ -68,8 +71,8 @@ var barlesque = {
 		// Initialize tab selection event:
 		gBrowser.tabContainer.addEventListener("TabSelect", this.doReset, false);
 
-		// First round of style change:
-		this.resetStyles();
+		// Initialize preference change listener & first round of style change:
+		this.initPrefListener();
 	},
 
 	// Startup of preference listener:
@@ -85,14 +88,6 @@ var barlesque = {
 
 			branch.getChildList("", { }).forEach(function(name) { callback(branch, name); });
 
-			this.unregister = function()
-			{
-				if(branch)
-				{
-					branch.removeObserver("", this);
-				}
-			};
-
 			this.observe = function(subject, topic, data)
 			{
 				// Only track change events:
@@ -101,13 +96,24 @@ var barlesque = {
 					callback(branch, data);
 				}
 			};
+
+			this.unregister = function()
+			{
+				if(branch)
+				{
+					branch.removeObserver("", this);
+				}
+			};
 		}
 
 		// Listener callback (note that it called not only on
 		// preference change, but also on the browser startup):
 		function listenerCallback(branch, name)
 		{
-			self.resetStyles();
+			if(name == "mode")
+			{
+				self.resetStyles();
+			}
 		}
 
 		// Initialize:
@@ -136,7 +142,8 @@ var barlesque = {
 	{
 		this.removeCollapser();
 
-		document.getElementById("addon-bar").collapsed = false;
+		var collapsed = !this.branch.getBoolPref("collapsed");
+		document.getElementById("addon-bar").collapsed = collapsed;
 
 		// Couple of shortcuts:
 		var browser = gBrowser.selectedTab.linkedBrowser;
@@ -186,9 +193,14 @@ var barlesque = {
 		{
 			collapser = bar.appendChild(document.createElement("box"));
 			collapser.id = "barlesque-collapser";
-			collapser.setAttribute("tooltiptext", "Collapse the add-on bar");
+			collapser.setAttribute("tooltiptext", collapsed ? "Show the add-on bar" : "Collapse the add-on bar");
 
-			collapser.addEventListener("click", function() { barlesque.collapse(); }, false);
+			if(collapsed)
+			{
+				collapser.className = "collapsed";
+			}
+
+			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
 		}
 	},
 
@@ -212,22 +224,6 @@ var barlesque = {
 
 		// Assign clean set of classes:
 		bar.className = !classes.length ? "barlesque-empty-class" : classes.join(" ");
-	},
-
-	// Collapse the addon bar:
-	collapse: function()
-	{
-		this.removeCollapser();
-
-		document.getElementById("addon-bar").collapsed = true;
-
-		var bar = document.getElementById("browser-bottombox");
-		collapser = bar.appendChild(document.createElement("box"));
-		collapser.id = "barlesque-collapser";
-		collapser.className = "collapsed";
-		collapser.setAttribute("tooltiptext", "Show the add-on bar");
-
-		collapser.addEventListener("click", function() { barlesque.resetStyles(); }, false);
 	},
 
 	// Remove the collapser box:

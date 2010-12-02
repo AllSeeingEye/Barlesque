@@ -1,4 +1,5 @@
-﻿<!ENTITY barlesque.options.title "Options of Barlesque">
-<!ENTITY barlesque.options.mode  "Alignment of addon bar">
-<!ENTITY barlesque.options.left  "Bottom-left">
-<!ENTITY barlesque.options.right "Bottom-right">
+﻿<!ENTITY barlesque.options.title   "Options of Barlesque">
+<!ENTITY barlesque.options.mode    "Alignment of add-on bar">
+<!ENTITY barlesque.options.left    "Bottom-left">
+<!ENTITY barlesque.options.right   "Bottom-right">
+<!ENTITY barlesque.options.persist "Remember the collapsed/expanded state of the add-on bar">
