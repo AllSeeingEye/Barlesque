@@ -49,6 +49,11 @@
 	cursor: pointer;
 }
 
+#barlesque-collapser.collapsed
+{
+	background-image: url("chrome://barlesque/skin/arrow-up.png");
+}
+
 .barlesque-right #barlesque-collapser
 {
 	right: 100%;

@@ -125,7 +125,8 @@ var barlesque = {
 		gBrowser.tabContainer.removeEventListener("TabSelect", this.doReset, false);
 	},
 
-	doReset: function(event)
+	// Wrapper for bottom bar style reset:
+	doReset: function()
 	{
 		barlesque.resetStyles();
 	},
@@ -133,12 +134,9 @@ var barlesque = {
 	// Method that actually changes addon bar's class:
 	resetStyles: function()
 	{
-		// Remove the collapser:
-		var collapser = document.getElementById("barlesque-collapser");
-		if(collapser)
-		{
-			collapser.parentNode.removeChild(collapser);
-		}
+		this.removeCollapser();
+
+		document.getElementById("addon-bar").collapsed = false;
 
 		// Couple of shortcuts:
 		var browser = gBrowser.selectedTab.linkedBrowser;
@@ -184,23 +182,20 @@ var barlesque = {
 		bar.className = classes.join(" ");
 
 		// Append the collapser:
-		collapser = document.getElementById("barlesque-collapser");
-		if(!collapser)
+		if(!document.getElementById("barlesque-collapser"))
 		{
 			collapser = bar.appendChild(document.createElement("box"));
 			collapser.id = "barlesque-collapser";
 			collapser.setAttribute("tooltiptext", "Collapse the add-on bar");
+
+			collapser.addEventListener("click", function() { barlesque.collapse(); }, false);
 		}
 	},
 
+	// Completely remove barlesque styles from bottom bar:
 	removeStyles: function()
 	{
-		// Remove the collapser:
-		var collapser = document.getElementById("barlesque-collapser");
-		if(collapser)
-		{
-			collapser.parentNode.removeChild(collapser);
-		}
+		this.removeCollapser();
 
 		// Current classes of bottom toolbar:
 		var bar = document.getElementById("browser-bottombox");
@@ -217,6 +212,32 @@ var barlesque = {
 
 		// Assign clean set of classes:
 		bar.className = !classes.length ? "barlesque-empty-class" : classes.join(" ");
+	},
+
+	// Collapse the addon bar:
+	collapse: function()
+	{
+		this.removeCollapser();
+
+		document.getElementById("addon-bar").collapsed = true;
+
+		var bar = document.getElementById("browser-bottombox");
+		collapser = bar.appendChild(document.createElement("box"));
+		collapser.id = "barlesque-collapser";
+		collapser.className = "collapsed";
+		collapser.setAttribute("tooltiptext", "Show the add-on bar");
+
+		collapser.addEventListener("click", function() { barlesque.resetStyles(); }, false);
+	},
+
+	// Remove the collapser box:
+	removeCollapser: function()
+	{
+		var collapser = document.getElementById("barlesque-collapser");
+		if(collapser)
+		{
+			collapser.parentNode.removeChild(collapser);
+		}
 	}
 };
 
