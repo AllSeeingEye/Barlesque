@@ -1,32 +1,34 @@
-#browser-bottombox.barlesque-bar
+.barlesque-bar
 {
 	position: fixed;
-	bottom: 1px;
+	bottom: 0px;
 	background-color: rgba(192, 192, 192, 0.8);
-	-moz-border-radius: 3px;
+	border: 1px solid rgb(192, 192, 192);
 }
 
-#browser-bottombox.barlesque-bar.barlesque-right
+.barlesque-bar.barlesque-right
 {
-	right: 2px;
+	right: 1px;
+	-moz-border-radius-topleft: 5px;
 }
 
-#browser-bottombox.barlesque-bar.barlesque-right.barlesque-vscroll
+.barlesque-bar.barlesque-right.barlesque-vscroll
 {
-	right: 19px;
+	right: 16px;
 }
 
-#browser-bottombox.barlesque-bar.barlesque-left
+.barlesque-bar.barlesque-left
 {
-	left: 2px;
+	left: 1px;
+	-moz-border-radius-topright: 5px;
 }
 
-#browser-bottombox.barlesque-bar.barlesque-hscroll
+.barlesque-bar.barlesque-hscroll
 {
-	bottom: 17px;
+	bottom: 15px;
 }
 
-statusbar
+.barlesque-bar statusbar
 {
 	min-height: 6px !important;
-}*/
+}

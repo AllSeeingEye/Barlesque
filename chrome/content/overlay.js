@@ -35,6 +35,25 @@ var barlesque = {
 	// Initialization:
 	init: function()
 	{
+		// Update the gFindBar open and close methods:
+		var methodstr = gFindBar.open.toString();
+		if(methodstr.indexOf("barlesque") == -1)
+		{
+			methodstr = methodstr.substr(methodstr.indexOf("{") + 1);
+			methodstr = "function(aMode) { document.getElementById('addon-bar').hidden = true; if(barlesque) { window.removeEventListener('resize', barlesque.doReset, false); barlesque.removeStyles(); } " + methodstr;
+
+			new Function("gFindBar.open = " + methodstr)();
+		}
+
+		methodstr = gFindBar.close.toString();
+		if(methodstr.indexOf("barlesque") == -1)
+		{
+			methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
+			methodstr += "document.getElementById('addon-bar').hidden = false; if(barlesque) { barlesque.resetStyles(); window.addEventListener('resize', barlesque.doReset, false); } }";
+
+			new Function("gFindBar.close = " + methodstr)();
+		}
+
 		// Initialize preferences:
 		var prefservice = this.Cc["@mozilla.org/preferences-service;1"].getService(this.Ci.nsIPrefService);
 		this.branch = prefservice.getBranch("extensions.barlesque.");
@@ -106,7 +125,7 @@ var barlesque = {
 		gBrowser.tabContainer.removeEventListener("TabSelect", this.doReset, false);
 	},
 
-	doReset: function()
+	doReset: function(event)
 	{
 		barlesque.resetStyles();
 	},
@@ -129,7 +148,7 @@ var barlesque = {
 
 		// Current classes of bottom toolbar:
 		var bar = document.getElementById("browser-bottombox");
-		var classes = bar.className.split(" ");
+		var classes = bar.className.length ? bar.className.split(" ") : [];
 
 		// Remove old barlesque classes, if any:
 		for(var i = 0; i < classes.length; i++)
@@ -152,6 +171,25 @@ var barlesque = {
 
 		// Assign new set of classes:
 		bar.className = classes.join(" ");
+	},
+
+	removeStyles: function()
+	{
+		// Current classes of bottom toolbar:
+		var bar = document.getElementById("browser-bottombox");
+		var classes = bar.className.length ? bar.className.split(" ") : [];
+
+		// Remove old barlesque classes, if any:
+		for(var i = 0; i < classes.length; i++)
+		{
+			if(classes[i].indexOf("barlesque-") == 0)
+			{	
+				classes.splice(i--, 1);
+			}
+		}
+
+		// Assign clean set of classes:
+		bar.className = !classes.length ? "barlesque-empty-class" : classes.join(" ");
 	}
 };
 
