@@ -10,12 +10,25 @@ space by collapsing the wide grey addon bar into a neat set of addon buttons.
 USAGE
 =====
 
-Barlesque doesn't require any user intervention, except that user needs to
-switch the addon bar on ("View" menu -> "Toolbars" -> check the "Add-on Bar")
-to see the effect.
+Barlesque expects user to have the add-on bar switched on ("View" menu ->
+"Toolbars" -> check the "Add-on Bar").
 
-User can change the side of screen the addon buttons are bound to through the
-Options dialog (Tools menu, Addons item, "Options" button of "Barlesque").
+You'll see the effect of extension immediatelly after installation; add-on
+bar won't be the solid horizontal band at the bottom, but will cover only
+a portion of the space instead. Also, you can quickly hide the add-on bar
+by clicking on the dark-grey down arrow icon at the left (if add-on bar is
+bound to the right edge of screen) or right (left edge of screen) side of
+addon bar. Later you can expand the add-on bar with the same icon (it will
+show up-facing arrow).
+
+By default, extension doesn't persist the collapsed/expanded state of add-on
+bar between browser sessions; you can change this through the options dialog
+("Tools" menu -> "Addons" item -> "Options" button of "Barlesque") by checking
+the "Remember the collapsed/expanded state of the add-on bar" checkbox.
+
+You can also change the side of screen the addon buttons are bound to through
+the same options dialog by selecting the "Bottom-left" or "Bottom-right"
+checkboxes.
 
 PACKAGING
 =========
