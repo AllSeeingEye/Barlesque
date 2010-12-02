@@ -45,6 +45,9 @@ var barlesque = {
 			this.branch.setBoolPref("collapsed", false);
 		}
 
+		// Initialize preference change listener:
+		this.initPrefListener();
+
 		// Update the gFindBar open and close methods:
 		var methodstr = gFindBar.open.toString();
 		if(methodstr.indexOf("barlesque") == -1)
@@ -71,8 +74,8 @@ var barlesque = {
 		// Initialize tab selection event:
 		gBrowser.tabContainer.addEventListener("TabSelect", this.doReset, false);
 
-		// Initialize preference change listener & first round of style change:
-		this.initPrefListener();
+		// First round of style change:
+		this.resetStyles();
 	},
 
 	// Startup of preference listener:
@@ -85,8 +88,6 @@ var barlesque = {
 		{
 			branch.QueryInterface(self.Ci.nsIPrefBranch2);
 			branch.addObserver("", this, false);
-
-			branch.getChildList("", { }).forEach(function(name) { callback(branch, name); });
 
 			this.observe = function(subject, topic, data)
 			{
@@ -106,8 +107,7 @@ var barlesque = {
 			};
 		}
 
-		// Listener callback (note that it called not only on
-		// preference change, but also on the browser startup):
+		// Listener callback:
 		function listenerCallback(branch, name)
 		{
 			if(name == "mode")
