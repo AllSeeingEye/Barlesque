@@ -142,7 +142,7 @@ var barlesque = {
 	{
 		this.removeCollapser();
 
-		var collapsed = !this.branch.getBoolPref("collapsed");
+		var collapsed = this.branch.getBoolPref("collapsed");
 		document.getElementById("addon-bar").collapsed = collapsed;
 
 		// Couple of shortcuts:
@@ -200,6 +200,7 @@ var barlesque = {
 				collapser.className = "collapsed";
 			}
 
+			// Attach event handler:
 			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
 		}
 	},
