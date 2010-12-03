@@ -156,7 +156,7 @@ var barlesque = {
 		var vscroll = (browser.clientHeight < doc.documentElement.scrollHeight);
 
 		// Does currently shown browser have a horizontal scroll bar?
-		var hscroll = (doc.documentElement.clientWidth < doc.documentElement.scrollWidth) || (doc.body.offsetWidth < doc.body.scrollWidth);
+		var hscroll = (doc.documentElement.clientWidth < doc.documentElement.scrollWidth) || (doc.body && (doc.body.offsetWidth < doc.body.scrollWidth));
 
 		// Current classes of bottom toolbar:
 		var bar = document.getElementById("browser-bottombox");
