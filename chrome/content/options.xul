@@ -32,6 +32,8 @@
 		<preferences>
 			<preference id="barlesque_pref_mode" name="extensions.barlesque.mode" type="bool" />
 			<preference id="barlesque_pref_persist" name="extensions.barlesque.persist" type="bool" />
+			<preference id="barlesque_pref_shorthide" name="extensions.barlesque.shorthide" type="bool" />
+			<preference id="barlesque_pref_shortmove" name="extensions.barlesque.shortmove" type="bool" />
 		</preferences>
 
 		<hbox>
@@ -43,19 +45,19 @@
 		</hbox>
 
 		<separator />
-<!--
+
 		<hbox>
-			<checkbox label="&barlesque.options.shortcut.hide;?" preference="barlesque_pref_persist" />
+			<checkbox label="&barlesque.options.shortcut.hide;?" preference="barlesque_pref_shorthide" />
 		</hbox>
 
 		<separator />
 
 		<hbox>
-			<checkbox label="&barlesque.options.shortcut.move;?" preference="barlesque_pref_persist" />
+			<checkbox label="&barlesque.options.shortcut.move;?" preference="barlesque_pref_shortmove" />
 		</hbox>
 
 		<separator />
--->
+
 		<checkbox label="&barlesque.options.persist;?" preference="barlesque_pref_persist" />
 
 	</prefpane>
