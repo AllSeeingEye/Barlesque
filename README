@@ -7,7 +7,8 @@ DESCRIPTION
 Barlesque is an extension for Mozilla Firefox 4.x that reclaims useful window
 space by collapsing the wide grey addon bar into a neat set of addon buttons.
 
-Extension implements this proposal:
+Extension implements this proposal of Jennifer Boriss from Mozilla user
+experience group:
 
 http://jboriss.wordpress.com/2010/06/16/removing-firefox%E2%80%99s-status-bar-and-rehousing-add-on-icons-part-3-of-2-wut/
 
@@ -17,22 +18,36 @@ USAGE
 Barlesque expects user to have the add-on bar switched on ("View" menu ->
 "Toolbars" -> check the "Add-on Bar").
 
-You'll see the effect of extension immediatelly after installation; add-on
-bar won't be the solid horizontal band at the bottom, but will cover only
-a portion of the space instead. Also, you can quickly hide the add-on bar
-by clicking on the dark-grey down arrow icon at the left (if add-on bar is
-bound to the right edge of screen) or right (left edge of screen) side of
-addon bar. Later you can expand the add-on bar with the same icon (it will
-show up-facing arrow).
+You'll see the effect of extension immediately after installation; add-on bar
+won't be the solid horizontal band at the bottom, but will cover only a portion
+of the space instead. Also, you can quickly hide the add-on bar by clicking on
+the dark-grey down arrow icon at the left (if add-on bar is bound to the right
+edge of screen) or right (left edge of screen) side of add-on bar. Later you
+can expand the add-on bar with the same icon (it will show up-facing arrow).
 
 By default, extension doesn't persist the collapsed/expanded state of add-on
 bar between browser sessions; you can change this through the options dialog
-("Tools" menu -> "Addons" item -> "Options" button of "Barlesque") by checking
+("Tools" menu -> "Add-ons" item -> "Options" button of "Barlesque") by checking
 the "Remember the collapsed/expanded state of the add-on bar" checkbox.
 
-You can also change the side of screen the addon buttons are bound to through
-the same options dialog by selecting the "Bottom-left" or "Bottom-right"
-checkboxes.
+You can also change the side of screen the add-on buttons are bound to through
+the same options dialog by selecting the "Bottom-left" or "Bottom-right" radio
+button.
+
+USABILITY CONSIDERATIONS
+========================
+
+Please note that the default bottom-right positioning of the add-on bar may
+interfere with UI elements of some websites (e.g. Facebook chat). If you're
+frequent visitor to such sites, you may want to change the positioning of
+add-on bar through the options dialog (or even refrain from using the
+extension). You'd probably want to read the comments to the article linked
+above and this discussion on Mozillazine:
+
+http://forums.mozillazine.org/viewtopic.php?f=23&t=1951751
+
+Also, find box (called with Ctrl-F or "Edit" menu -> "Find") hides the add-on
+bar - this is done to circumvent some minor (but annoying) UI issues.
 
 PACKAGING
 =========
