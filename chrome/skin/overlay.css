@@ -19,7 +19,7 @@
 
 .barlesque-bar.barlesque-right.barlesque-collapsed
 {
-	right: -1px;
+	right: 0px;
 }
 
 .barlesque-bar.barlesque-right.barlesque-vscroll
@@ -35,7 +35,7 @@
 
 .barlesque-bar.barlesque-left.barlesque-collapsed
 {
-	left: -1px;
+	left: 0px;
 }
 
 .barlesque-bar.barlesque-hscroll

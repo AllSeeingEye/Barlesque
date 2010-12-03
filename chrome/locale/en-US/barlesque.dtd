@@ -7,4 +7,3 @@
 <!ENTITY barlesque.options.shortcut.move "Switch on the shortcut to re-align the add-on bar">
 <!ENTITY barlesque.options.modifier      "Modifier">
 <!ENTITY barlesque.options.key           "Key">
-<!ENTITY barlesque.options.warning       "* - all shortcut changes take effect after browser restart.">

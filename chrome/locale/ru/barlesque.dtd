@@ -7,4 +7,3 @@
 <!ENTITY barlesque.options.shortcut.move "Включить акселератор для изменения стороны показа тулбара для иконок">
 <!ENTITY barlesque.options.modifier      "Модификатор">
 <!ENTITY barlesque.options.key           "Символ">
-<!ENTITY barlesque.options.warning       "* - изменения вступят в силу после перезагрузки браузера.">

@@ -168,7 +168,7 @@ var barlesque = {
 		this.removeCollapser();
 
 		var collapsed = this.branch.getBoolPref("collapsed");
-		document.getElementById("addon-bar").collapsed = collapsed;
+		document.getElementById("addon-bar").hidden = collapsed;
 
 		// Couple of shortcuts:
 		var browser = gBrowser.selectedTab.linkedBrowser;
