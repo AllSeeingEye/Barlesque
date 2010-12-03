@@ -6,10 +6,20 @@
 	border: 1px solid rgb(192, 192, 192);
 }
 
+.barlesque-bar.barlesque-collapsed
+{
+	border: 0px;
+}
+
 .barlesque-bar.barlesque-right
 {
 	right: 1px;
 	-moz-border-radius-topleft: 3px;
+}
+
+.barlesque-bar.barlesque-right.barlesque-collapsed
+{
+	right: -1px;
 }
 
 .barlesque-bar.barlesque-right.barlesque-vscroll
@@ -21,6 +31,11 @@
 {
 	left: 1px;
 	-moz-border-radius-topright: 3px;
+}
+
+.barlesque-bar.barlesque-left.barlesque-collapsed
+{
+	left: -1px;
 }
 
 .barlesque-bar.barlesque-hscroll
@@ -49,7 +64,7 @@
 	cursor: pointer;
 }
 
-#barlesque-collapser.collapsed
+.barlesque-collapsed #barlesque-collapser
 {
 	background-image: url("chrome://barlesque/skin/arrow-up.png");
 }

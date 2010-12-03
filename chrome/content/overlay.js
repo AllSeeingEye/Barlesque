@@ -156,7 +156,7 @@ var barlesque = {
 		var vscroll = (browser.clientHeight < doc.documentElement.scrollHeight);
 
 		// Does currently shown browser have a horizontal scroll bar?
-		var hscroll = (browser.clientWidth < doc.documentElement.scrollWidth) || (doc.body && (browser.clientWidth < doc.body.scrollWidth));
+		var hscroll = (doc.documentElement.clientWidth < doc.documentElement.scrollWidth) || (doc.body.offsetWidth < doc.body.scrollWidth);
 
 		// Current classes of bottom toolbar:
 		var bar = document.getElementById("browser-bottombox");
@@ -185,20 +185,20 @@ var barlesque = {
 			classes.push("barlesque-hscroll");
 		}
 
+		if(collapsed)
+		{
+			classes.push("barlesque-collapsed");
+		}
+
 		// Assign new set of classes:
 		bar.className = classes.join(" ");
 
 		// Append the collapser:
 		if(!document.getElementById("barlesque-collapser"))
 		{
-			collapser = bar.appendChild(document.createElement("box"));
+			let collapser = bar.appendChild(document.createElement("box"));
 			collapser.id = "barlesque-collapser";
 			collapser.setAttribute("tooltiptext", collapsed ? "Show the add-on bar" : "Collapse the add-on bar");
-
-			if(collapsed)
-			{
-				collapser.className = "collapsed";
-			}
 
 			// Attach event handler:
 			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
