@@ -29,6 +29,11 @@ barlesque.options = {
 				shortmove.childNodes[i].setAttribute("disabled", true);
 			}
 		}
+
+		if(shorthide_disabled && shortmove_disabled)
+		{
+			document.getElementById("barlesque-options-warning-container").setAttribute("disabled", true);
+		}
 	},
 
 	oncheck: function(containerId, value)
@@ -46,5 +51,19 @@ barlesque.options = {
 				container.childNodes[i].setAttribute("disabled", true);
 			}
 		}
+
+		// Check if we should enable/disable the warning label:
+		var warning = document.getElementById("barlesque-options-warning");
+		var enable = document.getElementById("barlesque-check-shorthide").checked || document.getElementById("barlesque-check-shortmove").checked;
+
+		if(enable)
+		{
+			warning.removeAttribute("disabled");
+		}
+		else
+		{
+			warning.setAttribute("disabled", true);
+		}
+
 	}
 };
