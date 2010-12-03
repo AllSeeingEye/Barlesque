@@ -72,6 +72,7 @@ chrome/content/options.xul
 chrome/content/overlay.js
 chrome/content/overlay.xul
 chrome/locale/en-US/barlesque.dtd
+chrome/locale/ru/barlesque.dtd
 chrome/skin/options.css
 chrome/skin/overlay.css
 chrome/skin/arrow-down.png
