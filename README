@@ -45,9 +45,12 @@ chrome/content/overlay.js
 chrome/content/overlay.xul
 chrome/locale/en-US/barlesque.dtd
 chrome/skin/overlay.css
+chrome/skin/arrow-down.png
+chrome/skin/arrow-up.png
+chrome/skin/barlesque.png
 defaults/preferences/barlesque.js
-install.rdf
 chrome.manifest
+install.rdf
 
 Under linux, the following instruction builds the .xpi file:
 
