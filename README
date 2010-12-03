@@ -5,7 +5,7 @@ DESCRIPTION
 ===========
 
 Barlesque is an extension for Mozilla Firefox 4.x that reclaims useful window
-space by collapsing the wide grey addon bar into a neat set of addon buttons.
+space by collapsing the wide grey add-on bar into a neat set of add-on buttons.
 This extension is Firefox 4.x-only, as add-on bar is a new feature (introduced
 in Firefox 4.0b7).
 
@@ -27,14 +27,24 @@ the dark-grey down arrow icon at the left (if add-on bar is bound to the right
 edge of screen) or right (left edge of screen) side of add-on bar. Later you
 can expand the add-on bar with the same icon (it will show up-facing arrow).
 
-By default, extension doesn't persist the collapsed/expanded state of add-on
-bar between browser sessions; you can change this through the options dialog
-("Tools" menu -> "Add-ons" item -> "Options" button of "Barlesque") by checking
-the "Remember the collapsed/expanded state of the add-on bar" checkbox.
+You can customize some aspects of Barlesque behavior through the options dialog
+("Tools" menu -> "Add-ons" item -> "Options" button of "Barlesque"):
 
-You can also change the side of screen the add-on buttons are bound to through
-the same options dialog by selecting the "Bottom-left" or "Bottom-right" radio
-button.
+- "Alignment of add-on bar" option allows you to choose the side of screen the
+  add-on buttons are bound to. Default alignment is bottom-right corner of
+  screen.
+
+- You can switch on and customize the keyboard shortcut to collapse/expand the
+  add-on bar.
+
+- You can switch on and customize the keyboard shortcut to change the alignment
+ (side of screen) for the add-on bar.
+
+- By default, extension doesn't persist the collapsed/expanded state of add-on
+  bar between browser sessions; "Remember the collapsed/expanded state of the
+  add-on bar?" checkbox changes this.
+
+All changes made through the options dialog take effect immediately.
 
 USABILITY CONSIDERATIONS
 ========================
