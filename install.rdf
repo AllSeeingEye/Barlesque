@@ -6,9 +6,9 @@
 		<em:id>barlesque@dmitriy.khudorozhkov</em:id>
 		<em:name>Barlesque</em:name>
 		<em:type>2</em:type>
-		<em:version>1.11</em:version>
+		<em:version>1.12</em:version>
 		<em:creator>Dmitriy Khudorozhkov</em:creator>
-		<em:description>Collapses Firefox 4's wide grey addon bar into a neat set of buttons.</em:description>
+		<em:description>Reclaims the browsing space by transforming Firefox 4's wide grey addon bar into a neat set of buttons.</em:description>
 		<em:homepageURL>https://github.com/AllSeeingEye/Barlesque</em:homepageURL>
 		<em:optionsURL>chrome://barlesque/content/options.xul</em:optionsURL>
 		<em:iconURL>chrome://barlesque/skin/barlesque.png</em:iconURL>
@@ -16,10 +16,19 @@
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- firefox -->
-				<em:minVersion>4.0b8pre</em:minVersion>
+				<em:minVersion>4.0b7</em:minVersion>
 				<em:maxVersion>4.0b8pre</em:maxVersion>
 			</Description>
 		</em:targetApplication>
+
+		<em:localized>
+			<Description>
+				<em:locale>ru</em:locale>
+				<em:name>Barlesque</em:name>
+				<em:description>Расширяет основное окно браузера путём уменьшения тулбара для иконок расширений до минимально необходимой ширины.</em:description>
+				<em:creator>Дмитрий Худорожков</em:creator>
+			</Description>
+		</em:localized>
 
 	</Description>
 </RDF>

@@ -26,5 +26,10 @@
 <overlay id="barlesque-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
 	<script type="text/javascript" src="overlay.js" />
-
+<!--
+	<keyset id="mainKeyset">
+		<key key="x" modifiers="control" oncommand="if(gFindBar.hidden) { barlesque.branch.setBoolPref('collapsed', !barlesque.branch.getBoolPref('collapsed')); barlesque.resetStyles(); };" />
+		<key key="x" modifiers="shift"   oncommand="if(gFindBar.hidden) { barlesque.branch.setBoolPref('mode', !barlesque.branch.getBoolPref('mode')); };" />
+	</keyset>
+-->
 </overlay>

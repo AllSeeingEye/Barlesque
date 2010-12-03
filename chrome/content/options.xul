@@ -22,6 +22,7 @@
 -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://barlesque/skin/options.css" type="text/css"?>
 <!DOCTYPE overlay SYSTEM "chrome://barlesque/locale/barlesque.dtd">
 
 <prefwindow id="barlesque-prefs" title="&barlesque.options.title;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
@@ -33,15 +34,28 @@
 			<preference id="barlesque_pref_persist" name="extensions.barlesque.persist" type="bool" />
 		</preferences>
 
-		<label value="&barlesque.options.mode;:" />
-		<separator class="thin" />
-
-		<radiogroup orient="horizontal" preference="barlesque_pref_mode">
-			<radio label="&barlesque.options.left;" value="true" />
-			<radio label="&barlesque.options.right;" value="false" />
-		</radiogroup>
+		<hbox>
+			<label id="barlesque-options-mode-label" value="&barlesque.options.mode;:" />
+			<radiogroup orient="horizontal" preference="barlesque_pref_mode">
+				<radio label="&barlesque.options.left;" value="true" />
+				<radio label="&barlesque.options.right;" value="false" />
+			</radiogroup>
+		</hbox>
 
 		<separator />
+<!--
+		<hbox>
+			<checkbox label="&barlesque.options.shortcut.hide;?" preference="barlesque_pref_persist" />
+		</hbox>
+
+		<separator />
+
+		<hbox>
+			<checkbox label="&barlesque.options.shortcut.move;?" preference="barlesque_pref_persist" />
+		</hbox>
+
+		<separator />
+-->
 		<checkbox label="&barlesque.options.persist;?" preference="barlesque_pref_persist" />
 
 	</prefpane>
