@@ -6,6 +6,8 @@ DESCRIPTION
 
 Barlesque is an extension for Mozilla Firefox 4.x that reclaims useful window
 space by collapsing the wide grey addon bar into a neat set of addon buttons.
+This extension is Firefox 4.x-only, as add-on bar is a new feature (introduced
+in Firefox 4.0b7).
 
 Extension implements this proposal of Jennifer Boriss from Mozilla user
 experience group:

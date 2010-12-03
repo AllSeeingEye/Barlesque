@@ -27,36 +27,66 @@
 
 <prefwindow id="barlesque-prefs" title="&barlesque.options.title;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<prefpane id="barlesque-pref-pane">
+	<script type="text/javascript" src="options.js" />
+
+	<prefpane id="barlesque-pref-pane" onpaneload="barlesque.options.onload();">
 
 		<preferences>
-			<preference id="barlesque_pref_mode" name="extensions.barlesque.mode" type="bool" />
-			<preference id="barlesque_pref_persist" name="extensions.barlesque.persist" type="bool" />
-			<preference id="barlesque_pref_shorthide" name="extensions.barlesque.shorthide" type="bool" />
-			<preference id="barlesque_pref_shortmove" name="extensions.barlesque.shortmove" type="bool" />
+			<preference id="barlesque_pref_mode"          name="extensions.barlesque.mode"          type="bool" />
+			<preference id="barlesque_pref_persist"       name="extensions.barlesque.persist"       type="bool" />
+			<preference id="barlesque_pref_shorthide"     name="extensions.barlesque.shorthide"     type="bool" />
+			<preference id="barlesque_pref_shorthide_key" name="extensions.barlesque.shorthide.key" type="string" />
+			<preference id="barlesque_pref_shorthide_mod" name="extensions.barlesque.shorthide.mod" type="string" />
+			<preference id="barlesque_pref_shortmove"     name="extensions.barlesque.shortmove"     type="bool" />
+			<preference id="barlesque_pref_shortmove_key" name="extensions.barlesque.shortmove.key" type="string" />
+			<preference id="barlesque_pref_shortmove_mod" name="extensions.barlesque.shortmove.mod" type="string" />
 		</preferences>
 
 		<hbox>
-			<label id="barlesque-options-mode-label" value="&barlesque.options.mode;:" />
+			<label class="barlesque-options-label" value="&barlesque.options.mode;:" />
 			<radiogroup orient="horizontal" preference="barlesque_pref_mode">
 				<radio label="&barlesque.options.left;" value="true" />
 				<radio label="&barlesque.options.right;" value="false" />
 			</radiogroup>
 		</hbox>
 
-		<separator />
+		<separator class="thin" />
 
-		<hbox>
-			<checkbox label="&barlesque.options.shortcut.hide;?" preference="barlesque_pref_shorthide" />
-		</hbox>
+		<vbox>
+			<checkbox label="&barlesque.options.shortcut.hide;?" preference="barlesque_pref_shorthide" oncommand="barlesque.options.oncheck('barlesque-shorthide-container', this.checked);" />
+			<hbox id="barlesque-shorthide-container">
+				<label class="barlesque-options-label" value="&barlesque.options.modifier;:" />
+				<menulist preference="barlesque_pref_shorthide_mod">
+					<menupopup>
+						<menuitem value="alt" label="alt" />
+						<menuitem value="control" label="control" />
+						<menuitem value="shift" label="shift" />
+					</menupopup>
+				</menulist>
+				<label class="barlesque-options-label" value="&barlesque.options.key;:" />
+				<textbox preference="barlesque_pref_shorthide_key" maxlength="1" size="1" />
+			</hbox>
+		</vbox>
 
-		<separator />
+		<separator class="thin" />
 
-		<hbox>
-			<checkbox label="&barlesque.options.shortcut.move;?" preference="barlesque_pref_shortmove" />
-		</hbox>
+		<vbox>
+			<checkbox label="&barlesque.options.shortcut.move;?" preference="barlesque_pref_shortmove" oncommand="barlesque.options.oncheck('barlesque-shortmove-container', this.checked);" />
+			<hbox id="barlesque-shortmove-container">
+				<label class="barlesque-options-label" value="&barlesque.options.modifier;:" />
+				<menulist preference="barlesque_pref_shortmove_mod">
+					<menupopup>
+						<menuitem value="alt" label="alt" />
+						<menuitem value="control" label="control" />
+						<menuitem value="shift" label="shift" />
+					</menupopup>
+				</menulist>
+				<label class="barlesque-options-label" value="&barlesque.options.key;:" />
+				<textbox preference="barlesque_pref_shortmove_key" maxlength="1" size="1" />
+			</hbox>
+		</vbox>
 
-		<separator />
+		<separator class="thin" />
 
 		<checkbox label="&barlesque.options.persist;?" preference="barlesque_pref_persist" />
 

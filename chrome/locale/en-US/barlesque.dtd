@@ -5,3 +5,5 @@
 <!ENTITY barlesque.options.persist       "Remember the collapsed/expanded state of the add-on bar">
 <!ENTITY barlesque.options.shortcut.hide "Switch on the shortcut to show/hide the add-on bar">
 <!ENTITY barlesque.options.shortcut.move "Switch on the shortcut to re-align the add-on bar">
+<!ENTITY barlesque.options.modifier      "Modifier">
+<!ENTITY barlesque.options.key           "Key">
