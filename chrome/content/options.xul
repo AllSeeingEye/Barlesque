@@ -55,7 +55,7 @@
 		<vbox>
 			<checkbox id="barlesque-check-shorthide" label="&barlesque.options.shortcut.hide;?" preference="barlesque_pref_shorthide" oncommand="barlesque.options.oncheck('barlesque-shorthide-container', this.checked);" />
 			<hbox id="barlesque-shorthide-container">
-				<label class="barlesque-options-label barlesque-options-short-label" value="&barlesque.options.modifier;:" /><label class="barlesque-options-asterisk" value="*" />
+				<label class="barlesque-options-label" value="&barlesque.options.modifier;:" />
 				<menulist preference="barlesque_pref_shorthide_mod">
 					<menupopup>
 						<menuitem value="alt" label="alt" />
@@ -63,7 +63,7 @@
 						<menuitem value="shift" label="shift" />
 					</menupopup>
 				</menulist>
-				<label class="barlesque-options-label barlesque-options-short-label" value="&barlesque.options.key;:" /><label class="barlesque-options-asterisk" value="*" />
+				<label class="barlesque-options-label" value="&barlesque.options.key;:" />
 				<textbox preference="barlesque_pref_shorthide_key" maxlength="1" size="1" />
 			</hbox>
 		</vbox>
@@ -73,7 +73,7 @@
 		<vbox>
 			<checkbox id="barlesque-check-shortmove" label="&barlesque.options.shortcut.move;?" preference="barlesque_pref_shortmove" oncommand="barlesque.options.oncheck('barlesque-shortmove-container', this.checked);" />
 			<hbox id="barlesque-shortmove-container">
-				<label class="barlesque-options-label barlesque-options-short-label" value="&barlesque.options.modifier;:" /><label class="barlesque-options-asterisk" value="*" />
+				<label class="barlesque-options-label" value="&barlesque.options.modifier;:" />
 				<menulist preference="barlesque_pref_shortmove_mod">
 					<menupopup>
 						<menuitem value="alt" label="alt" />
@@ -81,7 +81,7 @@
 						<menuitem value="shift" label="shift" />
 					</menupopup>
 				</menulist>
-				<label class="barlesque-options-label barlesque-options-short-label" value="&barlesque.options.key;:" /><label class="barlesque-options-asterisk" value="*" />
+				<label class="barlesque-options-label" value="&barlesque.options.key;:" />
 				<textbox preference="barlesque_pref_shortmove_key" maxlength="1" size="1" />
 			</hbox>
 		</vbox>
@@ -89,10 +89,6 @@
 		<separator class="thin" />
 
 		<checkbox label="&barlesque.options.persist;?" preference="barlesque_pref_persist" />
-
-		<separator />
-
-		<label id="barlesque-options-warning" value="&barlesque.options.warning;" />
 
 	</prefpane>
 

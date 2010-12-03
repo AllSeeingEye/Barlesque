@@ -57,6 +57,7 @@ PACKAGING
 The .xpi file can be created manually by using the 'zip' command (or any other
 zipping software). The resulting .xpi file should contain the following files:
 
+chrome/content/options.js
 chrome/content/options.xul
 chrome/content/overlay.js
 chrome/content/overlay.xul

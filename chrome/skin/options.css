@@ -2,32 +2,3 @@
 {
 	margin-top: 4px;
 }
-
-.barlesque-options-short-label
-{
-	margin-right: 0px;
-	padding-right: 0px;
-}
-
-.barlesque-options-asterisk
-{
-	color: red;
-	font-size: 11px;
-
-	position: relative;
-	top: -5px;
-
-	margin: 0px;
-	padding: 0px;
-}
-
-#barlesque-options-warning
-{
-	color: red;
-	margin-left: 8px;
-}
-
-#barlesque-options-warning[disabled=true]
-{
-	color: rgb(172, 168, 153);
-}

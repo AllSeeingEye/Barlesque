@@ -27,9 +27,9 @@
 
 	<script type="text/javascript" src="overlay.js" />
 
-	<keyset id="mainKeyset">
-		<key id="barlesque-shorthide" key="x" modifiers="control" oncommand="if(gFindBar.hidden) { if(barlesque.branch.getBoolPref('shorthide')) { barlesque.branch.setBoolPref('collapsed', !barlesque.branch.getBoolPref('collapsed')); barlesque.resetStyles(); }; };" />
-		<key id="barlesque-shortmove" key="x" modifiers="shift"   oncommand="if(gFindBar.hidden) { if(barlesque.branch.getBoolPref('shortmove')) { barlesque.branch.setBoolPref('mode', !barlesque.branch.getBoolPref('mode')); }; };" />
-	</keyset>
+	<commandset id="mainCommandSet">
+		<command id="barlesque-command-shorthide" oncommand="if(gFindBar.hidden) { if(barlesque.branch.getBoolPref('shorthide')) { barlesque.branch.setBoolPref('collapsed', !barlesque.branch.getBoolPref('collapsed')); barlesque.resetStyles(); }; };" />
+		<command id="barlesque-command-shortmove" oncommand="if(gFindBar.hidden) { if(barlesque.branch.getBoolPref('shortmove')) { barlesque.branch.setBoolPref('mode', !barlesque.branch.getBoolPref('mode')); }; };" />
+	</commandset>
 
 </overlay>

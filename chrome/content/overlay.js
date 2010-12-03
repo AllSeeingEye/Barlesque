@@ -49,13 +49,8 @@ var barlesque = {
 		this.initPrefListener();
 
 		// Initialize the keyboard shortcuts:
-		var shorthide = document.getElementById("barlesque-shorthide");
-		shorthide.setAttribute("key", this.branch.getCharPref("shorthide.key"));
-		shorthide.setAttribute("modifiers", this.branch.getCharPref("shorthide.mod"));
-
-		var shortmove = document.getElementById("barlesque-shortmove");
-		shortmove.setAttribute("key", this.branch.getCharPref("shortmove.key"));
-		shortmove.setAttribute("modifiers", this.branch.getCharPref("shortmove.mod"));
+		this.rekeyHide();
+		this.rekeyMove();
 
 		// Update the gFindBar open and close methods:
 		var methodstr = gFindBar.open.toString();
@@ -126,23 +121,19 @@ var barlesque = {
 					break;
 
 				case "shorthide.key":
-					var shorthide = document.getElementById("barlesque-shorthide");
-					shorthide.setAttribute("key", branch.getCharPref(name));
+					self.rekeyHide();
 					break;
 
 				case "shorthide.mod":
-					var shorthide = document.getElementById("barlesque-shorthide");
-					shorthide.setAttribute("modifiers", branch.getCharPref(name));
+					self.rekeyHide();
 					break;
 
 				case "shortmove.key":
-					var shortmove = document.getElementById("barlesque-shortmove");
-					shortmove.setAttribute("key", branch.getCharPref(name));
+					self.rekeyMove();
 					break;
 
 				case "shortmove.mod":
-					var shortmove = document.getElementById("barlesque-shortmove");
-					shortmove.setAttribute("modifiers", branch.getCharPref(name));
+					self.rekeyMove();
 					break;
 			}
 		}
@@ -269,6 +260,59 @@ var barlesque = {
 		{
 			collapser.parentNode.removeChild(collapser);
 		}
+	},
+
+	// Recreate shortcut elements:
+
+	// - for add-on bar hiding/showing:
+	rekeyHide: function()
+	{
+		var win = document.getElementById("main-window");
+		var keyset = document.getElementById("barlesque-shorthide-keyset");
+
+		if(keyset)
+		{
+			win.removeChild(keyset);
+		}
+
+		keyset = document.createElement("keyset");
+		keyset.id = "barlesque-shorthide-keyset";
+		win.appendChild(keyset);
+
+		var shorthide = document.createElement("key");
+		shorthide.id = "barlesque-shorthide";
+
+		shorthide.setAttribute("key", this.branch.getCharPref("shorthide.key"));
+		shorthide.setAttribute("modifiers", this.branch.getCharPref("shorthide.mod"));
+		shorthide.setAttribute("command", "barlesque-command-shorthide");
+
+		keyset.appendChild(shorthide);
+	},
+
+	// - for add-on bar re-aligning:
+	rekeyMove: function()
+	{
+		var win = document.getElementById("main-window");
+
+		var keyset = document.getElementById("barlesque-shortmove-keyset");
+
+		if(keyset)
+		{
+			win.removeChild(keyset);
+		}
+
+		keyset = document.createElement("keyset");
+		keyset.id = "barlesque-shortmove-keyset";
+		win.appendChild(keyset);
+
+		var shortmove = document.createElement("key");
+		shortmove.id = "barlesque-shortmove";
+
+		shortmove.setAttribute("key", this.branch.getCharPref("shortmove.key"));
+		shortmove.setAttribute("modifiers", this.branch.getCharPref("shortmove.mod"));
+		shortmove.setAttribute("command", "barlesque-command-shortmove");
+
+		keyset.appendChild(shortmove);
 	}
 };
 
