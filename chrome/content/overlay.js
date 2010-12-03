@@ -134,7 +134,10 @@ var barlesque = {
 	// Wrapper for bottom bar style reset:
 	doReset: function()
 	{
-		barlesque.resetStyles();
+		if(gFindBar.hidden)
+		{
+			barlesque.resetStyles();
+		}
 	},
 
 	// Method that actually changes addon bar's class:
