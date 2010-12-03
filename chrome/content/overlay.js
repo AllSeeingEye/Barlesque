@@ -48,6 +48,15 @@ var barlesque = {
 		// Initialize preference change listener:
 		this.initPrefListener();
 
+		// Initialize the keyboard shortcuts:
+		var shorthide = document.getElementById("barlesque-shorthide");
+		shorthide.setAttribute("key", this.branch.getCharPref("shorthide.key"));
+		shorthide.setAttribute("modifiers", this.branch.getCharPref("shorthide.mod"));
+
+		var shortmove = document.getElementById("barlesque-shortmove");
+		shortmove.setAttribute("key", this.branch.getCharPref("shortmove.key"));
+		shortmove.setAttribute("modifiers", this.branch.getCharPref("shortmove.mod"));
+
 		// Update the gFindBar open and close methods:
 		var methodstr = gFindBar.open.toString();
 		if(methodstr.indexOf("barlesque") == -1)
@@ -110,9 +119,31 @@ var barlesque = {
 		// Listener callback:
 		function listenerCallback(branch, name)
 		{
-			if(name == "mode")
+			switch(name)
 			{
-				self.resetStyles();
+				case "mode":
+					self.resetStyles();
+					break;
+
+				case "shorthide.key":
+					var shorthide = document.getElementById("barlesque-shorthide");
+					shorthide.setAttribute("key", branch.getCharPref(name));
+					break;
+
+				case "shorthide.mod":
+					var shorthide = document.getElementById("barlesque-shorthide");
+					shorthide.setAttribute("modifiers", branch.getCharPref(name));
+					break;
+
+				case "shortmove.key":
+					var shortmove = document.getElementById("barlesque-shortmove");
+					shortmove.setAttribute("key", branch.getCharPref(name));
+					break;
+
+				case "shortmove.mod":
+					var shortmove = document.getElementById("barlesque-shortmove");
+					shortmove.setAttribute("modifiers", branch.getCharPref(name));
+					break;
 			}
 		}
 
