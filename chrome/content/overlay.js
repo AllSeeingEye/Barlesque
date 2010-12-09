@@ -197,7 +197,7 @@ var barlesque = {
 		var addonbar = document.getElementById("addon-bar");
 
 		// Don't proceed if add-on bar is hidden:
-		if(addonbar.collapsed == true)
+		if(addonbar.collapsed === true)
 		{
 			return;
 		}
@@ -260,9 +260,9 @@ var barlesque = {
 		var classes = bottombox.className.length ? bottombox.className.split(" ") : [];
 
 		// Remove old barlesque classes, if any:
-		for(var i = 0; i < classes.length; i++)
+		for(i = 0; i < classes.length; i++)
 		{
-			if(classes[i].indexOf("barlesque-") == 0)
+			if(classes[i].indexOf("barlesque-") === 0)
 			{	
 				classes.splice(i--, 1);
 			}
@@ -293,7 +293,7 @@ var barlesque = {
 		// Append the collapser:
 		if(!document.getElementById("barlesque-collapser"))
 		{
-			let collapser = bottombox.appendChild(document.createElement("box"));
+			var collapser = bottombox.appendChild(document.createElement("box"));
 			collapser.id = "barlesque-collapser";
 			collapser.setAttribute("tooltiptext", collapsed ? "Show the add-on bar" : "Collapse the add-on bar");
 
@@ -314,7 +314,7 @@ var barlesque = {
 		// Remove old barlesque classes, if any:
 		for(var i = 0; i < classes.length; i++)
 		{
-			if(classes[i].indexOf("barlesque-") == 0)
+			if(classes[i].indexOf("barlesque-") === 0)
 			{	
 				classes.splice(i--, 1);
 			}
