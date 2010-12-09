@@ -71,6 +71,16 @@ var barlesque = {
 			new Function("gFindBar.close = " + methodstr)();
 		}
 
+		// Update the onViewToolbarCommand method:
+		methodstr = onViewToolbarCommand.toString();
+		if(methodstr.indexOf("barlesque") == -1)
+		{
+			methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
+			methodstr += "if(toolbarId == 'addon-bar') { if(barlesque) { barlesque.resetStyles(); } } }";
+
+			new Function("onViewToolbarCommand = " + methodstr)();
+		}
+
 		// Initialize page events:
 		window.addEventListener("DOMContentLoaded", this.doReset, false);
 		window.addEventListener("resize", this.doReset, false);
@@ -161,8 +171,46 @@ var barlesque = {
 	{
 		this.removeCollapser();
 
+		// Count the number of elements in add-on bar/status bar:
+		var addonbar = document.getElementById("addon-bar");
+
+		// Don't proceed if add-on bar is hidden:
+		if(addonbar.collapsed == true)
+		{
+			return;
+		}
+
+		/*
+		var 
+		var count = bar.getElementsByTagName("toolbarbutton").length;
+
+		var statusbar = document.getElementById("status-bar");
+		if(statusbar)
+		{
+			var panels = statusbar.getElementsByTagName("statusbarpanel"), pl = panels.length;
+			count += pl;
+
+			for(var i = 0; i < pl; i++)
+			{
+				var panel = panels[i];
+
+				if(panel.className.indexOf("statusbar-resizerpanel") != -1)
+				{
+					--count;
+				}
+			}
+		}
+
+		// Don't proceed if there are no elements to show:
+		alert(count);
+		if(count === 0)
+		{
+			return;
+		}
+		*/
+
 		var collapsed = this.branch.getBoolPref("collapsed");
-		document.getElementById("addon-bar").hidden = collapsed;
+		addonbar.hidden = collapsed;
 
 		// Browser shortcut:
 		var win = gBrowser.contentWindow;
@@ -177,8 +225,8 @@ var barlesque = {
 		var hscroll = (win.scrollMaxX !== 0);
 
 		// Current classes of bottom toolbar:
-		var bar = document.getElementById("browser-bottombox");
-		var classes = bar.className.length ? bar.className.split(" ") : [];
+		var bottombox = document.getElementById("browser-bottombox");
+		var classes = bottombox.className.length ? bottombox.className.split(" ") : [];
 
 		// Remove old barlesque classes, if any:
 		for(var i = 0; i < classes.length; i++)
@@ -209,12 +257,12 @@ var barlesque = {
 		}
 
 		// Assign new set of classes:
-		bar.className = classes.join(" ");
+		bottombox.className = classes.join(" ");
 
 		// Append the collapser:
 		if(!document.getElementById("barlesque-collapser"))
 		{
-			let collapser = bar.appendChild(document.createElement("box"));
+			let collapser = bottombox.appendChild(document.createElement("box"));
 			collapser.id = "barlesque-collapser";
 			collapser.setAttribute("tooltiptext", collapsed ? "Show the add-on bar" : "Collapse the add-on bar");
 
