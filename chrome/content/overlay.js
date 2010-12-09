@@ -81,6 +81,9 @@ var barlesque = {
 			new Function("onViewToolbarCommand = " + methodstr)();
 		}
 
+		// Initialize tab selection event:
+		gBrowser.tabContainer.addEventListener("TabSelect", this.doReset, false);
+
 		// Initialize page load event:
 		window.addEventListener("DOMContentLoaded", this.doReset, false);
 
@@ -89,14 +92,11 @@ var barlesque = {
 		setTimeout(function()
 		{
 			window.addEventListener("resize", self.doReset, false);
+
+			// First round of style change:
+			self.doReset();
 		},
-		250);
-
-		// Initialize tab selection event:
-		gBrowser.tabContainer.addEventListener("TabSelect", this.doReset, false);
-
-		// First round of style change:
-		this.doReset();
+		200);
 	},
 
 	// Startup of preference listener:

@@ -94,7 +94,7 @@ over an existing Firefox window, or by pointing Firefox (through File menu,
 "Open File..." item) to the local URL where the file is stored. Alternatively,
 if you have Firefox 4 and have the menu bar switched off, you can click on
 Firefox button -> Addons -> click on gear icon in the top-right corner of
-screen -> Install from the file.
+screen -> "Install Add-on From File..."
 
 AUTHOR
 ======
