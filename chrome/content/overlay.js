@@ -81,9 +81,16 @@ var barlesque = {
 			new Function("onViewToolbarCommand = " + methodstr)();
 		}
 
-		// Initialize page events:
+		// Initialize page load event:
 		window.addEventListener("DOMContentLoaded", this.doReset, false);
-		window.addEventListener("resize", this.doReset, false);
+
+		// Initialize resize event, deferred to reduce browser startup time:
+		var self = this;
+		setTimeout(function()
+		{
+			window.addEventListener("resize", self.doReset, false);
+		},
+		250);
 
 		// Initialize tab selection event:
 		gBrowser.tabContainer.addEventListener("TabSelect", this.doReset, false);
@@ -160,10 +167,12 @@ var barlesque = {
 	// Wrapper for bottom bar style reset:
 	doReset: function(event)
 	{
-		if(event.type == "DOMContentLoaded")
+		if(event && (event.type == "DOMContentLoaded"))
 		{
 			// Top-level document only:
-			if(event.target == gBrowser.selectedTab.linkedBrowser.contentDocument)
+			var doc = event.target;
+
+			if(doc == gBrowser.selectedTab.linkedBrowser.contentDocument)
 			{
 				if(gFindBar.hidden)
 				{
@@ -185,7 +194,6 @@ var barlesque = {
 	{
 		this.removeCollapser();
 
-		// Count the number of elements in add-on bar/status bar:
 		var addonbar = document.getElementById("addon-bar");
 
 		// Don't proceed if add-on bar is hidden:
@@ -194,34 +202,43 @@ var barlesque = {
 			return;
 		}
 
-		/*
-		var 
-		var count = bar.getElementsByTagName("toolbarbutton").length;
+		// Count the number of visible elements in add-on bar/status bar:
+		var count = 0;
+		var buttons = addonbar.childNodes;
+
+		for(var i = 0, l = buttons.length; i < l; i++)
+		{
+			var button = buttons[i];
+
+			if((button.tagName.toLowerCase() == "toolbarbutton") && (window.getComputedStyle(button).getPropertyValue("display") != "none"))
+			{
+				++count;
+			}
+		}
 
 		var statusbar = document.getElementById("status-bar");
+
 		if(statusbar)
 		{
-			var panels = statusbar.getElementsByTagName("statusbarpanel"), pl = panels.length;
-			count += pl;
+			var panels = statusbar.getElementsByTagName("statusbarpanel");
 
-			for(var i = 0; i < pl; i++)
+			for(i = 0, l = panels.length; i < l; i++)
 			{
 				var panel = panels[i];
 
-				if(panel.className.indexOf("statusbar-resizerpanel") != -1)
+				if((panel.className.indexOf("statusbar-resizerpanel") == -1) && (window.getComputedStyle(panel).getPropertyValue("display") != "none"))
 				{
-					--count;
+					++count;
 				}
 			}
 		}
 
 		// Don't proceed if there are no elements to show:
-		alert(count);
 		if(count === 0)
 		{
+			addonbar.hidden = true;
 			return;
 		}
-		*/
 
 		var collapsed = this.branch.getBoolPref("collapsed");
 		addonbar.hidden = collapsed;
