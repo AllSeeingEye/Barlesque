@@ -158,11 +158,25 @@ var barlesque = {
 	},
 
 	// Wrapper for bottom bar style reset:
-	doReset: function()
+	doReset: function(event)
 	{
-		if(gFindBar.hidden)
+		if(event.type == "DOMContentLoaded")
 		{
-			barlesque.resetStyles();
+			// Top-level document only:
+			if(event.target == gBrowser.selectedTab.linkedBrowser.contentDocument)
+			{
+				if(gFindBar.hidden)
+				{
+					barlesque.resetStyles();
+				}
+			}
+		}
+		else
+		{
+			if(gFindBar.hidden)
+			{
+				barlesque.resetStyles();
+			}
 		}
 	},
 
