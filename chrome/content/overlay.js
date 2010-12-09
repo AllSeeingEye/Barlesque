@@ -79,7 +79,7 @@ var barlesque = {
 		gBrowser.tabContainer.addEventListener("TabSelect", this.doReset, false);
 
 		// First round of style change:
-		this.resetStyles();
+		this.doReset();
 	},
 
 	// Startup of preference listener:
@@ -121,17 +121,11 @@ var barlesque = {
 					break;
 
 				case "shorthide.key":
-					self.rekeyHide();
-					break;
-
 				case "shorthide.mod":
 					self.rekeyHide();
 					break;
 
 				case "shortmove.key":
-					self.rekeyMove();
-					break;
-
 				case "shortmove.mod":
 					self.rekeyMove();
 					break;
@@ -170,18 +164,17 @@ var barlesque = {
 		var collapsed = this.branch.getBoolPref("collapsed");
 		document.getElementById("addon-bar").hidden = collapsed;
 
-		// Couple of shortcuts:
-		var browser = gBrowser.selectedTab.linkedBrowser;
-		var doc = browser.contentDocument;
+		// Browser shortcut:
+		var win = gBrowser.contentWindow;
 
 		// Current rendering mode:
 		var mode = this.branch.getBoolPref("mode");
 
 		// Does currently shown browser have a vertical scroll bar?
-		var vscroll = (browser.clientHeight < doc.documentElement.scrollHeight);
+		var vscroll = (win.scrollMaxY !== 0);
 
 		// Does currently shown browser have a horizontal scroll bar?
-		var hscroll = (doc.documentElement.clientWidth < doc.documentElement.scrollWidth) || (doc.body && (doc.body.offsetWidth < doc.body.scrollWidth) && (doc.location.href != "about:blank"));
+		var hscroll = (win.scrollMaxX !== 0);
 
 		// Current classes of bottom toolbar:
 		var bar = document.getElementById("browser-bottombox");

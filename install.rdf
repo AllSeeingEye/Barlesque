@@ -6,7 +6,7 @@
 		<em:id>barlesque@dmitriy.khudorozhkov</em:id>
 		<em:name>Barlesque</em:name>
 		<em:type>2</em:type>
-		<em:version>1.12</em:version>
+		<em:version>1.13</em:version>
 		<em:creator>Dmitriy Khudorozhkov</em:creator>
 		<em:description>Reclaims the browsing space by transforming Firefox 4's wide grey addon bar into a neat set of buttons.</em:description>
 		<em:homepageURL>https://github.com/AllSeeingEye/Barlesque</em:homepageURL>
