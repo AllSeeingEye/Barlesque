@@ -292,11 +292,6 @@ var barlesque = {
 			classes.push("barlesque-vscroll");
 		}
 
-		if(hscroll)
-		{
-			classes.push("barlesque-hscroll");
-		}
-
 		if(collapsed)
 		{
 			classes.push("barlesque-collapsed");
@@ -316,17 +311,18 @@ var barlesque = {
 			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
 		}
 
-		// Is the notification being shown?
+		// Notification box for currently shown browser:
 		var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
+		var height = 0;
 
 		// NoScript?
 		if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
 		{
-			// Modify the position of bottom box:
-			var height = parseInt(window.getComputedStyle(nb._noscriptBottomStack_).getPropertyValue("height"), 10);
-
-			bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
+			height = nb._noscriptBottomStack_.clientHeight;
 		}
+
+		// Modify the position of bottom box:
+		bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
 	},
 
 	// Completely remove barlesque styles from bottom bar:

@@ -38,11 +38,6 @@
 	left: 0px;
 }
 
-.barlesque-bar.barlesque-hscroll
-{
-	bottom: 15px;
-}
-
 .barlesque-bar statusbar
 {
 	min-height: 6px !important;
