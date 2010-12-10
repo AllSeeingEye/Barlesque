@@ -316,11 +316,13 @@ var barlesque = {
 			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
 		}
 
-		// Modify the position of bottom box if bottom notification is being shown:
+		// Is the notification being shown?
 		var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
 
-		if(nb._noscriptPatched && nb._noscriptBottomStack_)
+		// NoScript?
+		if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
 		{
+			// Modify the position of bottom box:
 			var height = parseInt(window.getComputedStyle(nb._noscriptBottomStack_).getPropertyValue("height"), 10);
 
 			bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
