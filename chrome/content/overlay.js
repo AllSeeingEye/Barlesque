@@ -209,9 +209,10 @@ var barlesque = {
 		for(var i = 0, l = buttons.length; i < l; i++)
 		{
 			var button = buttons[i];
-			var isItem = (button.tagName.toLowerCase() == "toolbaritem");
+			var tag = button.tagName.toLowerCase();
+			var isItem = (tag == "toolbaritem");
 
-			if((isItem || (button.tagName.toLowerCase() == "toolbarbutton")) && (window.getComputedStyle(button).getPropertyValue("display") != "none"))
+			if((isItem || (tag == "toolbarbutton")) && (window.getComputedStyle(button).getPropertyValue("display") != "none"))
 			{
 				++count;
 			}
