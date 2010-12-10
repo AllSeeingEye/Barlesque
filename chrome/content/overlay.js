@@ -71,7 +71,7 @@ var barlesque = {
 			new Function("gFindBar.close = " + methodstr)();
 		}
 
-		// Update the onViewToolbarCommand method:
+		// Update the onViewToolbarCommand method (handler for multiple show/hide items in View -> Toolbars):
 		methodstr = onViewToolbarCommand.toString();
 		if(methodstr.indexOf("barlesque") == -1)
 		{
@@ -169,10 +169,10 @@ var barlesque = {
 	{
 		if(event && (event.type == "DOMContentLoaded"))
 		{
-			// Top-level document only:
+			// Current and top-level document only:
 			var doc = event.target;
 
-			if(doc == gBrowser.selectedTab.linkedBrowser.contentDocument)
+			if(doc == gBrowser.contentDocument)
 			{
 				if(gFindBar.hidden)
 				{
@@ -255,10 +255,10 @@ var barlesque = {
 		var collapsed = this.branch.getBoolPref("collapsed");
 		addonbar.hidden = collapsed;
 
-		// Browser shortcut:
+		// Current window:
 		var win = gBrowser.contentWindow;
 
-		// Current rendering mode:
+		// Current aligning mode:
 		var mode = this.branch.getBoolPref("mode");
 
 		// Does currently shown browser have a vertical scroll bar?
@@ -272,7 +272,7 @@ var barlesque = {
 		var classes = bottombox.className.length ? bottombox.className.split(" ") : [];
 
 		// Remove old barlesque classes, if any:
-		for(i = 0; i < classes.length; i++)
+		for(i = 0, l = classes.length; i < l; i++)
 		{
 			if(classes[i].indexOf("barlesque-") === 0)
 			{	
@@ -340,6 +340,7 @@ var barlesque = {
 	removeCollapser: function()
 	{
 		var collapser = document.getElementById("barlesque-collapser");
+
 		if(collapser)
 		{
 			collapser.parentNode.removeChild(collapser);
@@ -351,6 +352,10 @@ var barlesque = {
 	// - for add-on bar hiding/showing:
 	rekeyHide: function()
 	{
+		// This and the following function uses a hack to make
+		// Mozilla understand new shortcuts without app restart
+		// by creating a new keyset element.
+
 		var win = document.getElementById("main-window");
 		var keyset = document.getElementById("barlesque-shorthide-keyset");
 
@@ -377,7 +382,6 @@ var barlesque = {
 	rekeyMove: function()
 	{
 		var win = document.getElementById("main-window");
-
 		var keyset = document.getElementById("barlesque-shortmove-keyset");
 
 		if(keyset)
