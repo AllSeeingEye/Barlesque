@@ -209,10 +209,21 @@ var barlesque = {
 		for(var i = 0, l = buttons.length; i < l; i++)
 		{
 			var button = buttons[i];
+			var isItem = (button.tagName.toLowerCase() == "toolbaritem");
 
-			if((button.tagName.toLowerCase() == "toolbarbutton") && (window.getComputedStyle(button).getPropertyValue("display") != "none"))
+			if((isItem || (button.tagName.toLowerCase() == "toolbarbutton")) && (window.getComputedStyle(button).getPropertyValue("display") != "none"))
 			{
 				++count;
+			}
+
+			// Meanwhile, check if any toolbaritem has width attribute. Replace it with min-width:
+			if(isItem)
+			{
+				if(button.hasAttribute("width"))
+				{
+					button.setAttribute("min-width", button.getAttribute("width"));
+					button.removeAttribute("width");
+				}
 			}
 		}
 
