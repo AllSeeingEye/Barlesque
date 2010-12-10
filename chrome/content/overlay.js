@@ -53,32 +53,49 @@ var barlesque = {
 		this.rekeyMove();
 
 		// Update the gFindBar open and close methods:
-		var methodstr = gFindBar.open.toString();
-		if(methodstr.indexOf("barlesque") == -1)
+		var methodstr = "";
+
+		if(gFindBar)
 		{
-			methodstr = methodstr.substr(methodstr.indexOf("{") + 1);
-			methodstr = "function(aMode) { document.getElementById('addon-bar').hidden = true; if(barlesque) { window.removeEventListener('resize', barlesque.doReset, false); barlesque.removeStyles(); } " + methodstr;
+			if(gFindBar.open)
+			{
+				methodstr = gFindBar.open.toString();
 
-			new Function("gFindBar.open = " + methodstr)();
-		}
+				if(methodstr.indexOf("barlesque") == -1)
+				{
+					methodstr = methodstr.substr(methodstr.indexOf("{") + 1);
+					methodstr = "function(aMode) { document.getElementById('addon-bar').hidden = true; if(barlesque) { window.removeEventListener('resize', barlesque.doReset, false); barlesque.removeStyles(); } " + methodstr;
 
-		methodstr = gFindBar.close.toString();
-		if(methodstr.indexOf("barlesque") == -1)
-		{
-			methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
-			methodstr += "document.getElementById('addon-bar').hidden = false; if(barlesque) { barlesque.resetStyles(); window.addEventListener('resize', barlesque.doReset, false); } }";
+					new Function("gFindBar.open = " + methodstr)();
+				}
+			}
 
-			new Function("gFindBar.close = " + methodstr)();
+			if(gFindBar.close)
+			{
+				methodstr = gFindBar.close.toString();
+
+				if(methodstr.indexOf("barlesque") == -1)
+				{
+					methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
+					methodstr += "document.getElementById('addon-bar').hidden = false; if(barlesque) { barlesque.resetStyles(); window.addEventListener('resize', barlesque.doReset, false); } }";
+
+					new Function("gFindBar.close = " + methodstr)();
+				}
+			}
 		}
 
 		// Update the onViewToolbarCommand method (handler for multiple show/hide items in View -> Toolbars):
-		methodstr = onViewToolbarCommand.toString();
-		if(methodstr.indexOf("barlesque") == -1)
+		if(onViewToolbarCommand)
 		{
-			methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
-			methodstr += "if(toolbarId == 'addon-bar') { if(barlesque) { barlesque.resetStyles(); } } }";
+			methodstr = onViewToolbarCommand.toString();
 
-			new Function("onViewToolbarCommand = " + methodstr)();
+			if(methodstr.indexOf("barlesque") == -1)
+			{
+				methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
+				methodstr += "if(toolbarId == 'addon-bar') { if(barlesque) { barlesque.resetStyles(); } } }";
+
+				new Function("onViewToolbarCommand = " + methodstr)();
+			}
 		}
 
 		// Initialize tab selection event:
@@ -92,6 +109,7 @@ var barlesque = {
 
 		// Initialize resize event, deferred to reduce browser startup time:
 		var self = this;
+
 		setTimeout(function()
 		{
 			window.addEventListener("resize", self.doReset, false);
@@ -300,17 +318,6 @@ var barlesque = {
 		// Assign new set of classes:
 		bottombox.className = classes.join(" ");
 
-		// Append the collapser:
-		if(!document.getElementById("barlesque-collapser"))
-		{
-			var collapser = bottombox.appendChild(document.createElement("box"));
-			collapser.id = "barlesque-collapser";
-			collapser.setAttribute("tooltiptext", collapsed ? "Show the add-on bar" : "Collapse the add-on bar");
-
-			// Attach event handler:
-			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
-		}
-
 		// Notification box for currently shown browser:
 		var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
 		var height = 0;
@@ -323,6 +330,17 @@ var barlesque = {
 
 		// Modify the position of bottom box:
 		bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
+
+		// Append the collapser:
+		if(!document.getElementById("barlesque-collapser"))
+		{
+			var collapser = bottombox.appendChild(document.createElement("box"));
+			collapser.id = "barlesque-collapser";
+			collapser.setAttribute("tooltiptext", collapsed ? "Show the add-on bar" : "Collapse the add-on bar");
+
+			// Attach event handler:
+			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
+		}
 	},
 
 	// Completely remove barlesque styles from bottom bar:

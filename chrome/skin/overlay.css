@@ -77,3 +77,15 @@
 	border-right: 1px solid rgb(168, 168, 168);
 	-moz-border-radius-topright: 3px;
 }
+
+/* Removing the add-on bar close button and fixed spacer that landed in Firefox build 20101209122918: */
+
+#addonbar-closebutton
+{
+	display:none !important;
+}
+
+#addonbar-spring
+{
+	display:none !important;
+}
