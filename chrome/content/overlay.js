@@ -87,6 +87,9 @@ var barlesque = {
 		// Initialize page load event:
 		window.addEventListener("DOMContentLoaded", this.doReset, false);
 
+		// Browser notification event:
+		window.addEventListener("AlertActive", this.doReset, false);
+
 		// Initialize resize event, deferred to reduce browser startup time:
 		var self = this;
 		setTimeout(function()
@@ -189,7 +192,7 @@ var barlesque = {
 		}
 	},
 
-	// Method that actually changes addon bar's class:
+	// Method that actually affects the addon bar:
 	resetStyles: function()
 	{
 		this.removeCollapser();
@@ -258,9 +261,6 @@ var barlesque = {
 		// Current window:
 		var win = gBrowser.contentWindow;
 
-		// Current aligning mode:
-		var mode = this.branch.getBoolPref("mode");
-
 		// Does currently shown browser have a vertical scroll bar?
 		var vscroll = (win.scrollMaxY !== 0);
 
@@ -272,13 +272,16 @@ var barlesque = {
 		var classes = bottombox.className.length ? bottombox.className.split(" ") : [];
 
 		// Remove old barlesque classes, if any:
-		for(i = 0, l = classes.length; i < l; i++)
+		for(i = 0; i < classes.length; i++)
 		{
 			if(classes[i].indexOf("barlesque-") === 0)
 			{	
 				classes.splice(i--, 1);
 			}
 		}
+
+		// Current aligning mode:
+		var mode = this.branch.getBoolPref("mode");
 
 		// New classes:
 		classes.push("barlesque-bar");
@@ -311,6 +314,16 @@ var barlesque = {
 
 			// Attach event handler:
 			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
+		}
+
+		// Modify the position of bottom box if bottom notification is being shown:
+		var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
+
+		if(nb._noscriptPatched && nb._noscriptBottomStack_)
+		{
+			var height = parseInt(window.getComputedStyle(nb._noscriptBottomStack_).getPropertyValue("height"), 10);
+
+			bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
 		}
 	},
 
