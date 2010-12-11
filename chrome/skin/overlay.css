@@ -3,18 +3,22 @@
 	position: fixed;
 	bottom: 0px;
 	background-color: rgba(192, 192, 192, 0.8);
-	border: 1px solid rgb(192, 192, 192);
+	background-image: none;
+	border-top: 1px solid rgb(192, 192, 192);
 }
 
-.barlesque-bar.barlesque-collapsed
+.barlesque-bar #addon-bar
 {
-	border: 0px;
+	-moz-appearance: none;
+	border-top: 0px;
+	border-bottom: 0px;
 }
 
 .barlesque-bar.barlesque-right
 {
 	right: 1px;
 	-moz-border-radius-topleft: 3px;
+	border-left: 1px solid rgb(192, 192, 192);
 }
 
 .barlesque-bar.barlesque-right.barlesque-collapsed
@@ -31,11 +35,17 @@
 {
 	left: 1px;
 	-moz-border-radius-topright: 3px;
+	border-right: 1px solid rgb(192, 192, 192);
 }
 
 .barlesque-bar.barlesque-left.barlesque-collapsed
 {
 	left: 0px;
+}
+
+.barlesque-bar.barlesque-collapsed
+{
+	border: 0px;
 }
 
 .barlesque-bar statusbar
