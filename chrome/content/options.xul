@@ -52,23 +52,29 @@
 
 		<separator class="thin" />
 
-		<hbox>
-			<label class="barlesque-options-label" value="&barlesque.options.mode;:" />
-			<radiogroup orient="horizontal" preference="barlesque_pref_mode">
-				<radio label="&barlesque.options.left;" value="true" />
-				<radio label="&barlesque.options.right;" value="false" />
-			</radiogroup>
-		</hbox>
-
-		<separator class="thin" />
-
-		<hbox>
-			<label class="barlesque-options-label" value="&barlesque.options.findmode;:" />
-			<radiogroup orient="horizontal" preference="barlesque_pref_findmode">
-				<radio label="&barlesque.options.overlay;" value="true" />
-				<radio label="&barlesque.options.hide;" value="false" />
-			</radiogroup>
-		</hbox>
+		<grid>
+			<columns>
+				<column flex="1"/>
+				<column flex="1"/>
+				<column flex="1"/>
+			</columns>
+			<rows>
+				<radiogroup orient="horizontal" preference="barlesque_pref_mode" style="display: -moz-grid-group;">
+					<row>
+						<label class="barlesque-options-label" value="&barlesque.options.mode;:" />
+						<radio label="&barlesque.options.left;" value="true" />
+						<radio label="&barlesque.options.right;" value="false" />
+					</row>
+				</radiogroup>
+				<radiogroup orient="horizontal" preference="barlesque_pref_findmode" style="display: -moz-grid-group;">
+					<row>
+						<label class="barlesque-options-label" value="&barlesque.options.findmode;:" />
+						<radio label="&barlesque.options.overlay;" value="true" />
+						<radio label="&barlesque.options.hide;" value="false" />
+					</row>
+				</radiogroup>
+			</rows>
+		</grid>
 
 		<separator class="thin" />
 
