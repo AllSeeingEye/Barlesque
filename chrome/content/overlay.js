@@ -155,6 +155,7 @@ var barlesque = {
 			switch(name)
 			{
 				case "collapser":
+				case "findmode":
 				case "mode":
 					self.resetStyles();
 					break;
@@ -274,7 +275,7 @@ var barlesque = {
 			return;
 		}
 
-		var collapsed = this.branch.getBoolPref("collapsed");
+		var collapsed = this.branch.getBoolPref("collapsed") || (!gFindBar.hidden && !this.branch.getBoolPref("findmode"));
 		addonbar.hidden = collapsed;
 
 		// Current window:
@@ -397,7 +398,14 @@ var barlesque = {
 			{
 				if(this.branch.getBoolPref("findmode"))
 				{
-					addonbar.appendChild(collapser);
+					if(collapsed)
+					{
+						// Create a special container for collapser icon.
+					}
+					else
+					{
+						addonbar.appendChild(collapser);
+					}
 
 					// Here we must check if add-on bar is hidden.
 				}
