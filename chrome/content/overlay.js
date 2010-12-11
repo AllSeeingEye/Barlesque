@@ -156,6 +156,7 @@ var barlesque = {
 		{
 			switch(name)
 			{
+				case "collapser":
 				case "mode":
 					self.resetStyles();
 					break;
@@ -334,7 +335,7 @@ var barlesque = {
 		bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
 
 		// Append the collapser:
-		if(!document.getElementById("barlesque-collapser"))
+		if(this.branch.getBoolPref("collapser") && !document.getElementById("barlesque-collapser"))
 		{
 			var collapser = bottombox.appendChild(document.createElement("box"));
 			collapser.id = "barlesque-collapser";
