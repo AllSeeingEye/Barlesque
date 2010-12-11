@@ -64,8 +64,7 @@ var barlesque = {
 				if(methodstr.indexOf("barlesque") == -1)
 				{
 					methodstr = methodstr.substr(methodstr.indexOf("{") + 1);
-					//methodstr = "function(aMode) { document.getElementById('addon-bar').hidden = true; if(barlesque) { window.removeEventListener('resize', barlesque.doReset, false); barlesque.removeStyles(); } " + methodstr;
-					methodstr = "function(aMode) { if(barlesque) { barlesque.resetStyles(true); } " + methodstr;
+					methodstr = "function(aMode) { if(barlesque) { if(barlesque.branch.getBoolPref('findmode')) { barlesque.resetStyles(true); } else { document.getElementById('addon-bar').hidden = true; window.removeEventListener('resize', barlesque.doReset, false); barlesque.removeStyles(); } } " + methodstr;
 
 					new Function("gFindBar.open = " + methodstr)();
 				}
@@ -78,8 +77,7 @@ var barlesque = {
 				if(methodstr.indexOf("barlesque") == -1)
 				{
 					methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
-					//methodstr += "document.getElementById('addon-bar').hidden = false; if(barlesque) { barlesque.resetStyles(); window.addEventListener('resize', barlesque.doReset, false); } }";
-					methodstr += " if(barlesque) { barlesque.resetStyles(); } }";
+					methodstr += " if(barlesque) { if(barlesque.branch.getBoolPref('findmode')) { barlesque.resetStyles(); } else { document.getElementById('addon-bar').hidden = false; barlesque.resetStyles(); window.addEventListener('resize', barlesque.doReset, false); } } }";
 
 					new Function("gFindBar.close = " + methodstr)();
 				}
@@ -397,9 +395,12 @@ var barlesque = {
 			}
 			else
 			{
-				addonbar.appendChild(collapser);
+				if(this.branch.getBoolPref("findmode"))
+				{
+					addonbar.appendChild(collapser);
 
-				// Here we must check if add-on bar is hidden.
+					// Here we must check if add-on bar is hidden.
+				}
 			}
 
 			// Attach event handler:
