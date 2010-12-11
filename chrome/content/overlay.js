@@ -196,18 +196,18 @@ var barlesque = {
 
 			if(doc == gBrowser.contentDocument)
 			{
-				//if(gFindBar.hidden)
-				//{
+				if(gFindBar.hidden || barlesque.branch.getBoolPref("findmode"))
+				{
 					barlesque.resetStyles();
-				//}
+				}
 			}
 		}
 		else
 		{
-			//if(gFindBar.hidden)
-			//{
+			if(gFindBar.hidden || barlesque.branch.getBoolPref("findmode"))
+			{
 				barlesque.resetStyles();
-			//}
+			}
 		}
 	},
 
