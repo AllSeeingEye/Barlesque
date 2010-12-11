@@ -55,6 +55,8 @@ var barlesque = {
 		// Update the gFindBar open and close methods:
 		var methodstr = "";
 
+		// position: fixed; bottom: 0px; right: 0px; background: none; border: 0px;
+
 		if(gFindBar)
 		{
 			if(gFindBar.open)

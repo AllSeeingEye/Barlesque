@@ -34,6 +34,8 @@
 		<preferences>
 			<preference id="barlesque_pref_mode"          name="extensions.barlesque.mode"          type="bool" />
 			<preference id="barlesque_pref_persist"       name="extensions.barlesque.persist"       type="bool" />
+			<preference id="barlesque_pref_collapser"     name="extensions.barlesque.collapser"     type="bool" />
+			<preference id="barlesque_pref_findmode"      name="extensions.barlesque.findmode"      type="bool" />
 			<preference id="barlesque_pref_shorthide"     name="extensions.barlesque.shorthide"     type="bool" />
 			<preference id="barlesque_pref_shorthide_key" name="extensions.barlesque.shorthide.key" type="string" />
 			<preference id="barlesque_pref_shorthide_mod" name="extensions.barlesque.shorthide.mod" type="string" />
@@ -42,11 +44,29 @@
 			<preference id="barlesque_pref_shortmove_mod" name="extensions.barlesque.shortmove.mod" type="string" />
 		</preferences>
 
+		<checkbox label="&barlesque.options.collapser;?" preference="barlesque_pref_collapser" />
+
+		<separator class="thin" />
+
+		<checkbox label="&barlesque.options.persist;?" preference="barlesque_pref_persist" />
+
+		<separator class="thin" />
+
 		<hbox>
 			<label class="barlesque-options-label" value="&barlesque.options.mode;:" />
 			<radiogroup orient="horizontal" preference="barlesque_pref_mode">
 				<radio label="&barlesque.options.left;" value="true" />
 				<radio label="&barlesque.options.right;" value="false" />
+			</radiogroup>
+		</hbox>
+
+		<separator class="thin" />
+
+		<hbox>
+			<label class="barlesque-options-label" value="&barlesque.options.findmode;:" />
+			<radiogroup orient="horizontal" preference="barlesque_pref_findmode">
+				<radio label="&barlesque.options.overlay;" value="true" />
+				<radio label="&barlesque.options.hide;" value="false" />
 			</radiogroup>
 		</hbox>
 
@@ -85,10 +105,6 @@
 				<textbox preference="barlesque_pref_shortmove_key" maxlength="1" size="1" />
 			</hbox>
 		</vbox>
-
-		<separator class="thin" />
-
-		<checkbox label="&barlesque.options.persist;?" preference="barlesque_pref_persist" />
 
 	</prefpane>
 
