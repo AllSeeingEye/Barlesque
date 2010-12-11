@@ -55,8 +55,6 @@ var barlesque = {
 		// Update the gFindBar open and close methods:
 		var methodstr = "";
 
-		// position: fixed; bottom: 0px; right: 0px; background: none; border: 0px;
-
 		if(gFindBar)
 		{
 			if(gFindBar.open)
@@ -66,7 +64,8 @@ var barlesque = {
 				if(methodstr.indexOf("barlesque") == -1)
 				{
 					methodstr = methodstr.substr(methodstr.indexOf("{") + 1);
-					methodstr = "function(aMode) { document.getElementById('addon-bar').hidden = true; if(barlesque) { window.removeEventListener('resize', barlesque.doReset, false); barlesque.removeStyles(); } " + methodstr;
+					//methodstr = "function(aMode) { document.getElementById('addon-bar').hidden = true; if(barlesque) { window.removeEventListener('resize', barlesque.doReset, false); barlesque.removeStyles(); } " + methodstr;
+					methodstr = "function(aMode) { if(barlesque) { barlesque.resetStyles(true); } " + methodstr;
 
 					new Function("gFindBar.open = " + methodstr)();
 				}
@@ -79,7 +78,8 @@ var barlesque = {
 				if(methodstr.indexOf("barlesque") == -1)
 				{
 					methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
-					methodstr += "document.getElementById('addon-bar').hidden = false; if(barlesque) { barlesque.resetStyles(); window.addEventListener('resize', barlesque.doReset, false); } }";
+					//methodstr += "document.getElementById('addon-bar').hidden = false; if(barlesque) { barlesque.resetStyles(); window.addEventListener('resize', barlesque.doReset, false); } }";
+					methodstr += " if(barlesque) { barlesque.resetStyles(); } }";
 
 					new Function("gFindBar.close = " + methodstr)();
 				}
@@ -198,23 +198,23 @@ var barlesque = {
 
 			if(doc == gBrowser.contentDocument)
 			{
-				if(gFindBar.hidden)
-				{
+				//if(gFindBar.hidden)
+				//{
 					barlesque.resetStyles();
-				}
+				//}
 			}
 		}
 		else
 		{
-			if(gFindBar.hidden)
-			{
+			//if(gFindBar.hidden)
+			//{
 				barlesque.resetStyles();
-			}
+			//}
 		}
 	},
 
 	// Method that actually affects the addon bar:
-	resetStyles: function()
+	resetStyles: function(findbarShowing)
 	{
 		this.removeCollapser();
 
@@ -288,58 +288,119 @@ var barlesque = {
 		// Does currently shown browser have a horizontal scroll bar?
 		var hscroll = (win.scrollMaxX !== 0);
 
-		// Current classes of bottom toolbar:
+		// Current classes of add-on bar and bottom box:
 		var bottombox = document.getElementById("browser-bottombox");
-		var classes = bottombox.className.length ? bottombox.className.split(" ") : [];
+		var abclasses = addonbar.className.length ? addonbar.className.split(" ") : [];
+		var bbclasses = bottombox.className.length ? bottombox.className.split(" ") : [];
 
 		// Remove old barlesque classes, if any:
-		for(i = 0; i < classes.length; i++)
+		for(i = 0; i < abclasses.length; i++)
 		{
-			if(classes[i].indexOf("barlesque-") === 0)
+			if(abclasses[i].indexOf("barlesque-") === 0)
 			{	
-				classes.splice(i--, 1);
+				abclasses.splice(i--, 1);
 			}
 		}
 
-		// Current aligning mode:
-		var mode = this.branch.getBoolPref("mode");
-
-		// New classes:
-		classes.push("barlesque-bar");
-		classes.push("barlesque-" + (mode ? "left" : "right"));
-
-		if(!mode && vscroll)
+		for(i = 0; i < bbclasses.length; i++)
 		{
-			classes.push("barlesque-vscroll");
+			if(bbclasses[i].indexOf("barlesque-") === 0)
+			{	
+				bbclasses.splice(i--, 1);
+			}
 		}
 
-		if(collapsed)
+		if(gFindBar.hidden && !findbarShowing)
 		{
-			classes.push("barlesque-collapsed");
+			// Current aligning mode:
+			var mode = this.branch.getBoolPref("mode");
+
+			// New classes:
+			bbclasses.push("barlesque-bar");
+			bbclasses.push("barlesque-" + (mode ? "left" : "right"));
+
+			if(!mode && vscroll)
+			{
+				bbclasses.push("barlesque-vscroll");
+			}
+
+			if(collapsed)
+			{
+				bbclasses.push("barlesque-collapsed");
+			}
 		}
 
 		// Assign new set of classes:
-		bottombox.className = classes.join(" ");
-
-		// Notification box for currently shown browser:
-		var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
-		var height = 0;
-
-		// NoScript?
-		if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
+		if(bbclasses.length)
 		{
-			height = nb._noscriptBottomStack_.clientHeight;
+			bottombox.className = bbclasses.join(" ");
+		}
+		else
+		{
+			bottombox.removeAttribute("class");
 		}
 
-		// Modify the position of bottom box:
-		bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
+		// Overlay the add-on bar over the find bar if appropriate option is selected:
+		if((!gFindBar.hidden || findbarShowing) && this.branch.getBoolPref("findmode"))
+		{
+			abclasses.push("barlesque-bar");
+			abclasses.push("barlesque-right");
+
+			if(vscroll)
+			{
+				abclasses.push("barlesque-vscroll");
+			}
+
+			if(collapsed)
+			{
+				abclasses.push("barlesque-collapsed");
+			}
+		}
+
+		if(abclasses.length)
+		{
+			addonbar.className = abclasses.join(" ");
+		}
+		else
+		{
+			addonbar.removeAttribute("class");
+		}
+
+		// position: fixed; bottom: 0px; right: 0px; background: none; border: 0px;
+
+		if(gFindBar.hidden)
+		{
+			// Notification box for currently shown browser:
+			var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
+			var height = 0;
+
+			// NoScript?
+			if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
+			{
+				height = nb._noscriptBottomStack_.clientHeight;
+			}
+
+			// Modify the position of bottom box:
+			bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
+		}
 
 		// Append the collapser:
 		if(this.branch.getBoolPref("collapser") && !document.getElementById("barlesque-collapser"))
 		{
-			var collapser = bottombox.appendChild(document.createElement("box"));
+			var collapser = document.createElement("box");
 			collapser.id = "barlesque-collapser";
 			collapser.setAttribute("tooltiptext", collapsed ? "Show the add-on bar" : "Collapse the add-on bar");
+
+			if(gFindBar.hidden)
+			{
+				bottombox.appendChild(collapser);
+			}
+			else
+			{
+				addonbar.appendChild(collapser);
+
+				// Here we must check if add-on bar is hidden.
+			}
 
 			// Attach event handler:
 			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);

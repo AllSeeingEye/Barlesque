@@ -40,7 +40,7 @@
 
 .barlesque-bar statusbar
 {
-	min-height: 6px !important;
+	min-height: 0px !important;
 }
 
 #barlesque-collapser
