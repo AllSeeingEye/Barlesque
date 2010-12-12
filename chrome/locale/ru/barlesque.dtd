@@ -1,9 +1,13 @@
 ﻿<!ENTITY barlesque.options.title         "Опции расширения Barlesque">
+<!ENTITY barlesque.options.collapser     "Показывать иконку сворачивания тулбара для иконок">
+<!ENTITY barlesque.options.persist       "Запоминать состояние тулбара для иконок расширений">
+<!ENTITY barlesque.options.findmode      "Состояние тулбара для иконок при показе тулбара поиска">
+<!ENTITY barlesque.options.overlay       "поверх">
+<!ENTITY barlesque.options.hide          "спрятан">
 <!ENTITY barlesque.options.mode          "К какой стороне прикреплять тулбар для иконок">
 <!ENTITY barlesque.options.left          "к левой">
 <!ENTITY barlesque.options.right         "к правой">
-<!ENTITY barlesque.options.persist       "Запоминать состояние тулбара для иконок расширений">
 <!ENTITY barlesque.options.shortcut.hide "Включить акселератор для сокрытия/показа тулбара для иконок">
 <!ENTITY barlesque.options.shortcut.move "Включить акселератор для изменения стороны показа тулбара для иконок">
 <!ENTITY barlesque.options.modifier      "Модификатор">
-<!ENTITY barlesque.options.key           "Символ">
+<!ENTITY barlesque.options.key           "Клавиша">

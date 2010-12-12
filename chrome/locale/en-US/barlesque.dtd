@@ -4,7 +4,7 @@
 <!ENTITY barlesque.options.findmode      "State of add-on bar when find bar is shown">
 <!ENTITY barlesque.options.overlay       "overlaid">
 <!ENTITY barlesque.options.hide          "hidden">
-<!ENTITY barlesque.options.mode          "Alignment of add-on bar">
+<!ENTITY barlesque.options.mode          "Side the add-on bar is aligned to">
 <!ENTITY barlesque.options.left          "bottom-left">
 <!ENTITY barlesque.options.right         "bottom-right">
 <!ENTITY barlesque.options.shortcut.hide "Switch on the shortcut to show/hide the add-on bar">

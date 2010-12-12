@@ -50,23 +50,23 @@
 
 		<checkbox label="&barlesque.options.persist;?" preference="barlesque_pref_persist" />
 
-		<separator class="thin" />
+		<separator />
 
-		<grid>
+		<grid id="barlesque-settings-grid">
 			<columns>
 				<column flex="1"/>
 				<column flex="1"/>
 				<column flex="1"/>
 			</columns>
 			<rows>
-				<radiogroup orient="horizontal" preference="barlesque_pref_mode" style="display: -moz-grid-group;">
+				<radiogroup orient="horizontal" preference="barlesque_pref_mode" class="barlesque-grid-radiogroup">
 					<row>
 						<label class="barlesque-options-label" value="&barlesque.options.mode;:" />
 						<radio label="&barlesque.options.left;" value="true" />
 						<radio label="&barlesque.options.right;" value="false" />
 					</row>
 				</radiogroup>
-				<radiogroup orient="horizontal" preference="barlesque_pref_findmode" style="display: -moz-grid-group;">
+				<radiogroup orient="horizontal" preference="barlesque_pref_findmode" class="barlesque-grid-radiogroup">
 					<row>
 						<label class="barlesque-options-label" value="&barlesque.options.findmode;:" />
 						<radio label="&barlesque.options.overlay;" value="true" />
@@ -76,7 +76,7 @@
 			</rows>
 		</grid>
 
-		<separator class="thin" />
+		<separator />
 
 		<vbox>
 			<checkbox id="barlesque-check-shorthide" label="&barlesque.options.shortcut.hide;?" preference="barlesque_pref_shorthide" oncommand="barlesque.options.oncheck('barlesque-shorthide-container', this.checked);" />

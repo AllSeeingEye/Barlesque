@@ -2,3 +2,13 @@
 {
 	margin-top: 5px;
 }
+
+#barlesque-settings-grid
+{
+	margin-left: 2px;
+}
+
+.barlesque-grid-radiogroup
+{
+	display: -moz-grid-group;
+}
