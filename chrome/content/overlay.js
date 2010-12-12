@@ -32,6 +32,9 @@ var barlesque = {
 	// Preference listener:
 	prefListener: null,
 
+	// Auto-collapsing timer:
+	timer: null,
+
 	// Initialization:
 	init: function()
 	{
