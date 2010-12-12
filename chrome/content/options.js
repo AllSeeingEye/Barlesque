@@ -30,6 +30,19 @@ barlesque.options = {
 				shortmove.childNodes[i].setAttribute("disabled", true);
 			}
 		}
+
+		// Disable the timed collapse section based on current state of preferences:
+		var timed = document.getElementById("barlesque-timed-container");
+		var timed_disabled = !branch.getBoolPref("timed");
+
+		if(timed_disabled)
+		{
+			for(var i = 0; i < timed.childNodes.length; i++)
+			{
+				timed.childNodes[i].setAttribute("disabled", true);
+			}
+		}
+
 	},
 
 	oncheck: function(containerId, value)

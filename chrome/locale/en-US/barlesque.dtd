@@ -11,3 +11,6 @@
 <!ENTITY barlesque.options.shortcut.move "Switch on the shortcut to re-align the add-on bar">
 <!ENTITY barlesque.options.modifier      "Modifier">
 <!ENTITY barlesque.options.key           "Key">
+<!ENTITY barlesque.options.timed         "Allow timed collapse of the add-on bar">
+<!ENTITY barlesque.options.timer         "# of seconds for add-on bar to collapse">
+<!ENTITY barlesque.options.timerfull     "This is the number of seconds between user's last interaction with add-on bar and the moment the add-on collapses">

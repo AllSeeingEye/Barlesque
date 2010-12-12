@@ -42,6 +42,8 @@
 			<preference id="barlesque_pref_shortmove"     name="extensions.barlesque.shortmove"     type="bool" />
 			<preference id="barlesque_pref_shortmove_key" name="extensions.barlesque.shortmove.key" type="string" />
 			<preference id="barlesque_pref_shortmove_mod" name="extensions.barlesque.shortmove.mod" type="string" />
+			<preference id="barlesque_pref_timed"         name="extensions.barlesque.timed"         type="bool" />
+			<preference id="barlesque_pref_timer"         name="extensions.barlesque.timer"         type="int" />
 		</preferences>
 
 		<checkbox label="&barlesque.options.collapser;?" preference="barlesque_pref_collapser" />
@@ -109,6 +111,16 @@
 				</menulist>
 				<label class="barlesque-options-label" value="&barlesque.options.key;:" />
 				<textbox preference="barlesque_pref_shortmove_key" maxlength="1" size="1" />
+			</hbox>
+		</vbox>
+
+		<separator />
+
+		<vbox>
+			<checkbox id="barlesque-check-timed" label="&barlesque.options.timed;?" preference="barlesque_pref_timed" oncommand="barlesque.options.oncheck('barlesque-timed-container', this.checked);" />
+			<hbox id="barlesque-timed-container">
+				<label class="barlesque-options-label" value="&barlesque.options.timer;:" tooltiptext="&barlesque.options.timerfull;:" />
+				<textbox preference="barlesque_pref_timer" size="3" type="number" />
 			</hbox>
 		</vbox>
 
