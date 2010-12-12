@@ -275,15 +275,16 @@ var barlesque = {
 			return;
 		}
 
-		// Download Statusbar: see if it exists and if it was already moved inside the add-on bar.
-		var dls = document.getElementById("downbarHolder");
-		if(dls && (dls.parentNode != addonbar))
-		{
-			addonbar.appendChild(dls);
-		}
-
 		var collapsed = this.branch.getBoolPref("collapsed") || (!gFindBar.hidden && !this.branch.getBoolPref("findmode"));
 		addonbar.hidden = collapsed;
+
+		// Download Statusbar: see if it exists.
+		var dls = document.getElementById("downbarHolder");
+
+		if(dls)
+		{
+			dls.hidden = collapsed;
+		}
 
 		// Current window:
 		var win = gBrowser.contentWindow;
