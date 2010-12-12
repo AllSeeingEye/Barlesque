@@ -12,3 +12,9 @@
 {
 	display: -moz-grid-group;
 }
+
+#barlesque-timed-container .barlesque-options-label
+{
+	border-bottom: 1px dashed grey;
+	cursor: help;
+}
