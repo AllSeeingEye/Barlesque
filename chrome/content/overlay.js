@@ -55,49 +55,60 @@ var barlesque = {
 		this.rekeyHide();
 		this.rekeyMove();
 
-		// Update the gFindBar open and close methods:
-		var methodstr = "";
-
 		if(gFindBar)
 		{
 			if(gFindBar.open)
 			{
-				methodstr = gFindBar.open.toString();
-
-				if(methodstr.indexOf("barlesque") == -1)
+				let _oldOpen = gFindBar.open;
+				gFindBar.open = function()
 				{
-					methodstr = methodstr.substr(methodstr.indexOf("{") + 1);
-					methodstr = "function(aMode) { if(barlesque) { if(barlesque.branch.getBoolPref('findmode')) { barlesque.resetStyles(true); } else { document.getElementById('addon-bar').hidden = true; window.removeEventListener('resize', barlesque.doReset, false); barlesque.removeStyles(); } } " + methodstr;
+					try
+					{
+						barlesque.openFindBar();
+					}
+					catch(ex)
+					{
+						Components.utils.reportError(ex);
+					}
 
-					new Function("gFindBar.open = " + methodstr)();
-				}
+					return _oldOpen.apply(gFindBar, arguments);
+				};
 			}
 
 			if(gFindBar.close)
 			{
-				methodstr = gFindBar.close.toString();
-
-				if(methodstr.indexOf("barlesque") == -1)
+				let _oldClose = gFindBar.close;
+				gFindBar.close = function()
 				{
-					methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
-					methodstr += " if(barlesque) { if(barlesque.branch.getBoolPref('findmode')) { barlesque.resetStyles(); } else { document.getElementById('addon-bar').hidden = false; barlesque.resetStyles(); window.addEventListener('resize', barlesque.doReset, false); } } }";
-
-					new Function("gFindBar.close = " + methodstr)();
-				}
+					try
+					{
+						barlesque.closeFindBar();
+					}
+					catch(ex)
+					{
+						Components.utils.reportError(ex);
+					}
+					return _oldClose.apply(gFindBar, arguments);
+				};
 			}
 		}
 
 		// Update the onViewToolbarCommand method (handler for multiple show/hide items in View -> Toolbars):
 		if(onViewToolbarCommand)
 		{
-			methodstr = onViewToolbarCommand.toString();
-
-			if(methodstr.indexOf("barlesque") == -1)
+			let _oldViewToolbarCommand=  onViewToolbarCommand;
+			onViewToolbarCommand = function()
 			{
-				methodstr = methodstr.substring(0, methodstr.lastIndexOf("}") - 1);
-				methodstr += "if(toolbarId == 'addon-bar') { if(barlesque) { barlesque.resetStyles(); } } }";
-
-				new Function("onViewToolbarCommand = " + methodstr)();
+				let rv = _oldViewToolbarCommand.apply(null, arguments);
+				try
+				{
+					barlesque.onViewToolbarCommand.apply(barlesque, arguments);
+				}
+				catch(ex)
+				{
+					Components.utils.reportError(ex);
+				}
+				return rv;
 			}
 		}
 
@@ -194,6 +205,44 @@ var barlesque = {
 		window.removeEventListener("resize", this.doReset, false);
 
 		gBrowser.tabContainer.removeEventListener("TabSelect", this.doReset, false);
+	},
+
+	openFindBar: function()
+	{
+		if(this.branch.getBoolPref('findmode'))
+		{
+			this.resetStyles(true);
+		}
+		else
+		{
+			document.getElementById('addon-bar').hidden = true;
+			window.removeEventListener('resize', barlesque.doReset, false);
+			this.removeStyles();
+		}
+	},
+
+	closeFindBar: function()
+	{
+		if(this.branch.getBoolPref('findmode'))
+		{
+			this.resetStyles();
+		}
+		else
+		{
+			document.getElementById('addon-bar').hidden = false;
+			window.addEventListener('resize', barlesque.doReset, false);
+			this.resetStyles();
+		}
+	},
+
+	onViewToolbarCommand: function(aEvent)
+	{
+		let toolbarId = aEvent.originalTarget.getAttribute("toolbarId");
+		if(toolbarId != 'addon-bar')
+		{
+			return;
+		}
+		this.resetStyles();
 	},
 
 	// Wrapper for bottom bar style reset:
@@ -524,5 +573,20 @@ var barlesque = {
 	}
 };
 
-window.addEventListener("load",   function() { barlesque.init();   }, false);
-window.addEventListener("unload", function() { barlesque.uninit(); }, false);
+window.addEventListener("load", function()
+{
+	window.removeEventListener("load", arguments.callee, false);
+	try
+	{
+		barlesque.init();
+	}
+	catch(ex)
+	{
+		Components.utils.reportError(ex);
+	}
+}, false);
+window.addEventListener("unload", function()
+{
+	window.removeEventListener("unload", arguments.callee, false);
+	barlesque.uninit();
+}, false);
