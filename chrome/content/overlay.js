@@ -157,6 +157,12 @@ var barlesque = {
 		{
 			switch(name)
 			{
+				case "timed":
+					break;
+
+				case "timer":
+					break;
+
 				case "collapser":
 				case "findmode":
 				case "mode":

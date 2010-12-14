@@ -15,6 +15,7 @@
 
 #barlesque-timed-container .barlesque-options-label
 {
-	border-bottom: 1px dashed grey;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
 	cursor: help;
 }
