@@ -2,37 +2,30 @@
 {
 	position: fixed;
 	bottom: 0px;
-	background-color: rgba(192, 192, 192, 0.8);
 	background-image: none;
-	border-top: 1px solid rgb(192, 192, 192);
+	background: rgba(212, 212, 212, 0.8);
+
+	border-bottom: 0px !important;
+	border-top: 1px solid rgb(192, 192, 192) !important;
+
+	padding: 2px 1px;
 }
 
 .barlesque-bar #addon-bar
 {
 	-moz-appearance: none;
-	border-top: 0px;
-	border-bottom: 0px;
+	border: 0px !important;
 }
 
 .barlesque-bar.barlesque-right
 {
 	right: 1px;
-	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topleft: 4px;
 	border-left: 1px solid rgb(192, 192, 192);
-}
-
-.barlesque-bar.barlesque-right.barlesque-collapsed
-{
-	right: 0px;
+	border-right: 0px !important;
 }
 
 .barlesque-bar.barlesque-right.barlesque-vscroll
-{
-	right: 16px;
-}
-
-/* Increase the padding in case the horz scroller is shown: */
-.barlesque-bar.barlesque-right.barlesque-hscroll
 {
 	right: 17px;
 }
@@ -40,18 +33,16 @@
 .barlesque-bar.barlesque-left
 {
 	left: 1px;
-	-moz-border-radius-topright: 3px;
+	-moz-border-radius-topright: 4px;
 	border-right: 1px solid rgb(192, 192, 192);
-}
-
-.barlesque-bar.barlesque-left.barlesque-collapsed
-{
-	left: 0px;
+	border-left: 0px !important;
 }
 
 .barlesque-bar.barlesque-collapsed
 {
 	border: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .barlesque-bar statusbar
@@ -67,7 +58,7 @@
 	position: absolute;
 	bottom: 0px;
 
-	background: rgba(192, 192, 192, 0.9) url("chrome://barlesque/skin/arrow-down.png") no-repeat;
+	background: rgba(212, 212, 212, 0.9) url("chrome://barlesque/skin/arrow-down.png") no-repeat;
 
 	border: 0px;
 	border-top: 1px solid rgb(168, 168, 168);
@@ -84,14 +75,14 @@
 {
 	right: 100%;
 	border-left: 1px solid rgb(168, 168, 168);
-	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topleft: 4px;
 }
 
 .barlesque-left #barlesque-collapser
 {
 	left: 100%;
 	border-right: 1px solid rgb(168, 168, 168);
-	-moz-border-radius-topright: 3px;
+	-moz-border-radius-topright: 4px;
 }
 
 /* Removing the add-on bar close button and fixed spacer that landed in Firefox build 20101209122918: */

@@ -116,7 +116,7 @@ var barlesque = {
 				}
 
 				return rv;
-			}
+			};
 		}
 
 		// Initialize tab selection event:
@@ -401,6 +401,11 @@ var barlesque = {
 				bbclasses.push("barlesque-vscroll");
 			}
 
+			if(hscroll)
+			{
+				bbclasses.push("barlesque-hscroll");
+			}
+
 			if(collapsed)
 			{
 				bbclasses.push("barlesque-collapsed");
@@ -427,9 +432,6 @@ var barlesque = {
 			{
 				abclasses.push("barlesque-vscroll");
 			}
-
-			if(hscroll)
-			{ abclasses.push("barlesque-hscroll"); }
 
 			if(collapsed)
 			{
