@@ -31,6 +31,12 @@
 	right: 16px;
 }
 
+/* Increase the padding in case the horz scroller is shown: */
+.barlesque-bar.barlesque-right.barlesque-hscroll
+{
+	right: 17px;
+}
+
 .barlesque-bar.barlesque-left
 {
 	left: 1px;
@@ -59,7 +65,7 @@
 	height: 14px;
 
 	position: absolute;
-	bottom: -1px;
+	bottom: 0px;
 
 	background: rgba(192, 192, 192, 0.9) url("chrome://barlesque/skin/arrow-down.png") no-repeat;
 

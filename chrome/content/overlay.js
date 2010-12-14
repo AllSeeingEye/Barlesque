@@ -367,6 +367,9 @@ var barlesque = {
 				abclasses.push("barlesque-vscroll");
 			}
 
+			if(hscroll)
+			{ abclasses.push("barlesque-hscroll"); }
+
 			if(collapsed)
 			{
 				abclasses.push("barlesque-collapsed");
@@ -382,22 +385,20 @@ var barlesque = {
 			addonbar.removeAttribute("class");
 		}
 
-		// position: fixed; bottom: 0px; right: 0px; background: none; border: 0px;
-
 		if(gFindBar.hidden)
 		{
 			// Notification box for currently shown browser:
 			var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
-			var height = 0;
+			var height = (hscroll ? 16 : 0);
 
 			// NoScript?
 			if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
 			{
-				height = nb._noscriptBottomStack_.clientHeight;
+				height += nb._noscriptBottomStack_.clientHeight;
 			}
 
 			// Modify the position of bottom box:
-			bottombox.style.bottom = ((hscroll ? 15 : 0) + height) + "px";
+			bottombox.style.bottom = height + "px";
 		}
 
 		// Append the collapser:
