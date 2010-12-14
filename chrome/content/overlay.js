@@ -66,7 +66,7 @@ var barlesque = {
 					{
 						barlesque.openFindBar();
 					}
-					catch (ex)
+					catch(ex)
 					{
 						Components.utils.reportError(ex);
 					}
@@ -84,7 +84,7 @@ var barlesque = {
 					{
 						barlesque.closeFindBar();
 					}
-					catch (ex)
+					catch(ex)
 					{
 						Components.utils.reportError(ex);
 					}
@@ -104,7 +104,7 @@ var barlesque = {
 				{
 					barlesque.onViewToolbarCommand.apply(barlesque, arguments);
 				}
-				catch (ex)
+				catch(ex)
 				{
 					Components.utils.reportError(ex);
 				}
@@ -566,11 +566,20 @@ var barlesque = {
 	}
 };
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function()
+{
 	window.removeEventListener("load", arguments.callee, false);
-	try { barlesque.init(); } catch (ex) { Components.utils.reportError(ex); }
+	try
+	{
+		barlesque.init();
+	}
+	catch(ex)
+	{
+		Components.utils.reportError(ex);
+	}
 }, false);
-window.addEventListener("unload", function() {
+window.addEventListener("unload", function()
+{
 	window.removeEventListener("unload", arvguments.calle, false);
 	barlesque.uninit();
 }, false);
