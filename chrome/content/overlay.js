@@ -580,6 +580,6 @@ window.addEventListener("load", function()
 }, false);
 window.addEventListener("unload", function()
 {
-	window.removeEventListener("unload", arvguments.calle, false);
+	window.removeEventListener("unload", arguments.callee, false);
 	barlesque.uninit();
 }, false);
