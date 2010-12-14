@@ -55,11 +55,13 @@ var barlesque = {
 		this.rekeyHide();
 		this.rekeyMove();
 
+		/* Wrap gFindBar's open and close methods with Barlesque's custom handlers: */
 		if(gFindBar)
 		{
 			if(gFindBar.open)
 			{
 				let _oldOpen = gFindBar.open;
+
 				gFindBar.open = function()
 				{
 					try
@@ -78,6 +80,7 @@ var barlesque = {
 			if(gFindBar.close)
 			{
 				let _oldClose = gFindBar.close;
+
 				gFindBar.close = function()
 				{
 					try
@@ -88,18 +91,21 @@ var barlesque = {
 					{
 						Components.utils.reportError(ex);
 					}
+
 					return _oldClose.apply(gFindBar, arguments);
 				};
 			}
 		}
 
-		// Update the onViewToolbarCommand method (handler for multiple show/hide items in View -> Toolbars):
+		/* Wrap onViewToolbarCommand method (handler for multiple show/hide items in View -> Toolbars) with Barlesque's custom handler: */
 		if(onViewToolbarCommand)
 		{
 			let _oldViewToolbarCommand=  onViewToolbarCommand;
+
 			onViewToolbarCommand = function()
 			{
 				let rv = _oldViewToolbarCommand.apply(null, arguments);
+
 				try
 				{
 					barlesque.onViewToolbarCommand.apply(barlesque, arguments);
@@ -108,6 +114,7 @@ var barlesque = {
 				{
 					Components.utils.reportError(ex);
 				}
+
 				return rv;
 			}
 		}
@@ -207,6 +214,7 @@ var barlesque = {
 		gBrowser.tabContainer.removeEventListener("TabSelect", this.doReset, false);
 	},
 
+	/* Custom handler for find bar's open event: */
 	openFindBar: function()
 	{
 		if(this.branch.getBoolPref('findmode'))
@@ -221,6 +229,7 @@ var barlesque = {
 		}
 	},
 
+	/* Custom handler for find bar's close event: */
 	closeFindBar: function()
 	{
 		if(this.branch.getBoolPref('findmode'))
@@ -235,13 +244,16 @@ var barlesque = {
 		}
 	},
 
+	/* Custom handler for turning the add-on bar on/off: */
 	onViewToolbarCommand: function(aEvent)
 	{
 		let toolbarId = aEvent.originalTarget.getAttribute("toolbarId");
+
 		if(toolbarId != 'addon-bar')
 		{
 			return;
 		}
+
 		this.resetStyles();
 	},
 
@@ -573,9 +585,11 @@ var barlesque = {
 	}
 };
 
+// Extension (un)initialization:
 window.addEventListener("load", function()
 {
 	window.removeEventListener("load", arguments.callee, false);
+
 	try
 	{
 		barlesque.init();
@@ -584,9 +598,12 @@ window.addEventListener("load", function()
 	{
 		Components.utils.reportError(ex);
 	}
-}, false);
+},
+false);
+
 window.addEventListener("unload", function()
 {
 	window.removeEventListener("unload", arguments.callee, false);
 	barlesque.uninit();
-}, false);
+},
+false);
