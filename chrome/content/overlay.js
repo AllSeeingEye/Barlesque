@@ -517,5 +517,11 @@ var barlesque = {
 	}
 };
 
-window.addEventListener("load",   function() { barlesque.init();   }, false);
-window.addEventListener("unload", function() { barlesque.uninit(); }, false);
+window.addEventListener("load", function() {
+	window.removeEventListener("load", arguments.callee, false);
+	barlesque.init();
+}, false);
+window.addEventListener("unload", function() {
+	window.removeEventListener("unload", arvguments.calle, false);
+	barlesque.uninit();
+}, false);
