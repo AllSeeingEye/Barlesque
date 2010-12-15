@@ -363,11 +363,12 @@ var barlesque = {
 
 		var findmode = this.branch.getBoolPref("findmode");
 
-		// Download Statusbar: see if it exists & attached to the add-on bar.
+		// Download Statusbar: see if it exists:
 		var dls = document.getElementById("downbarHolder");
 
 		if(dls)
 		{
+			// Reattach to add-on bar:
 			addonbar.appendChild(dls);
 		}
 
