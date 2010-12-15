@@ -14,4 +14,4 @@ pref("extensions.barlesque.shortmove.key", "x");     /* shortcut for re-aligning
 pref("extensions.barlesque.shortmove.mod", "shift"); /* shortcut for re-aligning the add-on bar: modifier */
 
 pref("extensions.barlesque.timed", false);  /* true = allow timed collapse of the add-on bar */
-pref("extensions.barlesque.timer", 60);     /* # of seconds between user's last interaction with add-on bar and the moment it collapses */
+pref("extensions.barlesque.timer", 10);     /* # of seconds between user's last interaction with add-on bar and the moment it collapses */

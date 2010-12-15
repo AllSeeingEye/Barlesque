@@ -141,6 +141,9 @@ var barlesque = {
 
 			// First round of style change:
 			self.doReset();
+
+			// Auto-collapse timer:
+			self.startTimer();
 		},
 		200);
 	},
@@ -304,6 +307,7 @@ var barlesque = {
 		this.removeCollapser();
 
 		var addonbar = document.getElementById("addon-bar");
+		addonbar.removeEventListener("DOMSubtreeModified", this.reappear, false);
 
 		// Don't proceed if add-on bar is hidden by the user:
 		if(addonbar.collapsed === true)
@@ -538,6 +542,12 @@ var barlesque = {
 
 			this.attachTimerEvents(collapser);
 		}
+
+		// Make the add-on bar reappear when notifications occur:
+		if(collapsed)
+		{
+			addonbar.addEventListener("DOMSubtreeModified", this.reappear, false);
+		}
 	},
 
 	// Completely remove barlesque styles from bottom bar:
@@ -675,6 +685,14 @@ var barlesque = {
 			node.addEventListener("mouseover", function() { self.stopTimer();  }, false);
 			node.addEventListener("mouseout",  function() { self.startTimer(); }, false);
 		}
+	},
+
+	// Callback method for auto-collapsing timer:
+	reappear: function()
+	{
+		barlesque.branch.setBoolPref("collapsed", false);
+		barlesque.resetStyles();
+		barlesque.startTimer();
 	}
 };
 
