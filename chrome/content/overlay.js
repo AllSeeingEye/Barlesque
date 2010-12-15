@@ -515,19 +515,26 @@ var barlesque = {
 
 		// Current classes of bottom toolbar:
 		var bar = document.getElementById("browser-bottombox");
-		var classes = bar.className.length ? bar.className.split(" ") : [];
+		var bbclasses = bar.className.length ? bar.className.split(" ") : [];
 
 		// Remove old barlesque classes, if any:
-		for(var i = 0; i < classes.length; i++)
+		for(var i = 0; i < bbclasses.length; i++)
 		{
-			if(classes[i].indexOf("barlesque-") === 0)
+			if(bbclasses[i].indexOf("barlesque-") === 0)
 			{	
-				classes.splice(i--, 1);
+				bbclasses.splice(i--, 1);
 			}
 		}
 
 		// Assign clean set of classes:
-		bar.className = !classes.length ? "barlesque-empty-class" : classes.join(" ");
+		if(bbclasses.length)
+		{
+			bottombox.className = bbclasses.join(" ");
+		}
+		else
+		{
+			bottombox.removeAttribute("class");
+		}
 	},
 
 	// Remove the collapser box:
