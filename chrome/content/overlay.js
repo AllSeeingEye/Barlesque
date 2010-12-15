@@ -489,7 +489,7 @@ var barlesque = {
 		}
 
 		// Append the collapser:
-		if(this.branch.getBoolPref("collapser"))
+		if(this.branch.getBoolPref("collapser") && !document.getElementById("barlesque-collapser"))
 		{
 			var collapser = document.createElement("box");
 			collapser.id = "barlesque-collapser";
