@@ -496,7 +496,6 @@ var barlesque = {
 		{
 			var collapser = document.createElement("box");
 			collapser.id = "barlesque-collapser";
-			collapser.setAttribute("tooltiptext", (collapsed ? "Show" : "Collapse") + " the add-on bar");
 
 			if(gFindBar.hidden)
 			{
@@ -517,6 +516,8 @@ var barlesque = {
 					}
 				}
 			}
+
+			collapser.setAttribute("tooltiptext", (collapsed ? "Show" : "Collapse") + " the add-on bar");
 
 			// Attach event handlers:
 			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
