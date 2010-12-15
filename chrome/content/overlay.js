@@ -135,6 +135,9 @@ var barlesque = {
 		{
 			window.addEventListener("resize", self.doReset, false);
 
+			// Timer events:
+			self.attachTimerEvents(document.getElementById("addon-bar"));
+
 			// First round of style change:
 			self.doReset();
 		},
@@ -515,8 +518,9 @@ var barlesque = {
 				}
 			}
 
-			// Attach event handler:
+			// Attach event handlers:
 			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
+			this.attachTimerEvents(collapser);
 		}
 	},
 
@@ -648,7 +652,13 @@ var barlesque = {
 
 	attachTimerEvents: function(node)
 	{
-		// Todo.
+		var self = this;
+
+		if(node && node.addEventListener)
+		{
+			node.addEventListener("mouseover", function() { self.stopTimer();  }, false);
+			node.addEventListener("mouseout",  function() { self.startTimer(); }, false);
+		}
 	}
 };
 
