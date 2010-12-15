@@ -25,6 +25,7 @@ var barlesque = {
 	// Shortcuts:
 	Cc: Components.classes,
 	Ci: Components.interfaces,
+	Cu: Components.utils,
 
 	// Preference branch for the extension:
 	branch: null,
@@ -70,7 +71,7 @@ var barlesque = {
 					}
 					catch(ex)
 					{
-						Components.utils.reportError(ex);
+						barlesque.Cu.reportError(ex);
 					}
 
 					return _oldOpen.apply(gFindBar, arguments);
@@ -89,7 +90,7 @@ var barlesque = {
 					}
 					catch(ex)
 					{
-						Components.utils.reportError(ex);
+						barlesque.Cu.reportError(ex);
 					}
 
 					return _oldClose.apply(gFindBar, arguments);
@@ -112,7 +113,7 @@ var barlesque = {
 				}
 				catch(ex)
 				{
-					Components.utils.reportError(ex);
+					barlesque.Cu.reportError(ex);
 				}
 
 				return rv;
@@ -260,9 +261,9 @@ var barlesque = {
 	},
 
 	/* Custom handler for turning the add-on bar on/off: */
-	onViewToolbarCommand: function(aEvent)
+	onViewToolbarCommand: function(event)
 	{
-		let toolbarId = aEvent.originalTarget.getAttribute("toolbarId");
+		let toolbarId = event.originalTarget.getAttribute("toolbarId");
 
 		if(toolbarId != "addon-bar")
 		{
@@ -507,7 +508,6 @@ var barlesque = {
 				{
 					if(collapsed)
 					{
-						// Add-on bar is collapsed. Attach collapser to the find box:
 						document.getElementById("FindToolbar").appendChild(collapser);
 					}
 					else
@@ -520,7 +520,14 @@ var barlesque = {
 			collapser.setAttribute("tooltiptext", (collapsed ? "Show" : "Collapse") + " the add-on bar");
 
 			// Attach event handlers:
-			collapser.addEventListener("click", function() { barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed")); barlesque.resetStyles(); }, false);
+
+			collapser.addEventListener("click", function()
+			{
+				barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed"));
+				barlesque.resetStyles();
+			},
+			false);
+
 			this.attachTimerEvents(collapser);
 		}
 	},
@@ -674,7 +681,7 @@ window.addEventListener("load", function()
 	}
 	catch(ex)
 	{
-		Components.utils.reportError(ex);
+		barlesque.Cu.reportError(ex);
 	}
 },
 false);
