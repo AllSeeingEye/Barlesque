@@ -416,6 +416,9 @@ var barlesque = {
 			}
 		}
 
+		addonbar.style.bottom = "";
+		bottombox.style.bottom = "";
+
 		if(gFindBar.hidden && !findbarShowing)
 		{
 			// Current aligning mode:
@@ -491,6 +494,10 @@ var barlesque = {
 
 			// Modify the position of bottom box:
 			bottombox.style.bottom = height + "px";
+		}
+		else if(findmode == 2)
+		{
+			addonbar.style.bottom = document.getElementById("FindToolbar").scrollHeight + "px";
 		}
 
 		// Append the collapser:
