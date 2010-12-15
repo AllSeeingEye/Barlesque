@@ -533,8 +533,14 @@ var barlesque = {
 
 			// Attach event handlers:
 
-			collapser.addEventListener("click", function()
+			collapser.addEventListener("click", function(event)
 			{
+				// Don't react to right-click:
+				if(event.which && (event.which == 3))
+				{
+					return;
+				}
+
 				barlesque.branch.setBoolPref("collapsed", !barlesque.branch.getBoolPref("collapsed"));
 				barlesque.resetStyles();
 			},
