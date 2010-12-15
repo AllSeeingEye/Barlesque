@@ -290,7 +290,7 @@ var barlesque = {
 		var addonbar = document.getElementById("addon-bar");
 
 		// Don't proceed if add-on bar is hidden by the user:
-		if(addonbar.collapsed === true)
+		if((gFindBar.hidden || (!gFindBar.hidden && !this.branch.getBoolPref("findmode"))) && (addonbar.collapsed === true))
 		{
 			return;
 		}
@@ -345,8 +345,6 @@ var barlesque = {
 			return;
 		}
 
-		var findmode = this.branch.getBoolPref("findmode");
-
 		// Download Statusbar: see if it exists & attached to the add-on bar.
 		var dls = document.getElementById("downbarHolder");
 
@@ -355,16 +353,16 @@ var barlesque = {
 			addonbar.appendChild(dls);
 		}
 
-		var collapsed = this.branch.getBoolPref("collapsed") || (!gFindBar.hidden && !findmode);
+		var collapsed = this.branch.getBoolPref("collapsed") || (!gFindBar.hidden && !this.branch.getBoolPref("findmode"));
 
-		if(!gFindBar.hidden && findmode)
+		if(!gFindBar.hidden && this.branch.getBoolPref("findmode"))
 		{
 			addonbar.hidden = false;
-			addonbar.style.display = collapsed ? "none" : "block";
+			addonbar.collapsed = collapsed;
 		}
 		else
 		{
-			addonbar.style.display = "";
+			addonbar.collapsed = false;
 			addonbar.hidden = collapsed;
 		}
 
@@ -435,7 +433,7 @@ var barlesque = {
 		}
 
 		// Overlay the add-on bar over the find bar if appropriate option is selected:
-		if((!gFindBar.hidden || findbarShowing) && findmode)
+		if((!gFindBar.hidden || findbarShowing) && this.branch.getBoolPref("findmode"))
 		{
 			abclasses.push("barlesque-bar");
 			abclasses.push("barlesque-right");
@@ -489,11 +487,11 @@ var barlesque = {
 			}
 			else
 			{
-				if(findmode)
+				if(this.branch.getBoolPref("findmode"))
 				{
 					if(collapsed)
 					{
-						// Add-on bar is collapsed. Attach collapser to the find box:
+						// Add-on bar is collapsed. Attach container to the find box:
 						document.getElementById("FindToolbar").appendChild(collapser);
 					}
 					else

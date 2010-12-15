@@ -2,26 +2,32 @@
 {
 	position: fixed;
 	bottom: 0px;
-	background-image: none;
+
 	background: rgba(212, 212, 212, 0.8);
 
 	border-bottom: 0px !important;
 	border-top: 1px solid rgb(192, 192, 192) !important;
 
-	padding: 2px 1px;
+	padding: 1px 0px !important;
 }
 
 .barlesque-bar #addon-bar
 {
 	-moz-appearance: none;
-	border: 0px !important;
+	border: 0px;
+}
+
+.barlesque-bar#addon-bar
+{
+	-moz-appearance: none;
 }
 
 .barlesque-bar.barlesque-right
 {
 	right: 1px;
+
 	-moz-border-radius-topleft: 4px;
-	border-left: 1px solid rgb(192, 192, 192);
+	border-left: 1px solid rgb(192, 192, 192) !important;
 	border-right: 0px !important;
 }
 
@@ -33,6 +39,7 @@
 .barlesque-bar.barlesque-left
 {
 	left: 1px;
+
 	-moz-border-radius-topright: 4px;
 	border-right: 1px solid rgb(192, 192, 192);
 	border-left: 0px !important;
@@ -41,6 +48,7 @@
 .barlesque-bar.barlesque-collapsed
 {
 	border: 0px;
+
 	padding-left: 0px;
 	padding-right: 0px;
 }
@@ -66,14 +74,15 @@
 	cursor: pointer;
 }
 
-.barlesque-collapsed #barlesque-collapser
+.barlesque-collapsed #barlesque-collapser, #FindToolbar #barlesque-collapser
 {
 	background-image: url("chrome://barlesque/skin/arrow-up.png");
 }
 
-.barlesque-right #barlesque-collapser
+.barlesque-right #barlesque-collapser, #FindToolbar #barlesque-collapser
 {
 	right: 100%;
+
 	border-left: 1px solid rgb(168, 168, 168);
 	-moz-border-radius-topleft: 4px;
 }
@@ -81,6 +90,7 @@
 .barlesque-left #barlesque-collapser
 {
 	left: 100%;
+
 	border-right: 1px solid rgb(168, 168, 168);
 	-moz-border-radius-topright: 4px;
 }
