@@ -1,7 +1,8 @@
 ﻿<!ENTITY barlesque.options.title         "Опции расширения Barlesque">
 <!ENTITY barlesque.options.collapser     "Показывать иконку сворачивания тулбара для иконок">
 <!ENTITY barlesque.options.persist       "Запоминать состояние тулбара для иконок расширений">
-<!ENTITY barlesque.options.findmode      "Состояние тулбара для иконок при показе тулбара поиска">
+<!ENTITY barlesque.options.findmode      "Положение тулбара для иконок при показе тулбара поиска">
+<!ENTITY barlesque.options.ontop         "сверху">
 <!ENTITY barlesque.options.overlay       "поверх">
 <!ENTITY barlesque.options.hide          "спрятан">
 <!ENTITY barlesque.options.mode          "К какой стороне прикреплять тулбар для иконок">

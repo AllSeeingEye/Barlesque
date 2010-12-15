@@ -1,7 +1,8 @@
 ﻿<!ENTITY barlesque.options.title         "Options of Barlesque">
 <!ENTITY barlesque.options.collapser     "Show the collapser icon">
 <!ENTITY barlesque.options.persist       "Remember the collapsed/expanded state of the add-on bar">
-<!ENTITY barlesque.options.findmode      "State of add-on bar when find bar is shown">
+<!ENTITY barlesque.options.findmode      "Position of add-on bar when find bar is shown">
+<!ENTITY barlesque.options.ontop         "on top">
 <!ENTITY barlesque.options.overlay       "overlaid">
 <!ENTITY barlesque.options.hide          "hidden">
 <!ENTITY barlesque.options.mode          "Side the add-on bar is aligned to">
@@ -11,6 +12,7 @@
 <!ENTITY barlesque.options.shortcut.move "Switch on the shortcut to re-align the add-on bar">
 <!ENTITY barlesque.options.modifier      "Modifier">
 <!ENTITY barlesque.options.key           "Key">
-<!ENTITY barlesque.options.timed         "Allow timed collapse of the add-on bar">
-<!ENTITY barlesque.options.timer         "# of seconds for add-on bar to collapse">
-<!ENTITY barlesque.options.timerfull     "This is the number of seconds between user's last interaction with add-on bar and the moment the add-on collapses">
+<!ENTITY barlesque.options.timed         "Switch on the auto-collapse timer">
+<!ENTITY barlesque.options.timer         "Add-on bar will collapse in">
+<!ENTITY barlesque.options.seconds       "seconds">
+<!ENTITY barlesque.options.timerfull     "This is the number of seconds between user's last interaction with add-on bar (hover, click, etc.) and the moment the add-on collapses">

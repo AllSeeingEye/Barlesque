@@ -233,7 +233,7 @@ var barlesque = {
 	/* Custom handler for find bar's open event: */
 	openFindBar: function()
 	{
-		if(this.branch.getBoolPref("findmode"))
+		if(this.branch.getIntPref("findmode") != 0)
 		{
 			this.resetStyles(true);
 		}
@@ -248,7 +248,7 @@ var barlesque = {
 	/* Custom handler for find bar's close event: */
 	closeFindBar: function()
 	{
-		if(this.branch.getBoolPref("findmode"))
+		if(this.branch.getIntPref("findmode") != 0)
 		{
 			this.resetStyles();
 		}
@@ -283,7 +283,7 @@ var barlesque = {
 
 			if(doc == gBrowser.contentDocument)
 			{
-				if(gFindBar.hidden || barlesque.branch.getBoolPref("findmode"))
+				if(gFindBar.hidden || (barlesque.branch.getIntPref("findmode") != 0))
 				{
 					barlesque.resetStyles();
 				}
@@ -291,7 +291,7 @@ var barlesque = {
 		}
 		else
 		{
-			if(gFindBar.hidden || barlesque.branch.getBoolPref("findmode"))
+			if(gFindBar.hidden || (barlesque.branch.getIntPref("findmode") != 0))
 			{
 				barlesque.resetStyles();
 			}
@@ -361,7 +361,7 @@ var barlesque = {
 			return;
 		}
 
-		var findmode = this.branch.getBoolPref("findmode");
+		var findmode = this.branch.getIntPref("findmode");
 
 		// Download Statusbar: see if it exists:
 		var dls = document.getElementById("downbarHolder");

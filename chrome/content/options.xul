@@ -35,7 +35,7 @@
 			<preference id="barlesque_pref_mode"          name="extensions.barlesque.mode"          type="bool" />
 			<preference id="barlesque_pref_persist"       name="extensions.barlesque.persist"       type="bool" />
 			<preference id="barlesque_pref_collapser"     name="extensions.barlesque.collapser"     type="bool" />
-			<preference id="barlesque_pref_findmode"      name="extensions.barlesque.findmode"      type="bool" />
+			<preference id="barlesque_pref_findmode"      name="extensions.barlesque.findmode"      type="int" />
 			<preference id="barlesque_pref_shorthide"     name="extensions.barlesque.shorthide"     type="bool" />
 			<preference id="barlesque_pref_shorthide_key" name="extensions.barlesque.shorthide.key" type="string" />
 			<preference id="barlesque_pref_shorthide_mod" name="extensions.barlesque.shorthide.mod" type="string" />
@@ -56,6 +56,7 @@
 
 		<grid id="barlesque-settings-grid">
 			<columns>
+				<column flex="2"/>
 				<column flex="1"/>
 				<column flex="1"/>
 				<column flex="1"/>
@@ -66,13 +67,15 @@
 						<label class="barlesque-options-label" value="&barlesque.options.mode;:" />
 						<radio label="&barlesque.options.left;" value="true" />
 						<radio label="&barlesque.options.right;" value="false" />
+						<hbox />
 					</row>
 				</radiogroup>
 				<radiogroup orient="horizontal" preference="barlesque_pref_findmode" class="barlesque-grid-radiogroup">
 					<row>
 						<label class="barlesque-options-label" value="&barlesque.options.findmode;:" />
-						<radio label="&barlesque.options.overlay;" value="true" />
-						<radio label="&barlesque.options.hide;" value="false" />
+						<radio label="&barlesque.options.ontop;" value="2" />
+						<radio label="&barlesque.options.overlay;" value="1" />
+						<radio label="&barlesque.options.hide;" value="0" />
 					</row>
 				</radiogroup>
 			</rows>
@@ -118,9 +121,10 @@
 
 		<vbox>
 			<checkbox id="barlesque-check-timed" label="&barlesque.options.timed;?" preference="barlesque_pref_timed" oncommand="barlesque.options.oncheck('barlesque-timed-container', this.checked);" />
-			<hbox id="barlesque-timed-container">
-				<label class="barlesque-options-label" value="&barlesque.options.timer;:" tooltiptext="&barlesque.options.timerfull;." />
+			<hbox id="barlesque-timed-container" tooltiptext="&barlesque.options.timerfull;.">
+				<label class="barlesque-options-label" value="&barlesque.options.timer;:" />
 				<textbox preference="barlesque_pref_timer" size="3" type="number" min="1" />
+				<label class="barlesque-options-label" value="&barlesque.options.seconds;." />
 			</hbox>
 		</vbox>
 

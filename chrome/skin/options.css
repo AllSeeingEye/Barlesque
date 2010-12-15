@@ -12,10 +12,3 @@
 {
 	display: -moz-grid-group;
 }
-
-#barlesque-timed-container .barlesque-options-label
-{
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	cursor: help;
-}
