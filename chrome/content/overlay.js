@@ -176,9 +176,21 @@ var barlesque = {
 			switch(name)
 			{
 				case "timed":
+					// Auto-collapse timer was switched on/off:
+
+					// Stop existing timer, if any:
+					self.stopTimer();
+
+					// Restart, if needed:
+					self.startTimer();
+
 					break;
 
 				case "timer":
+					// Auto-collapse timeout was changed:
+
+					// Restart the timer:
+					self.startTimer();
 					break;
 
 				case "collapser":
@@ -386,7 +398,7 @@ var barlesque = {
 		for(i = 0; i < abclasses.length; i++)
 		{
 			if(abclasses[i].indexOf("barlesque-") === 0)
-			{	
+			{
 				abclasses.splice(i--, 1);
 			}
 		}
@@ -481,7 +493,7 @@ var barlesque = {
 		{
 			var collapser = document.createElement("box");
 			collapser.id = "barlesque-collapser";
-			collapser.setAttribute("tooltiptext", collapsed ? "Show the add-on bar" : "Collapse the add-on bar");
+			collapser.setAttribute("tooltiptext", (collapsed ? "Show" : "Collapse") + " the add-on bar");
 
 			if(gFindBar.hidden)
 			{
@@ -548,7 +560,7 @@ var barlesque = {
 		}
 	},
 
-	// Recreate shortcut elements:
+	// Recreate keyboard shortcut elements:
 
 	// - for add-on bar hiding/showing:
 	rekeyHide: function()
@@ -602,6 +614,41 @@ var barlesque = {
 		shortmove.setAttribute("command", "barlesque-command-shortmove");
 
 		keyset.appendChild(shortmove);
+	},
+
+	// Timer methods:
+
+	stopTimer: function()
+	{
+		if(this.timer)
+		{
+			clearTimeout(this.timer);
+			this.timer = null;
+		}
+	},
+
+	startTimer: function()
+	{
+		if(!this.branch.getBoolPref("timed"))
+		{
+			return;
+		}
+
+		this.stopTimer();
+
+		var self = this;
+
+		this.timer = setTimeout(function()
+		{
+			self.branch.setBoolPref("collapsed", true);
+			self.resetStyles();
+		},
+		this.branch.getIntPref("timer") * 1000);
+	},
+
+	attachTimerEvents: function(node)
+	{
+		// Todo.
 	}
 };
 
