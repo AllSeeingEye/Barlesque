@@ -57,6 +57,8 @@ var barlesque = {
 		this.rekeyMove();
 
 		/* Wrap gFindBar's open and close methods with Barlesque's custom handlers: */
+		var self = this;
+
 		if(gFindBar)
 		{
 			if(gFindBar.open)
@@ -67,11 +69,11 @@ var barlesque = {
 				{
 					try
 					{
-						barlesque.openFindBar();
+						self.openFindBar();
 					}
 					catch(ex)
 					{
-						barlesque.Cu.reportError(ex);
+						self.Cu.reportError(ex);
 					}
 
 					return _oldOpen.apply(gFindBar, arguments);
@@ -86,11 +88,11 @@ var barlesque = {
 				{
 					try
 					{
-						barlesque.closeFindBar();
+						self.closeFindBar();
 					}
 					catch(ex)
 					{
-						barlesque.Cu.reportError(ex);
+						self.Cu.reportError(ex);
 					}
 
 					return _oldClose.apply(gFindBar, arguments);
@@ -109,11 +111,11 @@ var barlesque = {
 
 				try
 				{
-					barlesque.onViewToolbarCommand.apply(barlesque, arguments);
+					self.onViewToolbarCommand.apply(self, arguments);
 				}
 				catch(ex)
 				{
-					barlesque.Cu.reportError(ex);
+					self.Cu.reportError(ex);
 				}
 
 				return rv;
@@ -130,8 +132,6 @@ var barlesque = {
 		window.addEventListener("AlertActive", this.doReset, false);
 
 		// Initialize resize event, deferred to reduce browser startup time:
-		var self = this;
-
 		setTimeout(function()
 		{
 			window.addEventListener("resize", self.doReset, false);
@@ -243,7 +243,7 @@ var barlesque = {
 		else
 		{
 			document.getElementById("addon-bar").hidden = true;
-			window.removeEventListener("resize", barlesque.doReset, false);
+			window.removeEventListener("resize", this.doReset, false);
 			this.removeStyles();
 		}
 	},
@@ -258,7 +258,7 @@ var barlesque = {
 		else
 		{
 			document.getElementById("addon-bar").hidden = false;
-			window.addEventListener("resize", barlesque.doReset, false);
+			window.addEventListener("resize", this.doReset, false);
 			this.resetStyles();
 		}
 	},
@@ -313,6 +313,11 @@ var barlesque = {
 		if(addonbar.collapsed === true)
 		{
 			return;
+		}
+
+		if(addonbar.hasAttribute("moz-collapsed"))
+		{
+			addonbar.removeAttribute("moz-collapsed");
 		}
 
 		// Count the number of visible elements in add-on bar/status bar:
@@ -464,7 +469,7 @@ var barlesque = {
 			abclasses.push("barlesque-bar");
 			abclasses.push("barlesque-right");
 
-			if(vscroll)
+			if(vscroll && (findmode == 2))
 			{
 				abclasses.push("barlesque-vscroll");
 			}
@@ -521,6 +526,16 @@ var barlesque = {
 					if(collapsed)
 					{
 						document.getElementById("FindToolbar").appendChild(collapser);
+
+						if(findmode == 2)
+						{
+							collapser.style.bottom = document.getElementById("FindToolbar").scrollHeight + "px";
+
+							if(vscroll)
+							{
+								collapser.style.right = "17px";
+							}
+						}
 					}
 					else
 					{
@@ -693,12 +708,15 @@ var barlesque = {
 		}
 	},
 
-	// Callback method for auto-collapsing timer:
-	reappear: function()
+	// Callback for add-on bar elements' notification events:
+	reappear: function(event)
 	{
-		barlesque.branch.setBoolPref("collapsed", false);
-		barlesque.resetStyles();
-		barlesque.startTimer();
+		if(event.target.id != "addon-bar")
+		{
+			barlesque.branch.setBoolPref("collapsed", false);
+			barlesque.resetStyles();
+			barlesque.startTimer();
+		}
 	}
 };
 
