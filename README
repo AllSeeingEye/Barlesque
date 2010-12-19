@@ -30,9 +30,22 @@ can expand the add-on bar with the same icon (it will show up-facing arrow).
 You can customize some aspects of Barlesque behavior through the options dialog
 ("Tools" menu -> "Add-ons" item -> "Options" button of "Barlesque"):
 
-- "Alignment of add-on bar" option allows you to choose the side of screen the
-  add-on buttons are bound to. Default alignment is bottom-right corner of
-  screen.
+- "Show the collapser icon" option allows you to show/hide a small collapser
+  icon next to the add-on bar; this icon allows you to quickly collapse/expand
+  the bar. By default, extension shows the icon.
+
+- By default, extension doesn't persist the collapsed/expanded state of add-on
+  bar between browser sessions; "Remember the collapsed/expanded state of the
+  add-on bar" checkbox changes this.
+
+- "Side the add-on bar is aligned to" option allows you to choose, obviously,
+  the side of screen the add-on buttons are bound to. Default alignment is
+  bottom-right corner of screen.
+
+- "Position of add-on bar when find bar is shown" option allows you to decide
+  how add-on bar behaves when find bar is called. Possible values are "on top"
+ (default; add-on bar will be shown above the find bar), "overlaid" (add-on bar
+  will be shown over the right side of add-on bar) and "hidden".
 
 - You can switch on and customize the keyboard shortcut to collapse/expand the
   add-on bar.
@@ -40,9 +53,10 @@ You can customize some aspects of Barlesque behavior through the options dialog
 - You can switch on and customize the keyboard shortcut to change the alignment
  (side of screen) for the add-on bar.
 
-- By default, extension doesn't persist the collapsed/expanded state of add-on
-  bar between browser sessions; "Remember the collapsed/expanded state of the
-  add-on bar?" checkbox changes this.
+- You can switch on and customize the auto-collapse timer, that will
+  automatically collapse the add-on bar after a given number of seconds. Time
+  is counted from user's last interaction with add-on bar (hover, click, etc.)
+  or the last event/notification happening in the add-on bar.
 
 All changes made through the options dialog take effect immediately.
 
@@ -58,8 +72,12 @@ above and this discussion on Mozillazine:
 
 http://forums.mozillazine.org/viewtopic.php?f=23&t=1951751
 
-Also, find box (called with Ctrl-F or "Edit" menu -> "Find") hides the add-on
-bar - this is done to circumvent some minor (but annoying) UI issues.
+KNOWN ISSUES
+============
+
+Some old extensions can cause weird issues to the add-on bar after user calls
+the find box (with Ctrl-F or "Edit" menu -> "Find"). In particular, RefControl
+extension is hidden when find-bar is shown.
 
 PACKAGING
 =========
@@ -72,7 +90,13 @@ chrome/content/options.xul
 chrome/content/overlay.js
 chrome/content/overlay.xul
 chrome/locale/en-US/barlesque.dtd
+chrome/locale/en-US/barlesque.properties
 chrome/locale/ru/barlesque.dtd
+chrome/locale/ru/barlesque.properties
+chrome/locale/sr/barlesque.dtd
+chrome/locale/sr/barlesque.properties
+chrome/locale/sv-SE/barlesque.dtd
+chrome/locale/sv-SE/barlesque.properties
 chrome/skin/options.css
 chrome/skin/overlay.css
 chrome/skin/arrow-down.png
@@ -81,10 +105,11 @@ chrome/skin/barlesque.png
 defaults/preferences/barlesque.js
 chrome.manifest
 install.rdf
+LICENSE
 
 Under linux, the following instruction builds the .xpi file:
 
-$ zip -r barlesque.xpi install.rdf chrome.manifest chrome defaults
+$ zip -r barlesque.xpi install.rdf chrome.manifest LICENSE chrome defaults
 
 INSTALLATION
 ============
@@ -96,7 +121,38 @@ if you have Firefox 4 and have the menu bar switched off, you can click on
 Firefox button -> Addons -> click on gear icon in the top-right corner of
 screen -> "Install Add-on From File..."
 
-AUTHOR
-======
+FEEDBACK
+========
+
+I'dlike to hear from you. If you have any issues with Barlesque or have an idea
+on how to improve it - please feel free to e-mail me:
+
+	dmitriy.khudorozhkov@gmail.com
+
+PERSONNEL
+=========
+
+Idea:
+
+	Jennifer Boriss.
+
+Author & principal developer:
+
+	Dmitriy Khudorozhkov.
+
+Contributors:
+
+	Nils Maier,
+	Drugoy,
+	Vitaly Piryatinsky.
+
+Translators:
+
+	Vitaly Piryatinsky (ru),
+	ƒ‡Í—–¡»£¿ (sr),
+	Mikael Hiort af Ornas (sv-SE).
+
+LEGAL STUFF
+===========
 
 Copyright 2010 Dmitriy Khudorozhkov (dmitriy.khudorozhkov@gmail.com).
