@@ -237,7 +237,7 @@ var barlesque = {
 		window.removeEventListener("DOMContentLoaded", this.doReset, false);
 		window.removeEventListener("resize", this.doReset, false);
 		window.removeEventListener("AlertActive", this.doReset, false);
-		window.removeEventListener("beforecustomization", this.removeStylesWrapper, false);
+		window.removeEventListener("beforecustomization", this.customizationStarted, false);
 		window.removeEventListener("aftercustomization", this.doReset, false);
 
 		gBrowser.tabContainer.removeEventListener("TabSelect", this.doReset, false);
@@ -511,35 +511,16 @@ var barlesque = {
 		if(gFindBar.hidden)
 		{
 			// Notification box for currently shown browser:
-			var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
 			var height = (hscroll ? 16 : 0);
 
-			// NoScript?
-			if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
-			{
-				height += nb._noscriptBottomStack_.clientHeight;
-			}
-
 			// Modify the position of bottom box:
-			bottombox.style.bottom = height + "px";
+			bottombox.style.bottom = height + this.getNoScriptNotificationHeight() + "px";
 		}
-		else
+		else if(findmode == 2)
 		{
-			if(findmode == 2)
-			{
-				var height = document.getElementById("FindToolbar").scrollHeight + (hscroll ? 16 : 0);
+			var height = document.getElementById("FindToolbar").scrollHeight + (hscroll ? 16 : 0);
 
-				// Notification box for currently shown browser:
-				var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
-
-				// NoScript?
-				if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
-				{
-					height += nb._noscriptBottomStack_.clientHeight;
-				}
-
-				addonbar.style.bottom = height + "px";
-			}
+			addonbar.style.bottom = height + this.getNoScriptNotificationHeight() + "px";
 		}
 
 		// Specifically target the refcontrol extension:
@@ -669,6 +650,21 @@ var barlesque = {
 		{
 			collapser.parentNode.removeChild(collapser);
 		}
+	},
+
+	// Height of NoScript notification bar:
+	getNoScriptNotificationHeight: function()
+	{
+		// Notification box for currently shown browser:
+		var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
+
+		// NoScript?
+		if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
+		{
+			return nb._noscriptBottomStack_.clientHeight;
+		}
+
+		return 0;
 	},
 
 	// Recreate keyboard shortcut elements:
