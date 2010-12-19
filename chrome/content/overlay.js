@@ -536,7 +536,10 @@ var barlesque = {
 			{
 				bottombox.appendChild(collapser);
 
-				refcontrol.hidden = false;
+				if(refcontrol)
+				{
+					refcontrol.hidden = false;
+				}
 			}
 			else
 			{
@@ -550,7 +553,10 @@ var barlesque = {
 					{
 						addonbar.appendChild(collapser);
 
-						refcontrol.hidden = true;
+						if(refcontrol)
+						{
+							refcontrol.hidden = true;
+						}
 					}
 				}
 			}
