@@ -391,7 +391,7 @@ var barlesque = {
 
 		var findmode = this.branch.getIntPref("findmode");
 
-		// Download Statusbar: see if it exists:
+		// Download Statusbar - see if it exists:
 		var dls = document.getElementById("downbarHolder");
 
 		if(dls)
@@ -583,9 +583,22 @@ var barlesque = {
 	},
 
 	// Wrapper for the removeStyles method - called when user starts customizing the UI:
-	customizationStarted: function()
+	customizationStarted: function(event)
 	{
 		barlesque.customizing = true;
+
+		if(event && event.type == "beforecustomization")
+		{
+			// Download Statusbar: see if it exists:
+			var dls = document.getElementById("downbarHolder");
+
+			if(dls)
+			{
+				// Reattach to the bottom box:
+				document.getElementById("browser-bottombox").appendChild(dls);
+			}
+		}
+
 		barlesque.removeStyles();
 	},
 
