@@ -315,7 +315,7 @@ var barlesque = {
 		}
 	},
 
-	// Method that actually affects the addon bar:
+	// Method that actually affects the add-on bar:
 	resetStyles: function(findbarShowing)
 	{
 		this.customizing = false;
