@@ -14,4 +14,4 @@
 <!ENTITY barlesque.options.key           "Клавиша">
 <!ENTITY barlesque.options.timed         "Включить автоматическое схлопывание тулбара с иконками">
 <!ENTITY barlesque.options.timer         "Кол-во секунд до схлопывания тулбара с иконками">
-<!ENTITY barlesque.options.timerfull     "Кол-во секунд между последним взаимодействием пользователя с тулбаром и моментом схлопывания">
+<!ENTITY barlesque.options.timer.tooltip "Кол-во секунд между последним взаимодействием пользователя с тулбаром и моментом схлопывания">

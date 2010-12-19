@@ -36,6 +36,9 @@ var barlesque = {
 	// Auto-collapsing timer:
 	timer: null,
 
+	// Is user currently customizing the add-on bar?
+	customizing: false,
+
 	// Initialization:
 	init: function()
 	{
@@ -130,6 +133,10 @@ var barlesque = {
 
 		// Browser notification event:
 		window.addEventListener("AlertActive", this.doReset, false);
+
+		// Customization events:
+		window.addEventListener("beforecustomization", this.customizationStarted, false);  
+		window.addEventListener("aftercustomization", this.doReset, false);  
 
 		// Initialize resize event, deferred to reduce browser startup time:
 		setTimeout(function()
@@ -229,6 +236,9 @@ var barlesque = {
 
 		window.removeEventListener("DOMContentLoaded", this.doReset, false);
 		window.removeEventListener("resize", this.doReset, false);
+		window.removeEventListener("AlertActive", this.doReset, false);
+		window.removeEventListener("beforecustomization", this.removeStylesWrapper, false);
+		window.removeEventListener("aftercustomization", this.doReset, false);
 
 		gBrowser.tabContainer.removeEventListener("TabSelect", this.doReset, false);
 	},
@@ -276,7 +286,7 @@ var barlesque = {
 		this.resetStyles();
 	},
 
-	// Wrapper for bottom bar style reset:
+	// Wrapper for event handling:
 	doReset: function(event)
 	{
 		if(event && (event.type == "DOMContentLoaded"))
@@ -294,6 +304,11 @@ var barlesque = {
 		}
 		else
 		{
+			if(event && (event.type != "aftercustomization") && barlesque.customizing)
+			{
+				return;
+			}
+
 			if(gFindBar.hidden || (barlesque.branch.getIntPref("findmode") != 0))
 			{
 				barlesque.resetStyles();
@@ -304,6 +319,7 @@ var barlesque = {
 	// Method that actually affects the addon bar:
 	resetStyles: function(findbarShowing)
 	{
+		this.customizing = false;
 		this.removeCollapser();
 
 		var addonbar = document.getElementById("addon-bar");
@@ -346,19 +362,22 @@ var barlesque = {
 			}
 		}
 
-		var statusbar = document.getElementById("status-bar");
-
-		if(statusbar)
+		if(gFindBar.hidden || !findmode)
 		{
-			var panels = statusbar.getElementsByTagName("statusbarpanel");
+			var statusbar = document.getElementById("status-bar");
 
-			for(i = 0, l = panels.length; i < l; i++)
+			if(statusbar)
 			{
-				var panel = panels[i];
+				var panels = statusbar.getElementsByTagName("statusbarpanel");
 
-				if((panel.className.indexOf("statusbar-resizerpanel") == -1) && (window.getComputedStyle(panel).getPropertyValue("display") != "none"))
+				for(i = 0, l = panels.length; i < l; i++)
 				{
-					++count;
+					var panel = panels[i];
+
+					if((panel.className.indexOf("statusbar-resizerpanel") == -1) && (window.getComputedStyle(panel).getPropertyValue("display") != "none"))
+					{
+						++count;
+					}
 				}
 			}
 		}
@@ -504,10 +523,27 @@ var barlesque = {
 			// Modify the position of bottom box:
 			bottombox.style.bottom = height + "px";
 		}
-		else if(findmode == 2)
+		else
 		{
-			addonbar.style.bottom = document.getElementById("FindToolbar").scrollHeight + "px";
+			if(findmode == 2)
+			{
+				var height = document.getElementById("FindToolbar").scrollHeight + (hscroll ? 16 : 0);
+
+				// Notification box for currently shown browser:
+				var nb = gBrowser.getNotificationBox(gBrowser.selectedTab.linkedBrowser);
+
+				// NoScript?
+				if(nb && nb._noscriptPatched && nb._noscriptBottomStack_)
+				{
+					height += nb._noscriptBottomStack_.clientHeight;
+				}
+
+				addonbar.style.bottom = height + "px";
+			}
 		}
+
+		// Specifically target the refcontrol extension:
+		var refcontrol = document.getElementById("refcontrol-status");
 
 		// Append the collapser:
 		if(this.branch.getBoolPref("collapser") && !document.getElementById("barlesque-collapser"))
@@ -518,6 +554,8 @@ var barlesque = {
 			if(gFindBar.hidden)
 			{
 				bottombox.appendChild(collapser);
+
+				refcontrol.hidden = false;
 			}
 			else
 			{
@@ -526,20 +564,12 @@ var barlesque = {
 					if(collapsed)
 					{
 						document.getElementById("FindToolbar").appendChild(collapser);
-
-						if(findmode == 2)
-						{
-							collapser.style.bottom = document.getElementById("FindToolbar").scrollHeight + "px";
-
-							if(vscroll)
-							{
-								collapser.style.right = "17px";
-							}
-						}
 					}
 					else
 					{
 						addonbar.appendChild(collapser);
+
+						refcontrol.hidden = true;
 					}
 				}
 			}
@@ -571,14 +601,24 @@ var barlesque = {
 		}
 	},
 
+	// Wrapper for the removeStyles method - called when user starts customizing the UI:
+	customizationStarted: function()
+	{
+		barlesque.customizing = true;
+		barlesque.removeStyles();
+	},
+
 	// Completely remove barlesque styles from bottom bar:
 	removeStyles: function()
 	{
+		var addonbar = document.getElementById("addon-bar")
+		addonbar.removeEventListener("DOMSubtreeModified", this.reappear, false);
+
 		this.removeCollapser();
 
 		// Current classes of bottom toolbar:
-		var bar = document.getElementById("browser-bottombox");
-		var bbclasses = bar.className.length ? bar.className.split(" ") : [];
+		var bottombox = document.getElementById("browser-bottombox");
+		var bbclasses = bottombox.className.length ? bottombox.className.split(" ") : [];
 
 		// Remove old barlesque classes, if any:
 		for(var i = 0; i < bbclasses.length; i++)
@@ -597,6 +637,26 @@ var barlesque = {
 		else
 		{
 			bottombox.removeAttribute("class");
+		}
+
+		// Same for add-on bar:
+		var abclasses = addonbar.className.length ? addonbar.className.split(" ") : [];
+
+		for(var i = 0; i < abclasses.length; i++)
+		{
+			if(abclasses[i].indexOf("barlesque-") === 0)
+			{	
+				abclasses.splice(i--, 1);
+			}
+		}
+
+		if(abclasses.length)
+		{
+			addonbar.className = abclasses.join(" ");
+		}
+		else
+		{
+			addonbar.removeAttribute("class");
 		}
 	},
 

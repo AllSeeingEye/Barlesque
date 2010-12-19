@@ -14,5 +14,5 @@
 <!ENTITY barlesque.options.key           "Key">
 <!ENTITY barlesque.options.timed         "Switch on the auto-collapse timer">
 <!ENTITY barlesque.options.timer         "Add-on bar will collapse in">
+<!ENTITY barlesque.options.timer.tooltip "This is the number of seconds between user's last interaction with add-on bar (hover, click, etc.) and the moment the add-on collapses">
 <!ENTITY barlesque.options.seconds       "seconds">
-<!ENTITY barlesque.options.timerfull     "This is the number of seconds between user's last interaction with add-on bar (hover, click, etc.) and the moment the add-on collapses">

@@ -5,16 +5,16 @@
 
 	background: rgba(212, 212, 212, 0.8);
 
-	border-bottom: 0px;
+	border-bottom: 0px !important;
 	border-top: 1px solid rgb(192, 192, 192) !important;
 
-	padding: 1px 0px !important;
+	padding: 3px 0px 1px 0px !important;
 }
 
 .barlesque-bar #addon-bar
 {
 	-moz-appearance: none;
-	border: 0px;
+	border: 0px !important;
 }
 
 .barlesque-bar#addon-bar
@@ -55,16 +55,7 @@
 
 .barlesque-bar statusbar
 {
-	/*min-height: 16px !important;*/
-}
-
-.barlesque-bar statusbarpanel
-{
-	min-width: 16px;
-	min-height: 16px;
-	margin: 1px;
-
-	background-color: transparent;
+	min-height: 0px !important;
 }
 
 #barlesque-collapser
@@ -106,9 +97,8 @@
 
 #FindToolbar #barlesque-collapser
 {
-	position: fixed;
-	right: 0px;
-	bottom: 0px;
+	border-bottom: 1px solid rgb(168, 168, 168);
+	-moz-border-radius-bottomleft: 4px;
 }
 
 /* Removing the add-on bar close button and fixed spacer that landed in Firefox build 20101209122918: */
