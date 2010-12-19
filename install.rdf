@@ -16,6 +16,10 @@
 		<em:creator>Dmitriy Khudorozhkov</em:creator>
 		<em:contributor>Nils Maier</em:contributor>
 		<em:contributor>Drugoy</em:contributor>
+		<em:contributor>Vitaly Piryatinsky</em:contributor>
+		<em:translator>Vitaly Piryatinsky (ru)</em:translator>
+		<em:translator>ДакСРБИЈА (sr)</em:translator>
+		<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 
 		<em:targetApplication>
 			<Description>
@@ -29,8 +33,26 @@
 			<Description>
 				<em:locale>ru</em:locale>
 				<em:name>Barlesque</em:name>
-				<em:description>Расширяет основное окно браузера путём уменьшения тулбара для иконок расширений до минимально необходимой ширины.</em:description>
+				<em:description>Увеличивает область отображения сайтов, преобразуя широкую серую панель дополнений Firefox 4 в аккуратный набор кнопок.</em:description>
 				<em:creator>Дмитрий Худорожков</em:creator>
+			</Description>
+		</em:localized>
+
+		<em:localized>
+			<Description>
+				<em:locale>sr</em:locale>
+				<em:name>Barlesque</em:name>
+				<em:description>Омогућава боље искоришћење простора за прегледање претварањем широке сиве траке са додацима Фајерфокса 4 у уредан скуп икона.</em:description>
+				<em:creator>Dmitriy Khudorozhkov</em:creator>
+			</Description>
+		</em:localized>
+
+		<em:localized>
+			<Description>
+				<em:locale>sv-SE</em:locale>
+				<em:name>Barlesque</em:name>
+				<em:description>Återtar surfutrymmet genom att förvandla Firefox 4:s breda, gråa tilläggsfält till en snygg uppsättning knappar.</em:description>
+				<em:creator>Dmitriy Khudorozhkov</em:creator>
 			</Description>
 		</em:localized>
 

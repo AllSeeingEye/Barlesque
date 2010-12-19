@@ -1,0 +1,18 @@
+<!ENTITY barlesque.options.title "Inställningar för Barlesque">
+<!ENTITY barlesque.options.collapser "Visa minimeringsikonen">
+<!ENTITY barlesque.options.persist "Kom ihåg minimerat/expanderat-läget för tilläggsfältet">
+<!ENTITY barlesque.options.findmode "Position för tilläggsfältet när söklisten visas">
+<!ENTITY barlesque.options.ontop "ovanför">
+<!ENTITY barlesque.options.overlay "överlappande">
+<!ENTITY barlesque.options.hide "gömt">
+<!ENTITY barlesque.options.mode "Justering av tilläggsfältet">
+<!ENTITY barlesque.options.left "nederst till vänster">
+<!ENTITY barlesque.options.right "nederst till höger">
+<!ENTITY barlesque.options.shortcut.hide "Aktivera kortkommandot för att visa/gömma tilläggsfältet">
+<!ENTITY barlesque.options.shortcut.move "Aktivera kortkommandot för att återjustera tilläggsfältet">
+<!ENTITY barlesque.options.modifier "Låstangent">
+<!ENTITY barlesque.options.key "Tangent">
+<!ENTITY barlesque.options.timed "Aktivera autominimeringstimern">
+<!ENTITY barlesque.options.timer "Tilläggsfältet minimeras efter">
+<!ENTITY barlesque.options.timer.tooltip "Det här är antalet sekunder mellan användarens senaste interaktion med tilläggsfältet (hovring, klickning etc.) och tidpunkten fältet minimeras">
+<!ENTITY barlesque.options.seconds "sekunder">

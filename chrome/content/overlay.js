@@ -234,12 +234,11 @@ var barlesque = {
 	{
 		this.prefListener.unregister();
 
-		window.removeEventListener("DOMContentLoaded", this.doReset, false);
 		window.removeEventListener("resize", this.doReset, false);
-		window.removeEventListener("AlertActive", this.doReset, false);
-		window.removeEventListener("beforecustomization", this.customizationStarted, false);
 		window.removeEventListener("aftercustomization", this.doReset, false);
-
+		window.removeEventListener("beforecustomization", this.customizationStarted, false);
+		window.removeEventListener("AlertActive", this.doReset, false);
+		window.removeEventListener("DOMContentLoaded", this.doReset, false);
 		gBrowser.tabContainer.removeEventListener("TabSelect", this.doReset, false);
 	},
 

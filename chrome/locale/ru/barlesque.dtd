@@ -1,17 +1,18 @@
-﻿<!ENTITY barlesque.options.title         "Опции расширения Barlesque">
-<!ENTITY barlesque.options.collapser     "Показывать иконку сворачивания тулбара для иконок">
-<!ENTITY barlesque.options.persist       "Запоминать состояние тулбара для иконок расширений">
-<!ENTITY barlesque.options.findmode      "Положение тулбара для иконок при показе тулбара поиска">
-<!ENTITY barlesque.options.ontop         "сверху">
-<!ENTITY barlesque.options.overlay       "поверх">
-<!ENTITY barlesque.options.hide          "спрятан">
-<!ENTITY barlesque.options.mode          "К какой стороне прикреплять тулбар для иконок">
-<!ENTITY barlesque.options.left          "к левой">
-<!ENTITY barlesque.options.right         "к правой">
-<!ENTITY barlesque.options.shortcut.hide "Включить акселератор для сокрытия/показа тулбара для иконок">
-<!ENTITY barlesque.options.shortcut.move "Включить акселератор для изменения стороны показа тулбара для иконок">
-<!ENTITY barlesque.options.modifier      "Модификатор">
-<!ENTITY barlesque.options.key           "Клавиша">
-<!ENTITY barlesque.options.timed         "Включить автоматическое схлопывание тулбара с иконками">
-<!ENTITY barlesque.options.timer         "Кол-во секунд до схлопывания тулбара с иконками">
-<!ENTITY barlesque.options.timer.tooltip "Кол-во секунд между последним взаимодействием пользователя с тулбаром и моментом схлопывания">
+﻿<!ENTITY barlesque.options.title "Barlesque — Настройки">
+<!ENTITY barlesque.options.collapser "Отображать значок сворачивания панели значков дополнений">
+<!ENTITY barlesque.options.persist "Запоминать свёрнутое/развёрнутое состояние панели значков дополнений">
+<!ENTITY barlesque.options.findmode "При показе панели поиска отображать панель значков дополнений">
+<!ENTITY barlesque.options.ontop "над панелью поиска">
+<!ENTITY barlesque.options.overlay "поверх панели поиска">
+<!ENTITY barlesque.options.hide "спрятать">
+<!ENTITY barlesque.options.mode "Прикрепить панель значков дополнений">
+<!ENTITY barlesque.options.left "внизу слева">
+<!ENTITY barlesque.options.right "внизу справа">
+<!ENTITY barlesque.options.shortcut.hide "Быстрая клавиша для сокрытия/показа панели значков дополнений">
+<!ENTITY barlesque.options.shortcut.move "Быстрая клавиша для изменения выравнивания панели значков дополнений">
+<!ENTITY barlesque.options.modifier "Модификатор">
+<!ENTITY barlesque.options.key "Символ">
+<!ENTITY barlesque.options.timed "Автоматически сворачивать панель значков дополнений">
+<!ENTITY barlesque.options.timer "через">
+<!ENTITY barlesque.options.timer.tooltip "Автоматически сворачивает панель значков дополнений спустя указанное время после последнего взаимодействия пользователя с панелью (наведение курсора, щелчок и т.п.)">
+<!ENTITY barlesque.options.seconds "секунд(у,ы)">

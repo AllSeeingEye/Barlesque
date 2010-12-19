@@ -1,0 +1,18 @@
+<!ENTITY barlesque.options.title "Barlesque - опције">
+<!ENTITY barlesque.options.collapser "Прикажи икону за скупљање">
+<!ENTITY barlesque.options.persist "Запамти скупљено/развијено стање траке са додацима">
+<!ENTITY barlesque.options.findmode "Када је трака за претрагу приказана, додатак смести на">
+<!ENTITY barlesque.options.ontop "врх">
+<!ENTITY barlesque.options.overlay "около">
+<!ENTITY barlesque.options.hide "сакриј">
+<!ENTITY barlesque.options.mode "Поравнање траке са додацима">
+<!ENTITY barlesque.options.left "доле лево">
+<!ENTITY barlesque.options.right "доле десно">
+<!ENTITY barlesque.options.shortcut.hide "Омогући пречицу за приказивање/сакривање траке са додацима">
+<!ENTITY barlesque.options.shortcut.move "Омогући пречицу за поновно равнање траке са додацима">
+<!ENTITY barlesque.options.modifier "Модификатор">
+<!ENTITY barlesque.options.key "Кључ">
+<!ENTITY barlesque.options.timed "Омогући одбројавање до аутоматског скупљања">
+<!ENTITY barlesque.options.timer "Трака додатка ће се скупити за">
+<!ENTITY barlesque.options.timer.tooltip "Ово је број секунди између тренутка последње активности корисника са траком за додатке (клик и слично) и тренутка кад ће се додатак скупити.">
+<!ENTITY barlesque.options.seconds "секунди(е)">
