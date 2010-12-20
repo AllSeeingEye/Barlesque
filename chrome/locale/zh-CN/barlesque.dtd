@@ -1,0 +1,18 @@
+<!ENTITY barlesque.options.title "Barlesque 的选项">
+<!ENTITY barlesque.options.collapser "显示收起图标">
+<!ENTITY barlesque.options.persist "记住附加组件栏的收起/展开状态">
+<!ENTITY barlesque.options.findmode "搜索栏显示时附加组件栏的位置">
+<!ENTITY barlesque.options.ontop "顶上">
+<!ENTITY barlesque.options.overlay "覆盖">
+<!ENTITY barlesque.options.hide "隐藏">
+<!ENTITY barlesque.options.mode "附加组件栏的对齐方式">
+<!ENTITY barlesque.options.left "左下">
+<!ENTITY barlesque.options.right "右下">
+<!ENTITY barlesque.options.shortcut.hide "快捷键切换附加组件栏的显示/隐藏">
+<!ENTITY barlesque.options.shortcut.move "快捷键切换附加组件栏的对齐方式">
+<!ENTITY barlesque.options.modifier "组合键">
+<!ENTITY barlesque.options.key "键">
+<!ENTITY barlesque.options.timed "选择自动收起时间">
+<!ENTITY barlesque.options.timer "附加组件栏将收起在">
+<!ENTITY barlesque.options.timer.tooltip "这是用户最后与附加组件栏互动的时间（悬停、点击等），附加组件收起的时机">
+<!ENTITY barlesque.options.seconds "秒">

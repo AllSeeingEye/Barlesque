@@ -446,11 +446,11 @@ var barlesque = {
 		addonbar.style.bottom = "";
 		bottombox.style.bottom = "";
 
+		// Current align mode:
+		var mode = this.branch.getBoolPref("mode");
+
 		if(gFindBar.hidden && !findbarShowing)
 		{
-			// Current aligning mode:
-			var mode = this.branch.getBoolPref("mode");
-
 			// New classes:
 			bbclasses.push("barlesque-bar");
 			bbclasses.push("barlesque-" + (mode ? "left" : "right"));
@@ -485,11 +485,19 @@ var barlesque = {
 		if((!gFindBar.hidden || findbarShowing) && findmode)
 		{
 			abclasses.push("barlesque-bar");
-			abclasses.push("barlesque-right");
 
-			if(vscroll && (findmode == 2))
+			if(findmode == 2)
 			{
-				abclasses.push("barlesque-vscroll");
+				abclasses.push("barlesque-" + (mode ? "left" : "right"));
+
+				if(vscroll)
+				{
+					abclasses.push("barlesque-vscroll");
+				}
+			}
+			else if(findmode == 1)
+			{
+				abclasses.push("barlesque-right");
 			}
 
 			if(collapsed)
@@ -525,6 +533,21 @@ var barlesque = {
 		// Specifically target the refcontrol extension:
 		var refcontrol = document.getElementById("refcontrol-status");
 
+		if(gFindBar.hidden)
+		{
+			if(refcontrol)
+			{
+				refcontrol.style.display = "-moz-box";
+			}
+		}
+		else
+		{
+			if(refcontrol && findmode)
+			{
+				refcontrol.style.display = "none";
+			}
+		}
+
 		// Append the collapser:
 		if(this.branch.getBoolPref("collapser") && !document.getElementById("barlesque-collapser"))
 		{
@@ -534,11 +557,6 @@ var barlesque = {
 			if(gFindBar.hidden)
 			{
 				bottombox.appendChild(collapser);
-
-				if(refcontrol)
-				{
-					refcontrol.hidden = false;
-				}
 			}
 			else
 			{
@@ -551,16 +569,9 @@ var barlesque = {
 					else
 					{
 						addonbar.appendChild(collapser);
-
-						if(refcontrol)
-						{
-							refcontrol.hidden = true;
-						}
 					}
 				}
 			}
-
-			collapser.setAttribute("tooltiptext", (collapsed ? "Show" : "Collapse") + " the add-on bar");
 
 			// Attach event handlers:
 

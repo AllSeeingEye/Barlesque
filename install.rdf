@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
 	<Description about="urn:mozilla:install-manifest">
@@ -20,6 +20,7 @@
 		<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 		<em:translator>ДакСРБИЈА (sr)</em:translator>
 		<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+		<em:translator>yfdyh000 (zh-CN)</em:translator>
 
 		<em:targetApplication>
 			<Description>
@@ -41,6 +42,7 @@
 				<em:translator>Виталий Пирятинский (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+				<em:translator>yfdyh000 (zh-CN)</em:translator>
 			</Description>
 		</em:localized>
 
@@ -56,6 +58,7 @@
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+				<em:translator>yfdyh000 (zh-CN)</em:translator>
 			</Description>
 		</em:localized>
 
@@ -71,6 +74,23 @@
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+				<em:translator>yfdyh000 (zh-CN)</em:translator>
+			</Description>
+		</em:localized>
+
+		<em:localized>
+			<Description>
+				<em:locale>zh-CN</em:locale>
+				<em:name>Barlesque</em:name>
+				<em:description>通过转换 Firefox 4 的灰色附加组件栏成为一套整齐的按钮，回收浏览空间。</em:description>
+				<em:creator>Dmitriy Khudorozhkov</em:creator>
+				<em:contributor>Nils Maier</em:contributor>
+				<em:contributor>Drugoy</em:contributor>
+				<em:contributor>Vitaly Piryatinsky</em:contributor>
+				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
+				<em:translator>ДакСРБИЈА (sr)</em:translator>
+				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+				<em:translator>yfdyh000 (zh-CN)</em:translator>
 			</Description>
 		</em:localized>
 
