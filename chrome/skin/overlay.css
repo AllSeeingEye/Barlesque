@@ -1,62 +1,117 @@
-.barlesque-bar
-{
-	position: fixed;
-	bottom: 0px;
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
-	background: rgba(212, 212, 212, 0.8);
-
-	border-bottom: 0px !important;
-	border-top: 1px solid rgb(192, 192, 192) !important;
-
-	padding: 3px 0px 1px 0px !important;
-}
+/* Common styles: */
 
 .barlesque-bar #addon-bar
 {
-	-moz-appearance: none;
+	border: 1px solid rgba(0,0,0,0.5) !important;
+	border-bottom: 0 !important;
+	background-color: -moz-dialog !important;
+}
+
+/* No find bar shown: */
+
+.barlesque-bar:not([findmode])
+{
+	position: fixed;
+	bottom: 0px;
+	width: auto;
+
+	background: none !important;
 	border: 0px !important;
 }
 
-.barlesque-bar#addon-bar
+.barlesque-bar:not([findmode]) #addon-bar
 {
-	-moz-appearance: none;
+	-moz-appearance: none !important;
 }
 
-.barlesque-bar.barlesque-right
+.barlesque-bar.barlesque-right:not([findmode])
 {
 	right: 1px;
+}
 
-	-moz-border-radius-topleft: 4px;
-	border-left: 1px solid rgb(192, 192, 192) !important;
+.barlesque-bar.barlesque-right:not([findmode]) #addon-bar
+{
+	border-top-left-radius: 4px;
 	border-right: 0px !important;
 }
 
-.barlesque-bar.barlesque-right.barlesque-vscroll
+.barlesque-bar.barlesque-right.barlesque-vscroll:not([findmode])
 {
 	right: 17px;
 }
 
-.barlesque-bar.barlesque-left
+.barlesque-bar.barlesque-left:not([findmode])
 {
 	left: 1px;
+}
 
-	-moz-border-radius-topright: 4px;
-	border-right: 1px solid rgb(192, 192, 192);
+.barlesque-bar.barlesque-left:not([findmode]) #addon-bar
+{
+	border-top-right-radius: 4px;
 	border-left: 0px !important;
 }
 
-.barlesque-bar.barlesque-collapsed
-{
-	border: 0px;
+/* Find bar shown, "overlaid" mode: */
 
-	padding-left: 0px;
-	padding-right: 0px;
+.barlesque-bar[findmode]
+{
+	float: right !important;
+	display: table-row !important;
+	-moz-box-orient: horizontal !important;
+	border-top: 1px solid grey !important;
 }
 
-.barlesque-bar statusbar
+.barlesque-bar[findmode] #addon-bar
 {
+	float: right !important;
+	-moz-appearance: none !important;
+}
+
+.barlesque-bar[findmode] #FindToolbar, .barlesque-bar[findmode=overlaid] #addon-bar
+{
+	border: 0px !important;
+}
+
+.barlesque-bar[findmode] #FindToolbar
+{
+	padding-top: 1px;
+}
+
+/* Find bar shown, "on top" mode: */
+
+.barlesque-bar[findmode=ontop] #addon-bar
+{
+	position: relative;
+}
+
+.barlesque-bar.barlesque-right[findmode=ontop] #addon-bar
+{
+	right: 1px;
+
+	border-top-left-radius: 4px;
+	border-right: 0px !important;
+}
+
+.barlesque-bar.barlesque-right.barlesque-vscroll[findmode=ontop] #addon-bar
+{
+	right: 17px;
+}
+
+.barlesque-bar.barlesque-left[findmode=ontop] #addon-bar
+{
+	border-top-right-radius: 4px;
+	border-left: 0px !important;
+}
+
+.barlesque-bar[findmode] #status-bar
+{
+	background: none !important;
 	min-height: 0px !important;
 }
+
+/* Collapser icon: */
 
 #barlesque-collapser
 {
@@ -66,24 +121,29 @@
 	position: absolute;
 	bottom: 0px;
 
-	background: rgba(212, 212, 212, 0.9) url("chrome://barlesque/skin/arrow-down.png") no-repeat;
+	background: -moz-dialog url("chrome://barlesque/skin/arrow-down.png") no-repeat;
 
-	border: 0px;
-	border-top: 1px solid rgb(168, 168, 168);
+	border: 1px solid rgba(0,0,0,0.5);
+	border-bottom: 0px;
 
 	cursor: pointer;
 }
 
-.barlesque-collapsed #barlesque-collapser, #FindToolbar #barlesque-collapser
+.barlesque-bar[findmode=ontop] #barlesque-collapser
 {
-	background-image: url("chrome://barlesque/skin/arrow-up.png");
+	border-bottom: 1px solid rgba(0,0,0,0.5);
 }
 
-.barlesque-right #barlesque-collapser, #FindToolbar #barlesque-collapser
+.barlesque-collapsed #barlesque-collapser
+{
+	background-image: url("chrome://barlesque/skin/arrow-up.png");
+	border-bottom: 0px;
+}
+
+.barlesque-right #barlesque-collapser
 {
 	right: 100%;
 
-	border-left: 1px solid rgb(168, 168, 168);
 	-moz-border-radius-topleft: 4px;
 }
 
@@ -91,14 +151,58 @@
 {
 	left: 100%;
 
-	border-right: 1px solid rgb(168, 168, 168);
 	-moz-border-radius-topright: 4px;
 }
 
-#FindToolbar #barlesque-collapser
+.barlesque-bar.barlesque-right > #barlesque-collapser
 {
-	border-bottom: 1px solid rgb(168, 168, 168);
-	-moz-border-radius-bottomleft: 4px;
+	border-right: 0px;
+}
+
+.barlesque-bar.barlesque-left > #barlesque-collapser
+{
+	border-left: 0px;
+}
+
+.barlesque-bar[findmode=overlaid] #addon-bar > #barlesque-collapser
+{
+	float: left !important;
+
+	position: relative !important;
+	right: 0px !important;
+	bottom: -12px !important;
+}
+
+.barlesque-bar.barlesque-collapsed[findmode=overlaid] #barlesque-collapser
+{
+	float: right !important;
+
+	position: relative !important;
+	right: 0px !important;
+	bottom: -12px !important;	
+}
+
+.barlesque-bar.barlesque-collapsed[findmode=ontop] #barlesque-collapser
+{
+	position: fixed;
+}
+
+.barlesque-bar.barlesque-collapsed.barlesque-right[findmode=ontop] #barlesque-collapser
+{
+	right: 0px;
+	border-right: 0px;
+}
+
+.barlesque-bar.barlesque-collapsed.barlesque-right.barlesque-vscroll[findmode=ontop] #barlesque-collapser
+{
+	right: 17px;
+	border-right: 1px solid rgba(0,0,0,0.5);
+}
+
+.barlesque-bar.barlesque-collapsed.barlesque-left[findmode=ontop] #barlesque-collapser
+{
+	left: 0px;
+	border-left: 0px;
 }
 
 /* Removing the add-on bar close button and fixed spacer that landed in Firefox build 20101209122918: */
