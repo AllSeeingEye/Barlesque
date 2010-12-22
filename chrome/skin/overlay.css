@@ -170,7 +170,7 @@
 
 	position: relative !important;
 	right: 0px !important;
-	bottom: -12px !important;
+	bottom: -14px !important;
 }
 
 .barlesque-bar.barlesque-collapsed[findmode=overlaid] #barlesque-collapser
@@ -179,7 +179,7 @@
 
 	position: relative !important;
 	right: 0px !important;
-	bottom: -12px !important;	
+	bottom: -14px !important;	
 }
 
 .barlesque-bar.barlesque-collapsed[findmode=ontop] #barlesque-collapser

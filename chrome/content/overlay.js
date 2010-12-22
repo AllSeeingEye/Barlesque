@@ -544,9 +544,16 @@ var barlesque = {
 				{
 					if(collapsed)
 					{
-						document.getElementById("FindToolbar").appendChild(collapser);
+						if(findmode == 2)
+						{
+							document.getElementById("FindToolbar").appendChild(collapser);
 
-						collapser.style.bottom = bottom + "px";
+							collapser.style.bottom = bottom + "px";
+						}
+						else
+						{
+							bottombox.appendChild(collapser);
+						}
 					}
 					else
 					{
