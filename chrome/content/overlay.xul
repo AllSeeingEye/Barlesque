@@ -28,8 +28,8 @@
 	<script type="text/javascript" src="overlay.js" />
 
 	<commandset id="mainCommandSet">
-		<command id="barlesque-command-shorthide" oncommand="if(gFindBar.hidden) { if(barlesque.branch.getBoolPref('shorthide')) { var collapsed = barlesque.branch.getBoolPref('collapsed'); barlesque.branch.setBoolPref('collapsed', !collapsed); barlesque.resetStyles(); if(collapsed) { barlesque.startTimer(); } } }" />
-		<command id="barlesque-command-shortmove" oncommand="if(gFindBar.hidden) { if(barlesque.branch.getBoolPref('shortmove')) { barlesque.branch.setBoolPref('mode', !barlesque.branch.getBoolPref('mode')); if(!barlesque.branch.getBoolPref('collapsed')) { barlesque.startTimer(); } } }" />
+		<command id="barlesque-command-shorthide" oncommand="if(barlesque.branch.getBoolPref('shorthide')) { var collapsed = barlesque.branch.getBoolPref('collapsed'); barlesque.branch.setBoolPref('collapsed', !collapsed); barlesque.resetStyles(); if(collapsed) { barlesque.startTimer(); } }" />
+		<command id="barlesque-command-shortmove" oncommand="if(barlesque.branch.getBoolPref('shortmove')) { barlesque.branch.setBoolPref('mode', !barlesque.branch.getBoolPref('mode')); if(!barlesque.branch.getBoolPref('collapsed')) { barlesque.startTimer(); } }" />
 	</commandset>
 
 </overlay>
