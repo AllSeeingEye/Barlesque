@@ -1,0 +1,18 @@
+<!ENTITY barlesque.options.title "Barlesque Einstellungen">
+<!ENTITY barlesque.options.collapser "Icon zum Ein- und Ausklappen der Add-on-Leiste anzeigen">
+<!ENTITY barlesque.options.persist "Den Status der Add-on-Leiste (ein-/ausgeklappt) speichern">
+<!ENTITY barlesque.options.findmode "Position der Add-on-Leiste wenn die Suchleiste angezeigt wird">
+<!ENTITY barlesque.options.ontop "oben">
+<!ENTITY barlesque.options.overlay "überlagert">
+<!ENTITY barlesque.options.hide "versteckt">
+<!ENTITY barlesque.options.mode "Die Add-on-Leiste ausrichten">
+<!ENTITY barlesque.options.left "unten links">
+<!ENTITY barlesque.options.right "unten rechts">
+<!ENTITY barlesque.options.shortcut.hide "Tastaturkürzel zum Ein-/Ausklappen der Add-on-Leiste aktivieren">
+<!ENTITY barlesque.options.shortcut.move "Tastaturkürzel zum Neuausrichten der Add-on-Leiste aktivieren">
+<!ENTITY barlesque.options.modifier "Modifikator">
+<!ENTITY barlesque.options.key "Taste">
+<!ENTITY barlesque.options.timed "Automatisches zusammenklappen einschalten">
+<!ENTITY barlesque.options.timer "Die Add-on-Leiste wird eingeklappt in">
+<!ENTITY barlesque.options.timer.tooltip "Dies ist die Zeit in Sekunden zwischen der letzten Aktion des Nutzers (Hover, Klick usw.) und dem Moment in dem die Add-on-Leiste kollabiert.">
+<!ENTITY barlesque.options.seconds "Sekunden">

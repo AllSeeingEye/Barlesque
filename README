@@ -82,6 +82,8 @@ chrome/content/options.js
 chrome/content/options.xul
 chrome/content/overlay.js
 chrome/content/overlay.xul
+chrome/locale/de/barlesque.dtd
+chrome/locale/de/barlesque.properties
 chrome/locale/en-US/barlesque.dtd
 chrome/locale/en-US/barlesque.properties
 chrome/locale/ru/barlesque.dtd
@@ -90,6 +92,8 @@ chrome/locale/sr/barlesque.dtd
 chrome/locale/sr/barlesque.properties
 chrome/locale/sv-SE/barlesque.dtd
 chrome/locale/sv-SE/barlesque.properties
+chrome/locale/zh-CN/barlesque.dtd
+chrome/locale/zh-CN/barlesque.properties
 chrome/skin/options.css
 chrome/skin/overlay.css
 chrome/skin/arrow-down.png

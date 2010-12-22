@@ -1,4 +1,5 @@
 content	barlesque	chrome/content/
+locale	barlesque	de	chrome/locale/de/
 locale	barlesque	en-US	chrome/locale/en-US/
 locale	barlesque	ru	chrome/locale/ru/
 locale	barlesque	sr	chrome/locale/sr/

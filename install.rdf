@@ -17,6 +17,7 @@
 		<em:contributor>Nils Maier</em:contributor>
 		<em:contributor>Drugoy</em:contributor>
 		<em:contributor>Vitaly Piryatinsky</em:contributor>
+		<em:translator>HorstS (de)</em:translator>
 		<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 		<em:translator>ДакСРБИЈА (sr)</em:translator>
 		<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -32,6 +33,23 @@
 
 		<em:localized>
 			<Description>
+				<em:locale>de</em:locale>
+				<em:name>Barlesque</em:name>
+				<em:description>Mehr Platz zum Anzeigen durch ändern der breiten, grauen Add-on-Leiste von Firefox 4 in eine Reihe Buttons.</em:description>
+				<em:creator>Dmitriy Khudorozhkov</em:creator>
+				<em:contributor>Nils Maier</em:contributor>
+				<em:contributor>Drugoy</em:contributor>
+				<em:contributor>Vitaly Piryatinsky</em:contributor>
+				<em:translator>HorstS (de)</em:translator>
+				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
+				<em:translator>ДакСРБИЈА (sr)</em:translator>
+				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+				<em:translator>yfdyh000 (zh-CN)</em:translator>
+			</Description>
+		</em:localized>
+
+		<em:localized>
+			<Description>
 				<em:locale>ru</em:locale>
 				<em:name>Barlesque</em:name>
 				<em:description>Увеличивает область отображения сайтов, преобразуя широкую серую панель дополнений Firefox 4 в аккуратный набор кнопок.</em:description>
@@ -39,6 +57,7 @@
 				<em:contributor>Nils Maier</em:contributor>
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Виталий Пирятинский</em:contributor>
+				<em:translator>HorstS (de)</em:translator>
 				<em:translator>Виталий Пирятинский (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -55,6 +74,7 @@
 				<em:contributor>Nils Maier</em:contributor>
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Vitaly Piryatinsky</em:contributor>
+				<em:translator>HorstS (de)</em:translator>
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -71,6 +91,7 @@
 				<em:contributor>Nils Maier</em:contributor>
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Vitaly Piryatinsky</em:contributor>
+				<em:translator>HorstS (de)</em:translator>
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -87,6 +108,7 @@
 				<em:contributor>Nils Maier</em:contributor>
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Vitaly Piryatinsky</em:contributor>
+				<em:translator>HorstS (de)</em:translator>
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
