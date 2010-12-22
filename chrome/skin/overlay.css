@@ -140,14 +140,14 @@
 	border-bottom: 0px;
 }
 
-.barlesque-right #barlesque-collapser
+.barlesque-right #barlesque-collapser, .barlesque-bar[findmode=overlaid] #barlesque-collapser
 {
 	right: 100%;
 
 	-moz-border-radius-topleft: 4px;
 }
 
-.barlesque-left #barlesque-collapser
+.barlesque-left:not([findmode=overlaid]) #barlesque-collapser
 {
 	left: 100%;
 
@@ -159,7 +159,7 @@
 	border-right: 0px;
 }
 
-.barlesque-bar.barlesque-left > #barlesque-collapser
+.barlesque-bar.barlesque-left:not([findmode=overlaid]) > #barlesque-collapser
 {
 	border-left: 0px;
 }
