@@ -72,13 +72,6 @@ above and this discussion on Mozillazine:
 
 http://forums.mozillazine.org/viewtopic.php?f=23&t=1951751
 
-KNOWN ISSUES
-============
-
-Some old extensions can cause weird issues to the add-on bar after user calls
-the find box (with Ctrl-F or "Edit" menu -> "Find"). In particular, RefControl
-extension is hidden when find-bar is shown.
-
 PACKAGING
 =========
 
