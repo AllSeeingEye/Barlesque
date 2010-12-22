@@ -86,6 +86,8 @@ chrome/locale/de/barlesque.dtd
 chrome/locale/de/barlesque.properties
 chrome/locale/en-US/barlesque.dtd
 chrome/locale/en-US/barlesque.properties
+chrome/locale/fr/barlesque.dtd
+chrome/locale/fr/barlesque.properties
 chrome/locale/ru/barlesque.dtd
 chrome/locale/ru/barlesque.properties
 chrome/locale/sr/barlesque.dtd
@@ -145,10 +147,12 @@ Contributors:
 
 Translators:
 
-	HorstS (de)
+	HorstS (de),
+	Goofy (de),
 	Vitaly Piryatinsky (ru),
 	ДакСРБИЈА (sr),
-	Mikael Hiort af Ornas (sv-SE).
+	Mikael Hiort af Ornas (sv-SE),
+	yfdyh000 (zh-CN).
 
 LEGAL STUFF
 ===========

@@ -1,0 +1,18 @@
+<!ENTITY barlesque.options.title "Options de Barlesque">
+<!ENTITY barlesque.options.collapser "Afficher l'icône de repli">
+<!ENTITY barlesque.options.persist "Se souvenir de l'état replié ou déplié de la barre des modules">
+<!ENTITY barlesque.options.findmode "Position de la barre des modules quand la barre de recherche est affichée">
+<!ENTITY barlesque.options.ontop "en haut">
+<!ENTITY barlesque.options.overlay "recouverte">
+<!ENTITY barlesque.options.hide "cachée">
+<!ENTITY barlesque.options.mode "Position de la barre des modules">
+<!ENTITY barlesque.options.left "en bas à gauche">
+<!ENTITY barlesque.options.right "en bas à droite">
+<!ENTITY barlesque.options.shortcut.hide "Utiliser le raccourci-clavier pour masquer/afficher la barre des modules">
+<!ENTITY barlesque.options.shortcut.move "Utiliser le raccourci-clavier pour re-positionner la barre des modules">
+<!ENTITY barlesque.options.modifier "Modificateur">
+<!ENTITY barlesque.options.key "Touche">
+<!ENTITY barlesque.options.timed "Choisir l'auto-repli suivant un délai">
+<!ENTITY barlesque.options.timer "La barre se repliera après">
+<!ENTITY barlesque.options.timer.tooltip "C'est le nombre de secondes entre la dernière action de l'utilisateur avec la barre de modules (survol, clic…) et le moment où elle se replie.">
+<!ENTITY barlesque.options.seconds "secondes">

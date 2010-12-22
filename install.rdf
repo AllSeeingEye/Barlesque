@@ -18,6 +18,7 @@
 		<em:contributor>Drugoy</em:contributor>
 		<em:contributor>Vitaly Piryatinsky</em:contributor>
 		<em:translator>HorstS (de)</em:translator>
+		<em:translator>Goofy (fr)</em:translator>
 		<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 		<em:translator>ДакСРБИЈА (sr)</em:translator>
 		<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -41,6 +42,25 @@
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Vitaly Piryatinsky</em:contributor>
 				<em:translator>HorstS (de)</em:translator>
+				<em:translator>Goofy (fr)</em:translator>
+				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
+				<em:translator>ДакСРБИЈА (sr)</em:translator>
+				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+				<em:translator>yfdyh000 (zh-CN)</em:translator>
+			</Description>
+		</em:localized>
+
+		<em:localized>
+			<Description>
+				<em:locale>fr</em:locale>
+				<em:name>Barlesque</em:name>
+				<em:description>Récupérez l'espace de navigation en transformant la large barre grise des modules en une série de boutons utiles.</em:description>
+				<em:creator>Dmitriy Khudorozhkov</em:creator>
+				<em:contributor>Nils Maier</em:contributor>
+				<em:contributor>Drugoy</em:contributor>
+				<em:contributor>Vitaly Piryatinsky</em:contributor>
+				<em:translator>HorstS (de)</em:translator>
+				<em:translator>Goofy (fr)</em:translator>
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -58,6 +78,7 @@
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Виталий Пирятинский</em:contributor>
 				<em:translator>HorstS (de)</em:translator>
+				<em:translator>Goofy (fr)</em:translator>
 				<em:translator>Виталий Пирятинский (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -75,6 +96,7 @@
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Vitaly Piryatinsky</em:contributor>
 				<em:translator>HorstS (de)</em:translator>
+				<em:translator>Goofy (fr)</em:translator>
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -92,6 +114,7 @@
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Vitaly Piryatinsky</em:contributor>
 				<em:translator>HorstS (de)</em:translator>
+				<em:translator>Goofy (fr)</em:translator>
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -109,6 +132,7 @@
 				<em:contributor>Drugoy</em:contributor>
 				<em:contributor>Vitaly Piryatinsky</em:contributor>
 				<em:translator>HorstS (de)</em:translator>
+				<em:translator>Goofy (fr)</em:translator>
 				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
