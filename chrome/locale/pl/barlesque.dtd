@@ -1,0 +1,18 @@
+<!ENTITY barlesque.options.title "Barlesque - ustawienia">
+<!ENTITY barlesque.options.collapser "Pokaż ikonę do zwijania/rozwijania">
+<!ENTITY barlesque.options.persist "Zapamiętaj zwinięty/rozwinięty stan paska dodatków">
+<!ENTITY barlesque.options.findmode "Pozycja paska dodatków gdy pasek wyszukiwania jest wyświetlany">
+<!ENTITY barlesque.options.ontop "na wierzchu">
+<!ENTITY barlesque.options.overlay "nałożony">
+<!ENTITY barlesque.options.hide "ukryty">
+<!ENTITY barlesque.options.mode "Wyrównaj pasek dodatków do">
+<!ENTITY barlesque.options.left "lewy dolny róg">
+<!ENTITY barlesque.options.right "prawy dolny róg">
+<!ENTITY barlesque.options.shortcut.hide "Włącz skrót klawiszowy do ukrycia/pokazania paska dodatków">
+<!ENTITY barlesque.options.shortcut.move "Włącz skrót klawiszowy do zmiany wyrównania paska dodatków">
+<!ENTITY barlesque.options.modifier "Modyfikator">
+<!ENTITY barlesque.options.key "Klawisz">
+<!ENTITY barlesque.options.timed "Włącz auto-zwijanie po upływie czasu">
+<!ENTITY barlesque.options.timer "Pasek dodatków zostanie zwinięty po">
+<!ENTITY barlesque.options.timer.tooltip "Jest to liczba sekund pomiędzy ostatnią interakcją użytkownika z paskiem dodatków (najechanie, kliknięcie, itp.), a momentem gdy tenże pasek zostanie zwinięty">
+<!ENTITY barlesque.options.seconds "sekundach">
