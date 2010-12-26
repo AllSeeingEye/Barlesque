@@ -1,0 +1,18 @@
+<!ENTITY barlesque.options.title "Barlesque 選項">
+<!ENTITY barlesque.options.collapser "顯示摺疊用圖示">
+<!ENTITY barlesque.options.persist "記住附加元件列的摺疊/展開狀態">
+<!ENTITY barlesque.options.findmode "顯示文字尋找列時附加元件列的位置">
+<!ENTITY barlesque.options.ontop "上移">
+<!ENTITY barlesque.options.overlay "覆蓋">
+<!ENTITY barlesque.options.hide "隱藏">
+<!ENTITY barlesque.options.mode "附加元件列的位置靠向">
+<!ENTITY barlesque.options.left "左下方">
+<!ENTITY barlesque.options.right "右下方">
+<!ENTITY barlesque.options.shortcut.hide "啟動顯示/隱藏附加元件列的快速鍵">
+<!ENTITY barlesque.options.shortcut.move "啟動調換附加元件列位置的快速鍵">
+<!ENTITY barlesque.options.modifier "組合鍵">
+<!ENTITY barlesque.options.key "快速鍵">
+<!ENTITY barlesque.options.timed "啟動自動摺疊計時器">
+<!ENTITY barlesque.options.timer "附加元件列自動摺疊時間">
+<!ENTITY barlesque.options.timer.tooltip "設定附加元件列最後一次使用（如遊標停留或點選）到摺疊的間隔秒數">
+<!ENTITY barlesque.options.seconds "秒">

@@ -24,6 +24,7 @@
 		<em:translator>ДакСРБИЈА (sr)</em:translator>
 		<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 		<em:translator>yfdyh000 (zh-CN)</em:translator>
+		<em:translator>velociraptor (zh-TW)</em:translator>
 
 		<em:targetApplication>
 			<Description>
@@ -49,6 +50,7 @@
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 				<em:translator>yfdyh000 (zh-CN)</em:translator>
+				<em:translator>velociraptor (zh-TW)</em:translator>
 			</Description>
 		</em:localized>
 
@@ -68,6 +70,7 @@
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 				<em:translator>yfdyh000 (zh-CN)</em:translator>
+				<em:translator>velociraptor (zh-TW)</em:translator>
 			</Description>
 		</em:localized>
 
@@ -87,6 +90,7 @@
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 				<em:translator>yfdyh000 (zh-CN)</em:translator>
+				<em:translator>velociraptor (zh-TW)</em:translator>
 			</Description>
 		</em:localized>
 
@@ -106,6 +110,7 @@
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 				<em:translator>yfdyh000 (zh-CN)</em:translator>
+				<em:translator>velociraptor (zh-TW)</em:translator>
 			</Description>
 		</em:localized>
 
@@ -125,6 +130,7 @@
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 				<em:translator>yfdyh000 (zh-CN)</em:translator>
+				<em:translator>velociraptor (zh-TW)</em:translator>
 			</Description>
 		</em:localized>
 
@@ -144,6 +150,7 @@
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 				<em:translator>yfdyh000 (zh-CN)</em:translator>
+				<em:translator>velociraptor (zh-TW)</em:translator>
 			</Description>
 		</em:localized>
 
@@ -163,6 +170,27 @@
 				<em:translator>ДакСРБИЈА (sr)</em:translator>
 				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 				<em:translator>yfdyh000 (zh-CN)</em:translator>
+				<em:translator>velociraptor (zh-TW)</em:translator>
+			</Description>
+		</em:localized>
+
+		<em:localized>
+			<Description>
+				<em:locale>zh-TW</em:locale>
+				<em:name>Barlesque</em:name>
+				<em:description>將 Firefox 4 的寬灰附加元件列變成一小排按鈕，取回瀏覽區空間。</em:description>
+				<em:creator>Dmitriy Khudorozhkov</em:creator>
+				<em:contributor>Nils Maier</em:contributor>
+				<em:contributor>Drugoy</em:contributor>
+				<em:contributor>Vitaly Piryatinsky</em:contributor>
+				<em:translator>HorstS (de)</em:translator>
+				<em:translator>Goofy (fr)</em:translator>
+				<em:translator>Krzysztof Klimczak (pl)</em:translator>
+				<em:translator>Vitaly Piryatinsky (ru)</em:translator>
+				<em:translator>ДакСРБИЈА (sr)</em:translator>
+				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+				<em:translator>yfdyh000 (zh-CN)</em:translator>
+				<em:translator>velociraptor (zh-TW)</em:translator>
 			</Description>
 		</em:localized>
 

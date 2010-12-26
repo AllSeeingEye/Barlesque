@@ -7,5 +7,6 @@ locale	barlesque	ru	chrome/locale/ru/
 locale	barlesque	sr	chrome/locale/sr/
 locale	barlesque	sv-SE	chrome/locale/sv-SE/
 locale	barlesque	zh-CN	chrome/locale/zh-CN/
+locale	barlesque	zh-TW	chrome/locale/zh-TW/
 skin	barlesque	classic/1.0	chrome/skin/
 overlay	chrome://browser/content/browser.xul	chrome://barlesque/content/overlay.xul
